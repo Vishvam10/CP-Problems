@@ -10,4 +10,3 @@ for directory in os.listdir(os.path.abspath("../")) :
                 " ", "_").replace("-", "_").replace(",", "").lower().split(".")[0])
 
             os.rename(os.path.join(abs_path, file), os.path.join(abs_path, new_name))
-            print(file)
