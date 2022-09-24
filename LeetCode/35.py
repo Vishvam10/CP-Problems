@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, binary search
+"""
 class Solution:
     def searchInsert(self, arr: List[int], target: int) -> int:
         low, high = 0, len(arr)

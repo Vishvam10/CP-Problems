@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, hash table, bit manipulation, counting
+"""
 class Solution:
     def largestCombination(self, arr: List[int]) -> int:
         n = len(bin(max(arr))[2:])

@@ -1,5 +1,8 @@
-class OrderedStream:
-    
+"""
+DIFFICULTY : medium
+TAGS : array, hash table, design, data stream
+"""
+class OrderedStream: 
     def __init__(self, n):
         self.arr = [None]*n
         self.ptr = 0

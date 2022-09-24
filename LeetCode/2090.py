@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, sliding window
+"""
 class Solution:
     # Use prefix sums
     def getAverages(self, arr: List[int], k: int) -> List[int]:

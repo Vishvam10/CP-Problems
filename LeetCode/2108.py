@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, two pointers, string
+"""
 class Solution:
     def isPalindrome(self, s) :
         i, j = 0, len(s) - 1

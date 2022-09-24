@@ -1,3 +1,8 @@
+"""
+DIFFICULTY : medium
+TAGS : array, two pointers, simulation
+"""
+
 class Solution:
     def rearrangeArray(self, arr: List[int]) -> List[int]:
         pos = []

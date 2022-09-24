@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, hash table, matrix
+"""
 class Solution:
     # Iterate through rows :    for x in grid : ...
     # Iterate through columns : for x in zip(*grid) : ...

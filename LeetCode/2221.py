@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, math, simulation, combinatorics
+"""
 class Solution:
     def triangularSum(self, arr: List[int]) -> int:
         # Using pascal triangle and binomial coefficients

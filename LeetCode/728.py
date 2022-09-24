@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math
+"""
 class Solution:
     def check(self, num) :
         x = num

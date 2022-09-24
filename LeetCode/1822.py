@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, math
+"""
 class Solution:
     # Converting +ves to 1 and -ves to -1 to 
     # avoid overflows

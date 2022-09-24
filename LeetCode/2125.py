@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, string, math, matrix
+"""
 class Solution:
     def numberOfBeams(self, arr: List[str]) -> int:
         ans = 0

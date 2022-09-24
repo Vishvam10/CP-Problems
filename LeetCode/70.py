@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math, dp, memoization
+"""
 class Solution:
     def climbStairs(self, n: int) -> int:
         if(n <= 0) :

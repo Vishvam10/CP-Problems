@@ -1,3 +1,9 @@
+"""
+DIFFICULTY : medium
+TAGS : array, bit maniulation, prefix sum
+"""
+
+from functools import reduce
 class Solution:
     # Inverse of XOR is XOR. So, instead of calculating
     # cumulative XOR every time we remove an element, we 

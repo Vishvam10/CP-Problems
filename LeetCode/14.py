@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : string
+"""
 class Solution:
     # Sort the array and compare the first 
     # and last elements. Notice that 

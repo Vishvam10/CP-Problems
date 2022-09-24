@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, string
+"""
 class Solution:
     def mostWordsFound(self, sentences: List[str]) -> int:
         ans = -1

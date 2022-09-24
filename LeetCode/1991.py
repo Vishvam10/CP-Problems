@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, prefix sum
+"""
 class Solution:
     # Use prefix sum or better 2 pointers
     def findMiddleIndex(self, arr: List[int]) -> int:

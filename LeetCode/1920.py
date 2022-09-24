@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, simulation
+"""
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
         ans = [0 for x in nums]

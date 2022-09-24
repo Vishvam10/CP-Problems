@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, math, stack
+"""
 class Solution:
     # IMPORTANT NOTE :  "//" is not equal to 
     # "int(float(a)/b)" i.e. truncate to zero

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, prefix sum
+"""
 class Solution:
     # total sum = left_sum(i) + right_sum(i) - arr[i]
     #           = 2(left_sum(i)) - arr[i] ( as left_sum = right_sum)

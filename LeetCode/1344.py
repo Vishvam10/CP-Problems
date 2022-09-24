@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : math
+"""
 class Solution:
     # Degree covered by hour hand (hour area + minutes area)
     # Degree covered by minute hand (Each minute = 6 degree)

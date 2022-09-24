@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, matrix, simulation
+"""
 class Solution:
     def spiralOrder(self, arr: List[List[int]]) -> List[int]:
         ans = []

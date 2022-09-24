@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, sorting
+"""
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
         max_diff = 0

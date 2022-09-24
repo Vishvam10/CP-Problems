@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, greedy, matrix
+"""
 class Solution:
     def maxIncreaseKeepingSkyline(self, grid: List[List[int]]) -> int:
         n = len(grid)

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math, array
+"""
 class Solution:
     # BASIC IDEA :
     

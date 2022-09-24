@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, stack, simulation
+"""
 class Solution:
     # NOTE : i is from 1, target[-1] + 1 and
     # not from 1 to len(target)

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, binary search
+"""
 class Solution:
     def search(self, arr: List[int], target: int) -> int:
         low, high = 0, len(arr) - 1

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : stack, design
+"""
 class MinStack:
     # STRUCTURE OF STACK ELEMENT : (val, minSoFar)
     def __init__(self):

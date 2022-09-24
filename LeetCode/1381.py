@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, stack, design
+"""
 class CustomStack:
 
     # The idea is to maintain a separate stack 

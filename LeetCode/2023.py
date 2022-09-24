@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, string
+"""
 class Solution:
     def numOfPairs(self, nums: List[str], target: str) -> int:
         # arr = [len(x) for x in nums]

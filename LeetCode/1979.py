@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, math, number thoery
+"""
 class Solution:
     def gcd(self, a, b) :
         if(a == 0) :

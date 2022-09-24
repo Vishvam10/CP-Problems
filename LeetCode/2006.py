@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, hash table, sorting
+"""
 class Solution:
     def countKDifference(self, arr: List[int], k: int) -> int:
         count = 0

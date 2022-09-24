@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math, bit manipulation, recursion
+"""
 class Solution:
     # IDEA : Bit pattern of powers of 2 and powers of 2 - 1
     

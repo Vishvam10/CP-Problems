@@ -1,5 +1,8 @@
+"""
+DIFFICULTY : medium
+TAGS : array, hash table, string
+"""
 class Solution:
-    
     def getNumericPattern(self, w) :
         arr = []
         mp = {}

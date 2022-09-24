@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, dp, greedy
+"""
 class Solution:
     # A bit similar to Kadane's Algorithm
     def canJump(self, arr: List[int]) -> bool:

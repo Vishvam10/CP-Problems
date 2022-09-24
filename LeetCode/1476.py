@@ -1,5 +1,8 @@
+"""
+DIFFICULTY : medium
+TAGS : array, design, matrix
+"""
 class SubrectangleQueries:
-
     def __init__(self, rectangle: List[List[int]]):
         self.grid = rectangle
         self.r = len(self.grid)

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math, bit manipulation
+"""
 class Solution:
     def xorOperation(self, n: int, start: int) -> int:
         ans = start

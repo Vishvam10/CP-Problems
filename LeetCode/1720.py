@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, bit manipulation
+"""
 class Solution:
     def decode(self, encoded: List[int], first: int) -> List[int]:
         # XOR is self-inverting (also, commutative and associative)

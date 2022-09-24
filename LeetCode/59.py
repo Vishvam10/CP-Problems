@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, matrix, simulation
+"""
 class Solution:
     def generateMatrix(self, n: int) -> List[List[int]]:
         if not n:

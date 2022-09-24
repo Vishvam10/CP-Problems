@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, string, hash table, sorting
+"""
 class Solution:
     def groupAnagrams(self, arr: List[str]) -> List[List[str]]:
         mp = {}

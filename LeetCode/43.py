@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : math, string, simulation
+"""
 class Solution:
     def convertToInt(self, num: str) -> int:
         power = 1

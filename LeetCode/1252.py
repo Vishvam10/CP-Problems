@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, math, simulation
+"""
 class Solution:
     # We only want the count, so all we need to do is
     # record whenever an odd row or column OCCURS. We 

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, two pointers, greedy
+"""
 class Solution:
     # Use 2 pointers and the fact that the 
     # smaller of the 2 heights can be safely

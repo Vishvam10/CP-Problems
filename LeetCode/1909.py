@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array
+"""
 class Solution:
     def canBeIncreasing(self, nums: List[int]) -> bool:
         count = 0;

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : divide and conquer, bit manipulation
+"""
 class Solution:
     # Same as reverse integer but instead of base 10 we 
     # have base 2. So, instead of x 10**i, etc. we can 

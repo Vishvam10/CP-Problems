@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, queue, sorting, simulation
+"""
 class Solution:
     def deckRevealedIncreasing(self, arr: List[int]) -> List[int]:
         ans = []

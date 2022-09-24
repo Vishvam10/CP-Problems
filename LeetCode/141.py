@@ -1,3 +1,8 @@
+"""
+DIFFICULTY : easy
+TAGS : hash table, linked list, two pointers
+"""
+
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x):

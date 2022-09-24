@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, sorting
+"""
 class Solution:
     def minMovesToSeat(self, seats: List[int], students: List[int]) -> int:
         seats.sort()

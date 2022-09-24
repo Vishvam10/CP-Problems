@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, matrix, simulation
+"""
 class Solution:
     def transpose(self, matrix: List[List[int]]) -> List[List[int]]:
         n, m = len(matrix), len(matrix[0])

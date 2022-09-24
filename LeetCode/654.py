@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, divide and conquer, stack, tree, monotonic stack, binary tree
+"""
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):

@@ -1,3 +1,10 @@
+"""
+DIFFICULTY : easy
+TAGS : array, math, bit manipulation
+"""
+
+from functools import reduce
+from operator import ior
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
         

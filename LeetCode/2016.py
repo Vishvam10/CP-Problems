@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array
+"""
 class Solution:
     # Initialize mn = 0 and start from i = 1
     # This guarantees the j > i condition

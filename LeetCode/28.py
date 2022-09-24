@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : two pointers, string, string matching
+"""
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
         n = len(needle)

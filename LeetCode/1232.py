@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, math, geometry
+"""
 class Solution:
     def checkStraightLine(self, arr: List[List[int]]) -> bool:
         (x1, y1), (x2, y2) = arr[:2]

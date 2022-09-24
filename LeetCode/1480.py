@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, prefix sum
+"""
 class Solution:
     def runningSum(self, arr: List[int]) -> List[int]:
         pre = [None]*len(arr)

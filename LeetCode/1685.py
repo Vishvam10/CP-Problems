@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, math, prefix sum
+"""
 class Solution:
     # nums[i] = a + b
     # a = nums[i]*i - (nums[0] + nums[1] + ... + nums[i-1])

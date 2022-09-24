@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, binary indexed tree, simulation
+"""
 class Solution:    
     def processQueries(self, queries: List[int], m: int) -> List[int]:
         p = [i+1 for i in range(m)]

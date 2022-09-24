@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : math, string
+"""
 class Solution:
     # a = 97 in ascii. We want 1-based indexing so 
     # subtract 96 instead of 97

@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, sorting, binary search
+"""
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
         nums.sort()

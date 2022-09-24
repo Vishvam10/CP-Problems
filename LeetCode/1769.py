@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, string
+"""
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
         ones = []

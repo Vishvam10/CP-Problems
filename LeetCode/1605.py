@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, greedy, matrix  
+"""
 class Solution:
     def restoreMatrix(self, row, col):
         m, n = len(row), len(col)
