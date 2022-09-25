@@ -1,28 +1,28 @@
 # Basics 
-*1 week*
+*3 days*
 
-**Basic Maths** :
-- [ ] Add, Subtract, Multiply and Divide 2 numbers (decimal and binary) :
+## Basic Maths :
+1. [ ] Add, Subtract, Multiply and Divide 2 numbers (decimal and binary) :
     - [ ] Represented as strings
     - [ ] Represented as linked lists
     - [ ] Represented as arrays
-- [ ] Calculate `sqrt(x)`, `pow(x)` without using inbuilt `sqrt` and `pow` functions
-- [ ] Digit rotation problems :
+2. [ ] Calculate `sqrt(x)`, `pow(x)` without using inbuilt `sqrt` and `pow` functions
+3. [ ] Digit rotation problems :
     - [ ] Rotate digits of a given number by K
-- [ ] Reverse a number (decimal and binary)
-- [ ] Integer to Roman number and vice versa
-- [ ] Pascal's Triangle
-- [ ] Base conversions :
+4. [ ] Reverse a number (decimal and binary)
+5. [ ] Integer to Roman number and vice versa
+6. [ ] Pascal's Triangle
+7. [ ] Base conversions :
     - [ ] Decimal to binary, octal and hex
     - [ ] Binary to decimal, octal and hex
     - [ ] Octal to binary, decimal and hex
     - [ ] Hex to binary, decimal and octal
     - [ ] Decimal to other bases (including negative bases)
-- GCD of two numbers :
+8. GCD of two numbers :
     - [ ] Basic Euclidean Algorithm
     - [ ] Extended Euclidean Algorithm
 
-**Basic Bit Manipulation** :
+## Basic Bit Manipulation :
 - XOR Facts :
     - Is associative : ((a XOR b) XOR c) = (a XOR (b XOR c))
     - Is commutative : ((a XOR b) XOR c) = ((b XOR a) XOR c)
@@ -34,8 +34,8 @@
 - XOR Tricks :
     - `x & (x-1)` : Set the rightmost bit to 1. If this = 0, then the number is a power of 2
 
-- Left and Right Shifts
-- Finding MSB
-- Alternate bit pattern
+1. Left and Right Shifts
+2. Finding MSB
+3. Alternate bit pattern
 
 
