@@ -8,6 +8,8 @@
     - [ ] Find maximum average subarray of k length
     - [ ] Count minimum steps to get the given desired array
 
+## Subsequence :
+1. 
 
 ## k-Order Statistics :
 1. [ ] K largest(or smallest) elements in an array 
