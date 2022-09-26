@@ -10,8 +10,7 @@ def rename_files(folder, extension) :
                 formatted_name = standard_format(file).split(".")[0]
                 new_name = "{}_{}.{}".format(folder, formatted_name, extension)
 
-                # os.rename(os.path.join(abs_path, file), os.path.join(abs_path, new_name))
-                print(new_name)
+                os.rename(os.path.join(abs_path, file), os.path.join(abs_path, new_name))
 
 def standard_format(s) :
     return s.replace(" ", "_")\
