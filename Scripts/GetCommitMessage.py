@@ -1,10 +1,6 @@
-from email import message
 import os
 import argparse
 from git import Repo
-
-# for x in repo.git.status().split("Untracked files")[1].split("\n") :
-#     print(x)
 
 class GitHelper :
     def __init__(self, repository_path):
@@ -81,8 +77,6 @@ class GitHelper :
     def get_commit_message(self) :
         return self.commit_message
 
-                
-
 class CLI :
     def __init__(self) :
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Parameters for commit message", allow_abbrev=True, add_help=True)
@@ -93,7 +87,6 @@ class CLI :
     
     def get_args(self) :
         return self.parser.parse_args()
-    
     
 
 if __name__ == "__main__" :
