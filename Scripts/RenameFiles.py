@@ -37,18 +37,26 @@ def rename_files(folder, extension, force_rename) :
         inp = input("Accept changes ? (y/n) ")
         if(inp.strip() == "y") :
             for i in range(len(affected_files)) :
-                os.rename(affected_files[i].get("old_file_path"), affected_files[i].get("new_file_path"))
+                try :
+                    os.rename(affected_files[i].get("old_file_path"), affected_files[i].get("new_file_path"))
+                except :
+                    msg = "Skipping {} as it already exists.".format(affected_files[i].get("new_file_path"))
+                    print(msg)
+                    pass
             print()
         else :
             print()
             return
     else :
         for i in range(len(affected_files)) :
-            os.rename(affected_files[i].get("old_file_path"), affected_files[i].get("new_file_path"))
+            try :
+                os.rename(affected_files[i].get("old_file_path"), affected_files[i].get("new_file_path"))
+            except :
+                msg = "Skipping {} as it already exists.".format(affected_files[i].get("new_file_path"))
+                print(msg)
+                pass
         print()
         return
-
-
 
 
 def standard_format(s) :
