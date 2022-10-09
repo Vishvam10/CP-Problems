@@ -1,16 +1,21 @@
-"""
-DIFFICULTY : medium
-TAGS : array, dp, greedy
-"""
 class Solution:
-    # A bit similar to Kadane's Algorithm
+    # DP : The FARTHEST INDEX we can reach given
+    #      allowed steps from 0 to i
+    # Greedy : A bit similar to Kadane's Algorithm
     def canJump(self, arr: List[int]) -> bool:
         n = len(arr)
-        max_pos = 0
-        i = 0
-        while(i <= max_pos) :       
-            max_pos = max(max_pos, i + arr[i])
-            if(max_pos >= n - 1) :
+        ans = [0] * n
+        
+        ans[0] = arr[0]
+        
+        for i in range(1, n - 1):
+            
+            if ans[i - 1] < i:
+                return False
+            
+            ans[i] = max(i + arr[i], ans[i - 1])
+            
+            if ans[i] >= n - 1:
                 return True
-            i += 1
-        return False
+        
+        return ans[n - 2] >= n - 1
