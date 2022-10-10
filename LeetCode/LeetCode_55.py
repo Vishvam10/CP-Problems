@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, dp, greedy
+"""
 class Solution:
     # DP : The FARTHEST INDEX we can reach given
     #      allowed steps from 0 to i

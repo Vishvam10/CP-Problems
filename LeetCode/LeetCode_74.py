@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, binary search, matrix
+"""
 class Solution:
     # ALTERNATE SOLUTION : Convert to 1D array directly
     # then binary search on it. There maybe overflow 

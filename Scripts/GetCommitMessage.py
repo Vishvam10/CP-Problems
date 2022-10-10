@@ -60,13 +60,27 @@ class GitHelper :
         if(options.get("m")) :
             self.set_modified_files()
         
-        self.commit_message = "Added "
+        self.untracked_message = " Added "
+        self.staged_message = " Staged "
+        self.modified_message = " Modified "
         for k,v in self.status.items() :
             for folder, files in v.items() :
                 if(len(files) > 0) :
-                    message = folder + " : " + ", ".join(files)
-                    self.commit_message += message + " | "
-        self.commit_message = self.commit_message[:-2].strip()
+                    message = " " + folder + " : " + ", ".join(files)
+                    if(k == "Untracked") :
+                        self.untracked_message += message 
+                    elif(k == "Staged") :
+                        self.staged_message += message
+                    elif(k == "Modified") :
+                        self.modified_message += message
+
+        if(self.untracked_message != " Added ") :
+            self.commit_message += self.untracked_message + " | "
+        if(self.staged_message != " Staged ") :
+            self.commit_message += self.staged_message + " | "
+        if(self.modified_message != " Modified ") :
+            self.commit_message += self.modified_message + " | "
+        # print(self.modified_message)
 
     def get_all_folders(self) :
         return self.folders

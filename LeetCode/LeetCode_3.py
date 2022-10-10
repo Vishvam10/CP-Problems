@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : string, hash table, sliding window
+"""
 class Solution:
     def lengthOfLongestSubstring(self, arr: str) -> int:
         n = len(arr)

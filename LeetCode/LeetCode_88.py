@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, two pointers, sorting
+"""
 class Solution:
     # First, do the merge procedure as it is. Only
     # difference here is that, instead of appending

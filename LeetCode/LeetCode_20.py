@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : string, stack
+"""
 class Solution:
     def isValid(self, s: str) -> bool:
         st = []

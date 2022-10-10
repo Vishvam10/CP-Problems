@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : easy
+TAGS : array, hash table
+"""
 class Solution:
     def twoSum(self, arr: List[int], target: int) -> List[int]:
         mp = {}
