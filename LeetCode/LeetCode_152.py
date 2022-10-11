@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, dp
+"""
 class Solution:
     def maxProduct(self, arr: List[int]) -> int:
         prod = 1
