@@ -1,3 +1,7 @@
+"""
+DIFFICULTY : medium
+TAGS : array, dp, greedy
+"""
 class Solution:
     # The action we can do on ith day is either buy 
     # (if last action is sell), or sell (if last action 
