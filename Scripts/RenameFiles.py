@@ -8,6 +8,7 @@ class CLI :
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Parameters for commit message", allow_abbrev=True, add_help=True)
         
         self.parser.add_argument("-f", help="Force rename", action="store_true")
+        self.parser.add_argument("-d", help="Default Settings", action="store_false")
     
     def get_args(self) :
         return self.parser.parse_args()
@@ -62,13 +63,24 @@ def standard_format(s) :
             .replace(",", "")\
             .lower()
 
+def RenameDirectory(folder_name="LeetCode", extension=".py", force_rename=False) :
+    rename_files(folder_name, extension, force_rename)
 
-def RenameLeetCodeDirectory(force_rename=False) :
-    folder = "LeetCode"
-    extension = "py"
-    rename_files(folder, extension, force_rename)
+# def RenameLeetCodeDirectory(force_rename=False) :
+#     folder = "LeetCode"
+#     extension = "py"
+#     rename_files(folder, extension, force_rename)
 
 if __name__ == "__main__" :
     cli = CLI().get_args()
     force_rename = cli.f
-    RenameLeetCodeDirectory(force_rename)
+    default_settings = cli.d
+    if(default_settings) :
+        folder_name = "LeetCode"
+        extension = ".py"
+        RenameDirectory(folder_name, extension, force_rename)
+    else :
+        folder_name = input("Enter folder name : ").strip()
+        extension = input("\nEnter the extension with . : ").strip()
+        if(folder_name in os.listdir(os.path.abspath("../") and folder_name not in NOT_ALLOWED)) :
+            RenameDirectory(folder_name, extension, force_rename)
