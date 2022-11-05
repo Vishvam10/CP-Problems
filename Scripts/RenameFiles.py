@@ -19,10 +19,9 @@ def rename_files(folder, extension, force_rename) :
         abs_path = "../{}".format(directory)
         if(directory not in NOT_ALLOWED and directory == folder and os.path.isdir(abs_path)) :
             for file in os.listdir(abs_path):
-                if(not file.startswith("LeetCode")) :
+                if(not file.startswith(folder)) :
                     formatted_name = standard_format(file).split(".")[0]
                     new_name = "{}_{}.{}".format(folder, formatted_name, extension)
-                    # os.rename(os.path.join(abs_path, file), os.path.join(abs_path, new_name))
                     affected_files.append({
                         "old_file_name" : file,
                         "new_file_name" : new_name,
@@ -56,20 +55,14 @@ def rename_files(folder, extension, force_rename) :
                 pass
         return
 
-
 def standard_format(s) :
     return s.replace(" ", "_")\
             .replace("-", "_")\
             .replace(",", "")\
             .lower()
 
-def RenameDirectory(folder_name="LeetCode", extension=".py", force_rename=False) :
+def RenameDirectory(folder_name="LeetCode", extension="py", force_rename=False) :
     rename_files(folder_name, extension, force_rename)
-
-# def RenameLeetCodeDirectory(force_rename=False) :
-#     folder = "LeetCode"
-#     extension = "py"
-#     rename_files(folder, extension, force_rename)
 
 if __name__ == "__main__" :
     cli = CLI().get_args()
@@ -80,7 +73,24 @@ if __name__ == "__main__" :
         extension = ".py"
         RenameDirectory(folder_name, extension, force_rename)
     else :
-        folder_name = input("Enter folder name : ").strip()
-        extension = input("\nEnter the extension with . : ").strip()
-        if(folder_name in os.listdir(os.path.abspath("../") and folder_name not in NOT_ALLOWED)) :
-            RenameDirectory(folder_name, extension, force_rename)
+        
+        folders = [f for f in os.listdir(os.path.abspath("../")) if f not in NOT_ALLOWED]
+        print()
+        for i, f in enumerate(folders) :
+            msg = "{}) {}".format(i, f)
+            print(msg)
+        
+        try :
+            folder_ind = int(input("\nChoose the folder (0-{}) : ".format(len(folders)-1)).strip())
+        except :
+            print("\nInvalid number !")
+            exit(0)
+        if(folder_ind > len(folders) or folder_ind < 0) :
+            print("\nInvalid number !")
+            exit(0)
+
+        chosen_folder = folders[folder_ind]
+        print("\nChosen folder : ", chosen_folder)
+        # extension = input("\nEnter the extension with dot (.) : ").strip()
+        RenameDirectory(chosen_folder)
+        
