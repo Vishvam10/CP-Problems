@@ -60,7 +60,7 @@ class GitHelper :
         if(options.get("m")) :
             self.set_modified_files()
         
-        self.untracked_message = " Added "
+        self.untracked_message = "Added "
         self.staged_message = " Staged "
         self.modified_message = " Modified "
         for k,v in self.status.items() :
@@ -74,7 +74,7 @@ class GitHelper :
                     elif(k == "Modified") :
                         self.modified_message += message
 
-        if(self.untracked_message != " Added ") :
+        if(self.untracked_message != "Added ") :
             self.commit_message += self.untracked_message + " | "
         if(self.staged_message != " Staged ") :
             self.commit_message += self.staged_message + " | "
