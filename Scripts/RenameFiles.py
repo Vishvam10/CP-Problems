@@ -70,7 +70,7 @@ if __name__ == "__main__" :
     default_settings = cli.d
     if(default_settings) :
         folder_name = "LeetCode"
-        extension = ".py"
+        extension = "py"
         RenameDirectory(folder_name, extension, force_rename)
     else :
         
