@@ -35,6 +35,7 @@ def rename_files(folder, extension, force_rename) :
     print("\n***************************************************\n")
     if(not force_rename) :
         inp = input("Accept changes ? (y/n) ")
+        print()
         if(inp.strip() == "y") :
             for i in range(len(affected_files)) :
                 try :
