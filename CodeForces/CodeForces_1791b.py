@@ -4,28 +4,28 @@ def inp():
 def insr():
     return(input().strip())
 
+def solve() :
+    n = inp()
+    s = insr()
+    x = 0
+    y = 0
+    for ch in s :
+        if(ch == "L") :
+            x -= 1
+        if(ch == "R") :
+            x += 1
+        if(ch == "U") :
+            y += 1
+        if(ch == "D") :
+            y -= 1
+
+        if(x == 1 and y == 1) :
+            print("YES")
+            return
+
+    print("NO")
 
 t = inp()
 
 for _ in range(t) :
-    n = inp()
-    s = insr()
-    cur = [0, 0]
-    flag = False
-    for ch in s :
-        if(ch == "L") :
-            cur[0] -= 1
-        elif(ch == "R") :
-            cur[0] += 1
-        elif(ch == "U") :
-            cur[1] += 1
-        elif(ch == "D") :
-            cur[1] -= 1
-
-        if(cur[0] == 1 and cur[1] == 1) :
-            flag = True
-            break
-    if(flag) :
-        print("Answer : ", "YES")
-    else :
-        print("Answer : ", "NO")
+    solve()
