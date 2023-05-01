@@ -2,6 +2,14 @@ import os
 import argparse
 from git import Repo
 
+
+def extract_file_name(folder_name, file) :
+    filename = file.split(".")[0].replace(folder_name, "").replace("/", "")
+    if(filename.startswith("_")) :
+        filename = filename[1:]
+    return filename
+    
+
 class GitHelper :
     def __init__(self, repository_path):
         self.repository_path = repository_path
@@ -33,7 +41,7 @@ class GitHelper :
         for file in self.repo.untracked_files :
             for folder_name in self.folders :
                 if(folder_name in file) :
-                    filename = file.split(".")[0].replace(folder_name, "").replace("/", "").replace("_", "")
+                    filename = extract_file_name(folder_name, file)
                     self.status["Untracked"][folder_name].append(filename)
         
     def set_modified_files(self) :
@@ -41,7 +49,7 @@ class GitHelper :
             file = item.a_path
             for folder_name in self.folders :
                 if(folder_name in file) :
-                    filename = file.split(".")[0].replace(folder_name, "").replace("/", "").replace("_", "")
+                    filename = extract_file_name(folder_name, file)
                     self.status["Modified"][folder_name].append(filename)
 
     def set_staged_files(self) :
@@ -49,7 +57,7 @@ class GitHelper :
             file = item.a_path
             for folder_name in self.folders :
                 if(folder_name in file) :
-                    filename = file.split(".")[0].replace(folder_name, "").replace("/", "").replace("_", "")
+                    filename = extract_file_name(folder_name, file)
                     self.status["Staged"][folder_name].append(filename)
 
     def set_commit_message(self, options) :
@@ -80,8 +88,7 @@ class GitHelper :
             self.commit_message += self.staged_message + " | "
         if(self.modified_message != "Modified ") :
             self.commit_message += self.modified_message + " | "
-        # print(self.modified_message)
-
+    
     def get_all_folders(self) :
         return self.folders
 
@@ -89,6 +96,9 @@ class GitHelper :
         return self.status
 
     def get_commit_message(self) :
+        self.commit_message = self.commit_message.strip()
+        if(self.commit_message.endswith("|")) :
+            self.commit_message = self.commit_message[:-1]
         return self.commit_message
 
 class CLI :
