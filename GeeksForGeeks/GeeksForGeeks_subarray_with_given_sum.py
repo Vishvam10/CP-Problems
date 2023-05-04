@@ -1,15 +1,41 @@
-class Solution:
-    def subArraySum(self,arr, n, s): 
-       cur_sum = arr[0]
-       start = 0
-       i=1
-        while i<=n:
-            while cur_sum > s and start < i-1:
-               cur_sum -= arr[start]
-               start += 1
-            if cur_sum == s:
-               return [start+1,i]
-            if i < n:
-               cur_sum += arr[i]
-            i += 1
-        return [-1]
+
+
+def subarray_of_with_given_sum(arr, n, s) :
+
+    # pre[L..R] = pre[R] - pre[L-1]
+    # Need the index of : pre[R] - k
+    
+    start, end, curSum = 0, -1, 0
+    mp = {}
+
+    for i in range(n) :
+        curSum += arr[i]
+        if(curSum == s) :
+            start = 0
+            end = i
+            break
+
+        if((curSum - s) in mp) :
+            # print("present : ", curSum-s)
+            start = mp.get(curSum - s) + 1
+            end = i
+            break
+
+        mp[curSum] = i
+
+    print("mp : ", mp)
+
+    if(end == -1) :
+        return -1
+
+    return [start, end]
+
+
+
+
+arr = [1, 4, 2, 10, 2, 3, 1, 0, 20]
+n = len(arr)
+s = 10
+
+
+print(subarray_of_with_given_sum(arr, n, s))
