@@ -35,15 +35,14 @@ def rename_files(folder, extension, force_rename, force_overwrite) :
     for i in range(len(affected_files)) :
         print(affected_files[i].get('old_file_name'), ' ---> ', affected_files[i]['new_file_name'])
     print('\n***************************************************\n')
-
-    old_file_path = affected_files[i].get('old_file_path')
-    new_file_path = affected_files[i].get('new_file_path')
     
     if(not force_rename) :
         inp = input('Accept changes ? (y/n) ')
         if(inp.strip() == 'y') :
             if(force_overwrite) :
                 for i in range(len(affected_files)) :
+                    old_file_path = affected_files[i].get('old_file_path')
+                    new_file_path = affected_files[i].get('new_file_path')
                     try:
                         shutil.copy2(old_file_path, new_file_path)
                         print('File {} overwritten.'.format(new_file_path))
@@ -55,6 +54,8 @@ def rename_files(folder, extension, force_rename, force_overwrite) :
                         print('Skipping {} as an error occurred: {}'.format(new_file_path, str(e)))
             else :      
                 for i in range(len(affected_files)) :
+                    old_file_path = affected_files[i].get('old_file_path')
+                    new_file_path = affected_files[i].get('new_file_path')
                     try :
                         os.rename(old_file_path, new_file_path)
                     except :
@@ -66,6 +67,8 @@ def rename_files(folder, extension, force_rename, force_overwrite) :
     else :
 
         for i in range(len(affected_files)) :
+            old_file_path = affected_files[i].get('old_file_path')
+            new_file_path = affected_files[i].get('new_file_path')
             try :
                 os.rename(old_file_path, new_file_path)
             except :
