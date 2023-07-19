@@ -76,18 +76,18 @@ class GitHelper :
                 if(len(files) > 0) :
                     message = " " + folder + " : " + ", ".join(files)
                     if(k == "Untracked") :
-                        self.untracked_message += message 
+                        self.untracked_message += (message + " | ") 
                     elif(k == "Staged") :
-                        self.staged_message += message
+                        self.staged_message += (message + " | ")
                     elif(k == "Modified") :
-                        self.modified_message += message
+                        self.modified_message += (message + " | ")
 
         if(self.untracked_message != "Added ") :
-            self.commit_message += self.untracked_message + " | "
+            self.commit_message += self.untracked_message
         if(self.staged_message != "Staged ") :
-            self.commit_message += self.staged_message + " | "
+            self.commit_message += self.staged_message
         if(self.modified_message != "Modified ") :
-            self.commit_message += self.modified_message + " | "
+            self.commit_message += self.modified_message
     
     def get_all_folders(self) :
         return self.folders
@@ -96,9 +96,11 @@ class GitHelper :
         return self.status
 
     def get_commit_message(self) :
-        self.commit_message = self.commit_message.strip()
+        self.commit_message = self.commit_message.strip().replace("  ", " ")
+        print("message : ", self.commit_message.endswith("|"))
         if(self.commit_message.endswith("|")) :
             self.commit_message = self.commit_message[:-1]
+            print("message : ", self.commit_message.endswith("|"))
         return self.commit_message
 
 class CLI :
