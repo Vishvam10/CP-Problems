@@ -60,6 +60,16 @@ class GitHelper :
                     filename = extract_file_name(folder_name, file)
                     self.status["Staged"][folder_name].append(filename)
 
+    def set_deleted_files(self) :
+        for item in self.repo.index.diff(None):
+            file = item.a_path
+            if(item.deleted_file) :
+                for folder_name in self.folders :
+                    if(folder_name in file) :
+                        filename = extract_file_name(folder_name, file)
+                        self.status["Deleted"][folder_name].append(filename)
+
+
     def set_commit_message(self, options) :
         if(options.get("s")) :
             self.set_staged_files()
@@ -67,10 +77,14 @@ class GitHelper :
             self.set_untracked_files()
         if(options.get("m")) :
             self.set_modified_files()
+        if(options.get("d")) :
+            self.set_deleted_files()
         
         self.untracked_message = "Added "
         self.staged_message = "Staged "
         self.modified_message = "Modified "
+        self.deleted_message = "Deleted "
+
         for k,v in self.status.items() :
             for folder, files in v.items() :
                 if(len(files) > 0) :
@@ -80,6 +94,8 @@ class GitHelper :
                     elif(k == "Staged") :
                         self.staged_message += (message + " | ")
                     elif(k == "Modified") :
+                        self.deleted_message += (message + " | ")
+                    elif(k == "Deleted") :
                         self.modified_message += (message + " | ")
 
         if(self.untracked_message != "Added ") :
@@ -88,6 +104,8 @@ class GitHelper :
             self.commit_message += self.staged_message
         if(self.modified_message != "Modified ") :
             self.commit_message += self.modified_message
+        if(self.modified_message != "Deleted ") :
+            self.commit_message += self.deleted_message
     
     def get_all_folders(self) :
         return self.folders
@@ -110,6 +128,7 @@ class CLI :
         self.parser.add_argument("-s", help="Include staged files", action="store_true")
         self.parser.add_argument("-u", help="Include untracked files",action="store_false")
         self.parser.add_argument("-m", help="Include modified files", action="store_true")
+        self.parser.add_argument("-d", help="Include deleted files", action="store_true")
     
     def get_args(self) :
         return self.parser.parse_args()
