@@ -9,16 +9,16 @@ class Solution:
         right = n-1
 
         while(left <= right) :
-            for it in range(right-left) :
+            for level in range(right-left) :
                 top = left
                 bottom = right
 
-                temp = mat[top][left+it]
+                temp = mat[top][left+level]
 
-                mat[top][left+it]        = mat[bottom-it][left]
-                mat[bottom-it][left]     = mat[bottom][right-it]
-                mat[bottom][right-it]    = mat[top+it][right]
-                mat[top+it][right]       = temp
+                mat[top][left+level]        = mat[bottom-level][left]
+                mat[bottom-level][left]     = mat[bottom][right-level]
+                mat[bottom][right-level]    = mat[top+level][right]
+                mat[top+level][right]       = temp
 
             left += 1
             right -= 1

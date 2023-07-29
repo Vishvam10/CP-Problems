@@ -60,16 +60,6 @@ class GitHelper :
                     filename = extract_file_name(folder_name, file)
                     self.status["Staged"][folder_name].append(filename)
 
-    def set_deleted_files(self) :
-        for item in self.repo.index.diff(None):
-            file = item.a_path
-            if(item.deleted_file) :
-                for folder_name in self.folders :
-                    if(folder_name in file) :
-                        filename = extract_file_name(folder_name, file)
-                        self.status["Deleted"][folder_name].append(filename)
-
-
     def set_commit_message(self, options) :
         if(options.get("s")) :
             self.set_staged_files()
@@ -83,8 +73,7 @@ class GitHelper :
         self.untracked_message = "Added "
         self.staged_message = "Staged "
         self.modified_message = "Modified "
-        self.deleted_message = "Deleted "
-
+      
         for k,v in self.status.items() :
             for folder, files in v.items() :
                 if(len(files) > 0) :
@@ -95,17 +84,13 @@ class GitHelper :
                         self.staged_message += (message + " | ")
                     elif(k == "Modified") :
                         self.deleted_message += (message + " | ")
-                    elif(k == "Deleted") :
-                        self.modified_message += (message + " | ")
-
+                   
         if(self.untracked_message != "Added ") :
             self.commit_message += self.untracked_message
         if(self.staged_message != "Staged ") :
             self.commit_message += self.staged_message
         if(self.modified_message != "Modified ") :
             self.commit_message += self.modified_message
-        if(self.modified_message != "Deleted ") :
-            self.commit_message += self.deleted_message
     
     def get_all_folders(self) :
         return self.folders
