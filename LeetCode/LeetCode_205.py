@@ -1,5 +1,23 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+
+        # Using 1 map
+
+        # n = len(s1)
+        # mp = {}
+        # for i in range(n) :
+        #     if(s1[i] not in mp and s2[i] not in mp.values()) :
+        #         mp[s1[i]] = s2[i]
+
+        # temp = ""
+        # for ch in s1 :
+        #     if(ch in mp) :
+        #         temp += mp[ch]
+                
+        # return temp == s2
+
+        # Using 2 maps
+
         mp1 = {}
         mp2 = {}
         

@@ -67,9 +67,7 @@ class GitHelper :
             self.set_untracked_files()
         if(options.get("m")) :
             self.set_modified_files()
-        if(options.get("d")) :
-            self.set_deleted_files()
-        
+       
         self.untracked_message = "Added "
         self.staged_message = "Staged "
         self.modified_message = "Modified "
@@ -83,7 +81,7 @@ class GitHelper :
                     elif(k == "Staged") :
                         self.staged_message += (message + " | ")
                     elif(k == "Modified") :
-                        self.deleted_message += (message + " | ")
+                        self.modified_message += (message + " | ")
                    
         if(self.untracked_message != "Added ") :
             self.commit_message += self.untracked_message
@@ -113,7 +111,6 @@ class CLI :
         self.parser.add_argument("-s", help="Include staged files", action="store_true")
         self.parser.add_argument("-u", help="Include untracked files",action="store_false")
         self.parser.add_argument("-m", help="Include modified files", action="store_true")
-        self.parser.add_argument("-d", help="Include deleted files", action="store_true")
     
     def get_args(self) :
         return self.parser.parse_args()
