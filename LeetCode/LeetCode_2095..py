@@ -1,7 +1,3 @@
-"""
-DIFFICULTY : medium
-TAGS : linked list, two pointers
-"""
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -9,20 +5,15 @@ TAGS : linked list, two pointers
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if head.next == None:
+        if(head.next == None) :
             return None
-        
-        count = 0
-        temp1 = temp2 = head
-
-        while temp1:
-            count += 1
-            temp1 = temp1.next
-        
-        mid_index = count // 2
-        
-        for _ in range(mid_index - 1):
-            temp2 = temp2.next
-        
-        temp2.next = temp2.next.next
+        n = 0
+        temp = head
+        while(temp) :
+            temp = temp.next
+            n += 1
+        temp = head
+        for _ in range(n//2 - 1):
+            temp = temp.next
+        temp.next = temp.next.next
         return head

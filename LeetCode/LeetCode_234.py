@@ -1,7 +1,3 @@
-"""
-DIFFICULTY : easy
-TAGS : linked list, two pointers, stack, recursion
-"""
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, val=0, next=None):
@@ -9,35 +5,28 @@ TAGS : linked list, two pointers, stack, recursion
 #         self.next = next
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        def reverse(head) :
-            if not head or not head.next:
-                return head
 
-            cur, prev = head, None
-            while cur:
-                temp = cur.next
-                cur.next = prev
-                prev = cur
-                cur = temp
+        def reverse(node) :
+            prev = None
+            while(node) :
+                nxt = node.next
+                node.next = prev
+                prev = node
+                node = nxt
+            return prev
 
-            return prev if prev else head
-
-        slow = fast = head
-        
-        # Finding the middle node
-        while fast.next and fast.next.next:
+        slow = fast = temp = head
+        while(fast and fast.next) :
             slow = slow.next
             fast = fast.next.next
-        
-        ll1, ll2 = head, slow.next
-        
-        # Reversing the second half
-        ll2 = reverse(ll2)
-                
-        while ll2:
-            if not ll1.val == ll2.val:
+    
+        slow = reverse(slow)
+       
+        while(slow) :
+            if(temp.val != slow.val) :
                 return False
-            ll2 = ll2.next
-            ll1 = ll1.next
+            else :
+                temp = temp.next
+                slow = slow.next
         
         return True
