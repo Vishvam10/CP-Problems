@@ -492,7 +492,6 @@ def pretty_args(args):
     """
     return ", ".join([repr(arg) for arg in args])
 
-
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -500,7 +499,6 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
-
 
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
