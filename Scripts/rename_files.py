@@ -2,7 +2,7 @@ import os
 import shutil
 import argparse
 
-NOT_ALLOWED = ['.git', 'README.md', 'Scripts', 'Topics'] 
+NOT_ALLOWED = ['.git', '.gitignore', 'venv', 'README.md', 'Scripts', 'Templates'] 
 
 class CLI :
     def __init__(self) :
@@ -31,10 +31,10 @@ def rename_files(folder, extension, force_rename, force_overwrite) :
                         'new_file_path': os.path.join(abs_path, new_name)
                     })
     
-    print('\n***************** FILES AFFECTED ***************** \n')
-    for i in range(len(affected_files)) :
-        print(affected_files[i].get('old_file_name'), ' ---> ', affected_files[i]['new_file_name'])
-    print('\n***************************************************\n')
+    if(len(affected_files) >= 0) :
+        print(f'\nFiles affected in {folder} : \n')
+        for i in range(len(affected_files)) :
+            print('==', affected_files[i].get('old_file_name'), ' ---> ', affected_files[i]['new_file_name'])
     
     if(not force_rename) :
         inp = input('Accept changes ? (y/n) ')
@@ -83,7 +83,15 @@ def standard_format(s) :
             .replace(',', '')\
             .lower()
 
-def RenameDirectory(folder_name='LeetCode', extension='py', force_rename=False, force_overwrite=False) :
+def get_folders() :
+    folders = []
+    for directory in os.listdir(os.path.abspath('../')) :
+        if(directory not in NOT_ALLOWED) :
+            folders.append(directory) 
+    return folders
+
+
+def rename_directory(folder_name='LeetCode', extension='py', force_rename=False, force_overwrite=False) :
     rename_files(folder_name, extension, force_rename, force_overwrite)
 
 if __name__ == '__main__' :
@@ -91,12 +99,11 @@ if __name__ == '__main__' :
     force_rename = cli.fr
     force_overwrite = cli.fo
     default_settings = cli.d
-    print('\nrename : ', force_rename)
-    print('overwrite : ', force_overwrite)
+
     if(default_settings) :
-        folder_name = 'LeetCode'
-        extension = 'py'
-        RenameDirectory(folder_name, extension, force_rename, force_overwrite)
+        for folder_name in get_folders() :
+            extension = 'py'
+            rename_directory(folder_name, extension, force_rename=True, force_overwrite=True)
     else :
         
         folders = [f for f in os.listdir(os.path.abspath('../')) if f not in NOT_ALLOWED]
@@ -117,5 +124,5 @@ if __name__ == '__main__' :
         chosen_folder = folders[folder_ind]
         print('\nChosen folder : ', chosen_folder)
         # extension = input('\nEnter the extension with dot (.) : ').strip()
-        RenameDirectory(folder_name=chosen_folder, extension='.py', force_rename=force_rename, force_overwrite=force_overwrite)
+        rename_directory(folder_name=chosen_folder, extension='.py', force_rename=force_rename, force_overwrite=force_overwrite)
         
