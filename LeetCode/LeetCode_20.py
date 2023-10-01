@@ -1,22 +1,21 @@
-"""
-DIFFICULTY : easy
-TAGS : string, stack
-"""
+from collections import deque
+
 class Solution:
     def isValid(self, s: str) -> bool:
-        st = []
-        for c in s :
-            if(c == '(' or c == '{' or c == '[') :
-                st.append(c)
+        st = deque()
+
+        for ch in s :
+            if(ch in '([{') :
+                st.append(ch)
             else :
-                if(len(st) == 0) :
+                if(
+                    (len(st) > 0) and
+                    ((st[-1] == '(' and ch == ')') or \
+                    (st[-1] == '{' and ch == '}') or \
+                    (st[-1] == '[' and ch == ']'))
+                ) :
+                    st.pop()
+                else :
                     return False
-                if(c == ')' and st[-1] != '(') : 
-                    return False
-                if(c == '}' and st[-1] != '{') :
-                    return False
-                if(c == ']' and st[-1] != '[') : 
-                    return False
-                st.pop()
-                
-        return len(st) == 0
+
+        return True if(len(st) == 0) else False
