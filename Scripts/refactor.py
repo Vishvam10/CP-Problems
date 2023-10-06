@@ -94,6 +94,6 @@ def rename_files(root_dir) :
 
 if __name__ == '__main__' :
    
-    # refactor_to_folders(root_dir)
-    # rename_directories(root_dir)
-    # rename_files(root_dir)
+    refactor_to_folders(root_dir)
+    rename_directories(root_dir)
+    rename_files(root_dir)
