@@ -1,89 +1,45 @@
-def pretty_args(args):
-    """pretty prints the arguments in a string
-    """
-    return ", ".join([repr(arg) for arg in args])
-def pretty_kwargs(kwargs):
-    """pretty prints the keyword arguments in a string
-    """
-    return ", ".join([
-        f"{key}={repr(value)}"
-        for key, value in kwargs.items()
-    ])
-def pretty_func(fn, args, kwargs):
-    # Pretty print args in a string
-    args_str = pretty_args(args)
+from typing import List
 
-    # Pretty print kwargs in a string
-    kwargs_str = pretty_args(kwargs)
+def generateString(n: int) -> List[str]:
+    
 
-    # Format the function string and return
-    if args_str and kwargs_str:
-        return f"{fn.__name__}({args_str, kwargs_str})"
-    return f"{fn.__name__}({args_str or kwargs_str})"
-# Use as a decorator
-def recviz(fn):
-    """Decorator that pretty prints the recursion tree with
-       args, kwargs, and return values.
-    """
+    def solve(pref, n, acc) :
+        if(len(pref) == n) :
+            acc.append(pref)
+            return acc
 
-    # holds the current recursion level
-    recursion_level = 1
+        if(len(pref) < n) :
 
-    def wrapper(*args, **kwargs):
+            if(pref == '' or pref[-1] == '0') :
+                
+                # Set the state
+                temp = pref + '0'
+                
+                # Goto next state
+                solve(temp, n, acc)
 
-        # we register a nonlocal recursion_level so that
-        # it binds with the recursion_level variable.
-        # in this case, it will bind to the one defined
-        # in recviz function.
-        nonlocal recursion_level
+                # Set the state
+                temp = pref + '1'
+                
+                # Goto next state
+                solve(temp, n, acc)
+            
+            else :
 
-        # Generate the pretty printed function string
-        fn_str = pretty_func(fn, args, kwargs)
+                # Set the state
+                temp = pref + '0'
 
-        # Generate the whitespaces as per the recursion level
-        whitespace = "   " * (recursion_level - 1)
-
-        # Pretty print the function with the whitespace
-        print(f"{whitespace} -> {fn_str}")
-
-        # increment the recursion level
-        recursion_level += 1
-
-        # Invoke the wrapped function and hold the return value
-        return_value = fn(*args, **kwargs)
-
-        # Post function evaluation we decrease the recursion
-        # level by 1
-        recursion_level -= 1
-
-        # Pretty print the return value
-        print(f"{whitespace} <- {repr(return_value)}")
-
-        # Return the return value of the wrapped function
-        return return_value
-
-    return wrapper
-
-def generateString(n) :
-
-    # @recviz
-    def construct(s, n, acc) :
-
-        if(n == 0) :
-            acc.append(s)
-            return
-        
-        construct(s+'0', n-1, acc)
-
-        if(len(s) == 0 or s[-1] != '1') :
-            construct(s+'1', n-1, acc)
+                # Goto next state
+                solve(temp, n, acc)
+            
+            return acc
         
         return acc
-    
-    ans = construct('', n, [])
+
+
+    ans = solve('', n, [])
+
     # print('ans : ', ans)
+
     return ans
-        
-    
-a = generateString(4)
-print(a)
+
