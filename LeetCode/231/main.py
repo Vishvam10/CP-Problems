@@ -16,8 +16,8 @@ class Solution:
     
     # So, the answer is : return n > 0 and n & (n-1) == 0
     # This can be further simplified as :
-    # return n > 0 and not n&(n-1)
+    # return n > 0 and not n & (n-1)
     
     def isPowerOfTwo(self, n: int) -> bool:
         # return n > 0 and math.log2(n) == math.trunc(log2(n))
-        return n > 0 and not n&(n-1)
+        return n > 0 and not n & (n-1)
