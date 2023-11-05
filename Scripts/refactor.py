@@ -41,7 +41,7 @@ def refactor_to_folders(root_dir) :
         for base_name, file_paths in unique_files.items():
             unique_folder = os.path.join(subdir_path, base_name)
             if(os.path.exists(unique_folder)) :
-                print(f'Skipping : {unique_folder} already exists')
+                # print(f'Skipping : {unique_folder} already exists')
             else :
                 os.makedirs(unique_folder, exist_ok=True)
                 for file_path in file_paths:
@@ -62,7 +62,7 @@ def rename_directories(root_dir):
             new_subdir_path = os.path.join(dir_path, new_subdir_name)
             
             if(os.path.exists(new_subdir_path)) :
-                print(f'Skipping : {new_subdir_name} already exists')
+                # print(f'Skipping : {new_subdir_name} already exists')
             else :
                 os.rename(subdir_path, new_subdir_path)
                 print(f'Renamed: {subdir_name} -> {new_subdir_name}')
@@ -84,7 +84,7 @@ def rename_files(root_dir) :
                 new_file_path = os.path.join(subdir_path, new_file_name)
                 
                 if(os.path.exists(new_file_path)) :
-                    print(f'Skipping : {file_name} already exists')
+                    # print(f'Skipping : {file_name} already exists')
                 else :
                     os.rename(file_path, new_file_path)
                     print(f'Renamed: {file_name} -> {new_file_name}')
