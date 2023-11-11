@@ -84,3 +84,21 @@ class Solution:
             ans.extend(ss)
         
         return ans
+    
+# Using bit manipulation
+
+class Solution:
+    def subsets(self, arr: List[int]) -> List[List[int]]:
+        n = len(arr)
+        p = 1 << n      # cardinality of power set : 2**n
+        ans = []
+        
+        for i in range(p) :
+            subset = []
+            for j in range(n) :
+                # If the jth bit of i is set, then include
+                if((i >> j) & 1) :
+                    subset.append(arr[j])
+            ans.append(subset)
+        
+        return ans
