@@ -1,17 +1,20 @@
-"""
-DIFFICULTY : medium
-TAGS : string, hash table, sliding window
-"""
+from collections import defaultdict
+
 class Solution:
-    def lengthOfLongestSubstring(self, arr: str) -> int:
-        n = len(arr)
-        left, max_len = 0, 0
-        mp = {}
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        
+        n = len(s)
+        left, ans = 0, 0
+        mp = defaultdict(int)
+
         for i in range(n) :
-            if(arr[i] in mp and left <= mp[arr[i]]) :
-                left = mp[arr[i]] + 1
-            else :
-                max_len = max(max_len, i - left + 1)
-            mp[arr[i]] = i
-            
-        return max_len
+            ch = s[i]
+            mp[ch] += 1
+            if(mp[ch] > 1) :       
+                while(mp[ch] > 1) :
+                    mp[s[left]] -= 1
+                    left += 1
+                
+            ans = max(ans, i - left + 1)
+        
+        return ans
