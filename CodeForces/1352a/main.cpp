@@ -22,7 +22,6 @@ void solve() {
 }
 
 int main() {
-    bool flag = true;
     int n;
     cin >> n;
 
