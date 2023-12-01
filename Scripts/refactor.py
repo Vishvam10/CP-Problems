@@ -3,8 +3,6 @@ import shutil
 
 current_dir = os.getcwd()
 root_dir = os.path.dirname(current_dir)
-print('current dir : ', current_dir)
-print('root dir : ', root_dir)
 
 ALLOWED = ['CodeForces', 'CodeStudio', 'LeetCode', 'GeeksForGeeks'] 
 
@@ -44,8 +42,6 @@ def refactor_to_folders(root_dir) :
                 os.makedirs(unique_folder, exist_ok=True)
                 for file_path in file_paths:
                     shutil.move(file_path, os.path.join(unique_folder, os.path.basename(file_path)))
-
-                    print(f'Moved {base_name} to {unique_folder}')
     return
 
 def rename_directories(root_dir):
