@@ -8,4 +8,5 @@ class Solution:
         
         for i in range(row * col):
             ans[i // c][i % c] = mat[i // row][i % row]
-        return anss
+            
+        return ans
