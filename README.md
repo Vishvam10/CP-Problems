@@ -8,11 +8,11 @@ and `CodeStudio`
 
 - `refactor.py` :
     - [ ] Add CLI options 
-    - [ ] Selective refactor of files wrt extension (like `.py`, `.cpp`, etc.)
+    - [x] Selective refactor of files wrt extension (like `.py`, `.cpp`, etc.)
     - [ ] Better CLI and prettify
 
 - `get-commit-message.py` :
-    - [ ] Make changes to adapt to the new refactor
+    - [x] Make changes to adapt to the new refactor
     - [ ] Modify existing CLI options 
     - [ ] Better CLI and prettify
 
