@@ -4,7 +4,7 @@ from git import Repo
 
 
 def extract_file_name(folder_name, file) :
-    filename = file.split(".")[0].replace(folder_name, "").replace("/", "")
+    filename = file.split("/")[1]
     if(filename.startswith("_")) :
         filename = filename[1:]
     return filename
@@ -68,14 +68,14 @@ class GitHelper :
         if(options.get("m")) :
             self.set_modified_files()
        
-        self.untracked_message = "Added "
-        self.staged_message = "Staged "
-        self.modified_message = "Modified "
+        self.untracked_message = "add: "
+        self.staged_message = "stage: "
+        self.modified_message = "update: "
       
         for k,v in self.status.items() :
             for folder, files in v.items() :
                 if(len(files) > 0) :
-                    message = " " + folder + " : " + ", ".join(files)
+                    message = "(" + folder.lower() + ") " + ", ".join(files)
                     if(k == "Untracked") :
                         self.untracked_message += (message + " | ") 
                     elif(k == "Staged") :
@@ -83,11 +83,11 @@ class GitHelper :
                     elif(k == "Modified") :
                         self.modified_message += (message + " | ")
                    
-        if(self.untracked_message != "Added ") :
+        if(self.untracked_message != "add: ") :
             self.commit_message += self.untracked_message
-        if(self.staged_message != "Staged ") :
+        if(self.staged_message != "stage: ") :
             self.commit_message += self.staged_message
-        if(self.modified_message != "Modified ") :
+        if(self.modified_message != "update: ") :
             self.commit_message += self.modified_message
     
     def get_all_folders(self) :
@@ -98,10 +98,8 @@ class GitHelper :
 
     def get_commit_message(self) :
         self.commit_message = self.commit_message.strip().replace("  ", " ")
-        print("message : ", self.commit_message.endswith("|"))
         if(self.commit_message.endswith("|")) :
             self.commit_message = self.commit_message[:-1]
-            print("message : ", self.commit_message.endswith("|"))
         return self.commit_message
 
 class CLI :
