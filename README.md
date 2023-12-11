@@ -3,6 +3,58 @@
 This repo currently has problems from `Leetcode`, `GeeksForGeeks`, `CodeForces`
 and `CodeStudio`
 
+## Automatic Templating 
+
+- Run this as a VSCode task (`Ctrl+Shift+P` > `Configure Tasks` > `Create template`)
+
+    ```json
+    // workspaceFolder : CP-Problems
+
+    {
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Create template",
+                "type": "shell",
+                "command": [
+                    "python3"
+                ],
+                "args": [
+                    "./Scripts/create.py",
+                    "--lang=${input:lang}",
+                    "--file=${file}"
+                ],
+                "problemMatcher": [],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "presentation": {
+                    "reveal": "silent",
+                    "revealProblems": "onProblem",
+                    "close": true
+                }
+            }
+        ],
+        "inputs": [
+            {
+                "type": "promptString",
+                "id": "lang",
+                "description": "Programming language",
+                "default": "py"
+            }
+        ]
+    }`/`
+
+    ```
+
+
+- Run this as a standalone Python script :
+
+    ```bash
+        python3 Scripts/create.py \
+        --lang=py --file="path_of_new_file"
+    ```
 
 ## Todo
 
