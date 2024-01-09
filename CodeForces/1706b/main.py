@@ -116,6 +116,7 @@ def solve():
         for y in range(1, len(mp[x])):
             
             s += (mp[x][y] - mp[x][y-1])
+            print('s, c : ', s, c)
             
             # why does this cover both left and right cases ?
             if s % 2 == 1:
