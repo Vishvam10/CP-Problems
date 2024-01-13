@@ -1,0 +1,38 @@
+// workspaceFolder is CP-Problems
+
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create template",
+            "type": "shell",
+            "command": [
+                "python3"
+            ],
+            "args": [
+                "create.py",
+                "--cstr=${input:cstr}",
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/Scripts"
+            },
+            "presentation": {
+                "reveal": "silent",
+                "revealProblems": "onProblem",
+                "close": true
+            }
+        },
+
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "cstr",
+            "description": "Output file"
+        }
+    ]
+}
