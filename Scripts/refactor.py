@@ -2,7 +2,7 @@ import os
 import shutil
 
 current_dir = os.getcwd()
-root_dir = os.path.join(os.path.dirname(current_dir))
+root_dir = os.path.dirname(current_dir)
 
 ALLOWED = ['CodeForces', 'CodeStudio', 'LeetCode', 'GeeksForGeeks'] 
 ALLOWED_EXT = ['py', 'cpp', 'java']
