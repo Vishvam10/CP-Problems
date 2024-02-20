@@ -8,7 +8,8 @@ and `CodeStudio`
 - Run this as a VSCode task (`Ctrl+Shift+P` > `Configure Tasks` > `Create template`)
 
     ```json
-    // workspaceFolder : CP-Problems
+
+    // workspaceFolder is CP-Problems
 
     {
         "version": "2.0.0",
@@ -20,40 +21,47 @@ and `CodeStudio`
                     "python3"
                 ],
                 "args": [
-                    "./Scripts/create.py",
-                    "--lang=${input:lang}",
-                    "--file=${file}"
+                    "create.py",
+                    "--cstr=${input:cstr}",
                 ],
-                "problemMatcher": [],
                 "group": {
                     "kind": "build",
                     "isDefault": true
+                },
+                "options": {
+                    "cwd": "${workspaceFolder}/Scripts"
                 },
                 "presentation": {
                     "reveal": "silent",
                     "revealProblems": "onProblem",
                     "close": true
                 }
-            }
+            },
+
         ],
         "inputs": [
             {
                 "type": "promptString",
-                "id": "lang",
-                "description": "Programming language",
-                "default": "py"
+                "id": "cstr",
+                "description": "Output file"
             }
         ]
-    }`/`
+    }
+
 
     ```
 
 
-- Run this as a standalone Python script :
+- **OR** Run this as a standalone Python script :
 
     ```bash
         python3 Scripts/create.py \
-        --lang=py --file="path_of_new_file"
+        --cstr="{platform_shortform}/{problem_number}/{language}"
+
+        For example :
+
+        python3 Scripts/create.py --cstr="cf/1234a/cpp"
+
     ```
 
 ## Todo
@@ -65,7 +73,7 @@ and `CodeStudio`
 
 - `get-commit-message.py` :
     - [x] Make changes to adapt to the new refactor
-    - [ ] Modify existing CLI options 
+    - [x] Modify existing CLI options 
     - [ ] Better CLI and prettify
 
 - Add semantic commit messages
