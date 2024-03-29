@@ -9,6 +9,7 @@ class LFUCache:
         if key in self.mp:
             value, freq = self.mp[key]
             self.counts[freq].remove(key)
+            # to avoid pop from empty list
             if not self.counts[freq]:
                 del self.counts[freq]
             freq += 1
@@ -32,6 +33,7 @@ class LFUCache:
                 min_freq = min(self.counts)
                 lfu_key = self.counts[min_freq].pop(0)
                 del self.mp[lfu_key]
+                # to avoid pop from empty list
                 if not self.counts[min_freq]:
                     del self.counts[min_freq]
 
