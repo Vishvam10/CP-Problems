@@ -22,7 +22,7 @@ def hash_file(file_path):
     return hasher.hexdigest()
 
 
-def lint_cpp_files(directory, processed_files):
+def prettify_cpp_files(directory, processed_files):
 
     cpp_files = [os.path.join(root, file) for root, _, files in os.walk(directory) for file in files if file.endswith(
         '.cpp') and any(allowed_dir in root for allowed_dir in ALLOWED_DIRS)]
@@ -34,14 +34,14 @@ def lint_cpp_files(directory, processed_files):
     for cpp_file in cpp_files_to_process:
         try:
             subprocess.run(['clang-format', '-i', cpp_file], check=True)
-            print(f'Linted and fixed: {cpp_file}')
+            print(f'Prettified: {cpp_file}')
             processed_files.add(hash_file(cpp_file))
         except Exception as e:
 
-            print(f'Error linting {cpp_file}: {e}')
+            print(f'Error prettifying {cpp_file}: {e}')
 
 
-def lint_python_files(directory, processed_files):
+def prettify_python_files(directory, processed_files):
 
     python_files = [os.path.join(root, file) for root, _, files in os.walk(
         directory) for file in files if file.endswith('.py') and any(allowed_dir in root for allowed_dir in ALLOWED_DIRS)]
@@ -63,11 +63,11 @@ def lint_python_files(directory, processed_files):
             with open(python_file, 'w') as f:
                 f.write(formatted_content)
 
-            print(f'Linted and fixed: {python_file}')
+            print(f'Prettified: {python_file}')
             # Add the file's hash to the processed files record
             processed_files.add(hash_file(python_file))
         except Exception as e:
-            print(f'Error linting {python_file}: {e}')
+            print(f'Error prettifying {python_file}: {e}')
 
 
 def read_processed_files_record(record_file):
@@ -88,10 +88,10 @@ def write_processed_files_record(record_file, processed_files):
 if __name__ == '__main__':
     codebase_directory = root_dir
 
-    processed_files_record_file = './Scripts/lint-cache.txt'
+    processed_files_record_file = './Scripts/prettify-cache.txt'
     processed_files = read_processed_files_record(processed_files_record_file)
 
-    lint_cpp_files(codebase_directory, processed_files)
-    lint_python_files(codebase_directory, processed_files)
+    prettify_cpp_files(codebase_directory, processed_files)
+    prettify_python_files(codebase_directory, processed_files)
 
     write_processed_files_record(processed_files_record_file, processed_files)
