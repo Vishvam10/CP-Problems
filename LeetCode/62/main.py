@@ -3,6 +3,8 @@ DIFFICULTY : medium
 TAGS : math, dp, combinatorics
 """
 import math
+
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         tot = m+n-2

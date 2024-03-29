@@ -8,10 +8,12 @@ TAGS : tree, binary search tree, binary tree
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
-        if root and val < root.val: 
+        if root and val < root.val:
             return self.searchBST(root.left, val)
-        elif root and val > root.val: 
+        elif root and val > root.val:
             return self.searchBST(root.right, val)
         return root

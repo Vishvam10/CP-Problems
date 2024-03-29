@@ -2,6 +2,8 @@ def pretty_args(args):
     """pretty prints the arguments in a string
     """
     return ", ".join([repr(arg) for arg in args])
+
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -9,6 +11,8 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
+
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
     args_str = pretty_args(args)
@@ -22,6 +26,8 @@ def pretty_func(fn, args, kwargs):
     return f"{fn.__name__}({args_str or kwargs_str})"
 
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -65,13 +71,15 @@ def recviz(fn):
 
     return wrapper
 
+
 class Solution:
     def combinationSum2(self, arr: List[int], target: int) -> List[List[int]]:
         arr.sort()
+
         def helper(start, s, pref, acc):
-            if s > target : 
+            if s > target:
                 return
-            if s == target :
+            if s == target:
                 acc.append(pref)
                 return
             for i in range(start, len(arr)):
@@ -79,7 +87,7 @@ class Solution:
                 if i > start and arr[i] == arr[i-1]:
                     continue
                 helper(i+1, s+arr[i], pref+[arr[i]], acc)
-            
+
             return acc
 
         ans = helper(0, 0, [], [])

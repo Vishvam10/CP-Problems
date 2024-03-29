@@ -2,6 +2,8 @@
 DIFFICULTY : medium
 TAGS : string, stack
 """
+
+
 class Solution:
     def simplifyPath(self, path: str) -> str:
         st = []
@@ -12,5 +14,3 @@ class Solution:
             elif p and p != ".":
                 st.append(p)
         return "/" + "/".join(st)
-                
-        

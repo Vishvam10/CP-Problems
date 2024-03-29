@@ -12,7 +12,7 @@ def constructLL(arr: [int]) -> Node:
     head = Node(-1)
     temp = head
     n = len(arr)
-    for i in range(len(arr)) :
+    for i in range(len(arr)):
         temp.next = Node(arr[i])
         temp = temp.next
     return head.next

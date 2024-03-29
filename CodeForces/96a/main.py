@@ -1,18 +1,22 @@
 def inp():
-    return(int(input()))
+    return (int(input()))
+
 
 def inlt():
     return input().split()
 
-def insr():
-    return(input().strip())
 
-def solve() :
+def insr():
+    return (input().strip())
+
+
+def solve():
     s = insr()
-    if('1111111' in s or '0000000' in s) :
+    if ('1111111' in s or '0000000' in s):
         print('YES')
-    else :
+    else:
         print('NO')
     return
+
 
 solve()

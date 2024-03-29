@@ -2,6 +2,8 @@
 DIFFICULTY : medium
 TAGS : array, math, randomized
 """
+
+
 class Solution:
     def __init__(self, nums: List[int]):
         self.cpy = nums[:]
@@ -17,8 +19,6 @@ class Solution:
             j = randint(i, n-1)
             self.arr[i], self.arr[j] = self.arr[j], self.arr[i]
         return self.arr
-            
-        
 
 
 # Your Solution object will be instantiated and called as such:

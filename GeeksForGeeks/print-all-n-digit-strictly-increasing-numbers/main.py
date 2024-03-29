@@ -3,6 +3,7 @@ def pretty_args(args):
     """
     return ", ".join([repr(arg) for arg in args])
 
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -10,6 +11,7 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
 
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
@@ -24,6 +26,8 @@ def pretty_func(fn, args, kwargs):
     return f"{fn.__name__}({args_str or kwargs_str})"
 
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -67,17 +71,18 @@ def recviz(fn):
 
     return wrapper
 
-def findStrictlyIncreasingNum(n) :
-    
+
+def findStrictlyIncreasingNum(n):
+
     @recviz
-    def helper(start, n, ans) :
-        if(n == 0) :
+    def helper(start, n, ans):
+        if (n == 0):
             print(ans, end=" ")
             return
-        for i in range(start, 10) :
+        for i in range(start, 10):
             temp = ans + str(i)
             helper(start+1, n-1, temp)
-    helper(0, n, "")    
-    
-print(findStrictlyIncreasingNum(2))
+    helper(0, n, "")
 
+
+print(findStrictlyIncreasingNum(2))

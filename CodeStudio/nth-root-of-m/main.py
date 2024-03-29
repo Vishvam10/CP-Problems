@@ -1,13 +1,13 @@
 def NthRoot(n: int, m: int) -> int:
     low, high = 0, m
-    while(low <= high) :
+    while (low <= high):
         mid = low + (high - low) // 2
         val = mid ** n
-        if(val == m) :
+        if (val == m):
             return mid
-        if(val > m) :
+        if (val > m):
             high = mid - 1
-        else :
+        else:
             low = mid + 1
-    
+
     return -1

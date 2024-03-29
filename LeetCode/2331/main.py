@@ -8,22 +8,23 @@ TAGS : tree, binary search, dfs
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
 class Solution:
     def evaluateTree(self, root: Optional[TreeNode]) -> bool:
-        def helper(node) :
-            if(node.left is None and node.right is None) :
-                if(node.val == 1) :
+        def helper(node):
+            if (node.left is None and node.right is None):
+                if (node.val == 1):
                     return True
-                else :
+                else:
                     return False
-            
+
             left = helper(node.left)
             right = helper(node.right)
-            
-            if(node.val == 2) :
+
+            if (node.val == 2):
                 return left or right
-            if(node.val == 3) :
+            if (node.val == 3):
                 return left and right
-        
+
         return helper(root)
-        

@@ -2,6 +2,8 @@ def pretty_args(args):
     """pretty prints the arguments in a string
     """
     return ", ".join([repr(arg) for arg in args])
+
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -9,6 +11,8 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
+
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
     args_str = pretty_args(args)
@@ -21,6 +25,8 @@ def pretty_func(fn, args, kwargs):
         return f"{fn.__name__}({args_str, kwargs_str})"
     return f"{fn.__name__}({args_str or kwargs_str})"
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -64,41 +70,43 @@ def recviz(fn):
 
     return wrapper
 
+
 class Solution:
     def subsets(self, arr: List[int]) -> List[List[int]]:
         # @recviz
-        def generate(arr, start, n, pref, acc) :
-            if(len(pref) == n) :
+        def generate(arr, start, n, pref, acc):
+            if (len(pref) == n):
                 acc.append(pref)
                 return
-            
-            for i in range(start, len(arr)) :
+
+            for i in range(start, len(arr)):
                 temp = pref + [arr[i]]
                 generate(arr, i+1, n, temp, acc)
-            
+
             return acc
-        
+
         ans = [[]]
-        for i in range(1, len(arr)+1) :
+        for i in range(1, len(arr)+1):
             ss = generate(arr, 0, i, [], [])
             ans.extend(ss)
-        
+
         return ans
-    
+
 # Using bit manipulation
+
 
 class Solution:
     def subsets(self, arr: List[int]) -> List[List[int]]:
         n = len(arr)
         p = 1 << n      # cardinality of power set : 2**n
         ans = []
-        
-        for i in range(p) :
+
+        for i in range(p):
             subset = []
-            for j in range(n) :
+            for j in range(n):
                 # If the jth bit of i is set, then include
-                if((i >> j) & 1) :
+                if ((i >> j) & 1):
                     subset.append(arr[j])
             ans.append(subset)
-        
+
         return ans

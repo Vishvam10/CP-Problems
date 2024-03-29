@@ -3,6 +3,7 @@ def pretty_args(args):
     """
     return ", ".join([repr(arg) for arg in args])
 
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -10,6 +11,7 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
 
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
@@ -24,6 +26,8 @@ def pretty_func(fn, args, kwargs):
     return f"{fn.__name__}({args_str or kwargs_str})"
 
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -67,7 +71,8 @@ def recviz(fn):
 
     return wrapper
 
-def fn(arr, n) :
+
+def fn(arr, n):
     ans = []
     '''
     [a, b] => a, b, aa, ab, ba, bb
@@ -77,38 +82,37 @@ def fn(arr, n) :
     #     print('pre, ans : ', pre, ans)
     #     if(n == msize) :
     #         return
-        
+
     #     for ele in arr :
     #         temp = pre + ele
     #         ans.append(temp)
     #         helper(arr, n+1, msize, temp, ans)
-        
+
     #     return ans
-    
+
     # return helper(arr, 0, n, "", [])
-    
+
     # IN A DECREMENTAL FASHION
-    
+
     # @recviz
-    def generate(arr, level, pre, acc) :
-        if(level == 0) :
+    def generate(arr, level, pre, acc):
+        if (level == 0):
             return
-        
-        for ele in arr :
+
+        for ele in arr:
             temp = pre + ele
             acc.append(temp)
             generate(arr, level-1, temp, acc)
-        
+
         return acc
-        
+
     # Generate for all sizes
-    for i in range(1, n+1) :
+    for i in range(1, n+1):
         temp = generate(arr, i, "", [])
         ans.append(temp)
-    
+
     return ans
-        
-            
+
+
 arr = ['a', 'b', 'c']
 print('ans : ', fn(arr, len(arr)))
-

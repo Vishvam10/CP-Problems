@@ -3,6 +3,7 @@ def pretty_args(args):
     """
     return ", ".join([repr(arg) for arg in args])
 
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -10,6 +11,7 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
 
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
@@ -24,6 +26,8 @@ def pretty_func(fn, args, kwargs):
     return f"{fn.__name__}({args_str or kwargs_str})"
 
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -67,33 +71,21 @@ def recviz(fn):
 
     return wrapper
 
+
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        
+
         # @recviz
-        def helper(s, op, cl, msize, acc) :
-            if(len(s) == 2*msize) :
+        def helper(s, op, cl, msize, acc):
+            if (len(s) == 2*msize):
                 acc.append(s)
                 return
-            if(op < msize) :
+            if (op < msize):
                 helper(s+'(', op+1, cl, msize, acc)
-            if(cl < op) :
+            if (cl < op):
                 helper(s+')', op, cl+1, msize, acc)
 
             return acc
-            
+
         ans = helper('', 0, 0, n, [])
         return ans
-
-
-
-
-
-
-
-
-
-
-
-
-

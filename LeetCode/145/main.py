@@ -6,8 +6,8 @@
 #         self.right = right
 class Solution:
     def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        def dfs(root, ans) :
-            if(root) :
+        def dfs(root, ans):
+            if (root):
                 dfs(root.left, ans)
                 dfs(root.right, ans)
                 ans.append(root.val)

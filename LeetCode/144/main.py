@@ -22,6 +22,3 @@ class Solution:
                 stack.append(node.right)
                 stack.append(node.left)
         return res
-        
-        
-        

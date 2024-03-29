@@ -12,9 +12,10 @@ from os import *
 
 '''
 
+
 def findMiddle(head):
     slow = fast = head
-    while(fast and fast.next) :
+    while (fast and fast.next):
         slow = slow.next
         fast = fast.next.next
     return slow

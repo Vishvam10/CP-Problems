@@ -4,9 +4,9 @@ class Solution:
         # Overwrite using 2 pointers
         n = len(arr)
         ptr = 0
-        for i in range(1, n, 1) : 
+        for i in range(1, n, 1):
             # print('arr, ptr, i : ', arr, ptr, i)
-            if(arr[i] != arr[ptr]) :
+            if (arr[i] != arr[ptr]):
                 ptr += 1
                 # print('overwrite : ', i, ptr)
                 arr[ptr] = arr[i]
@@ -30,13 +30,13 @@ class Solution:
         #                 ptr += 1
         #             else :
         #                 break
-                
+
         # for i in range(1, n, 1) :
         #     if(arr[i] == marker) :
         #         for j in range(i, n, 1) :
         #             if(arr[j] != marker) :
         #                 break
- 
+
         #         arr[i], arr[j] = arr[j], arr[i]
 
         # for i in range(n) :
@@ -44,6 +44,5 @@ class Solution:
         #         k += 1
         #     else :
         #         break
-    
-      
+
         # return k

@@ -6,31 +6,30 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
 class Solution {
 public:
+  void invert(TreeNode *node) {
 
-    void invert(TreeNode* node) {
-
-        if(node == nullptr) {
-            return;
-        }
-
-        invert(node->left);
-        invert(node->right);
-
-        TreeNode* temp = node->left;
-        node->left = node->right;
-        node->right = temp;
-
-        return;
-
+    if (node == nullptr) {
+      return;
     }
 
-    TreeNode* invertTree(TreeNode* root) {
-        invert(root);
-        return root;
-    }
+    invert(node->left);
+    invert(node->right);
+
+    TreeNode *temp = node->left;
+    node->left = node->right;
+    node->right = temp;
+
+    return;
+  }
+
+  TreeNode *invertTree(TreeNode *root) {
+    invert(root);
+    return root;
+  }
 };

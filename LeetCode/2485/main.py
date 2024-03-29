@@ -2,10 +2,12 @@
 DIFFICULTY : easy
 TAGS : math, prefix sum
 """
+
+
 class Solution:
     def pivotInteger(self, n: int) -> int:
         s = (n * (n+1)) // 2
-        low = 1;  
+        low = 1
         high = n
         while low <= high:
             mid = (low + high) // 2
@@ -18,7 +20,3 @@ class Solution:
             else:
                 high = mid - 1
         return -1
-        
-            
-            
-            

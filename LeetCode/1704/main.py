@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : string, counting
 """
+
+
 class Solution:
     def halvesAreAlike(self, s: str) -> bool:
         vowels = set("aeiouAEIOU")
@@ -12,4 +14,4 @@ class Solution:
             b += s[j] in vowels
             i += 1
             j -= 1
-        return a == b        
+        return a == b

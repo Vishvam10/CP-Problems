@@ -2,7 +2,9 @@
 DIFFICULTY : medium
 TAGS : array, sorting
 """
-class Solution:        
+
+
+class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
         ans = []
         for i in range(len(l)):

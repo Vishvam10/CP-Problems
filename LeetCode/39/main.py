@@ -2,6 +2,8 @@ def pretty_args(args):
     """pretty prints the arguments in a string
     """
     return ", ".join([repr(arg) for arg in args])
+
+
 def pretty_kwargs(kwargs):
     """pretty prints the keyword arguments in a string
     """
@@ -9,6 +11,8 @@ def pretty_kwargs(kwargs):
         f"{key}={repr(value)}"
         for key, value in kwargs.items()
     ])
+
+
 def pretty_func(fn, args, kwargs):
     # Pretty print args in a string
     args_str = pretty_args(args)
@@ -21,6 +25,8 @@ def pretty_func(fn, args, kwargs):
         return f"{fn.__name__}({args_str, kwargs_str})"
     return f"{fn.__name__}({args_str or kwargs_str})"
 # Use as a decorator
+
+
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
        args, kwargs, and return values.
@@ -64,24 +70,25 @@ def recviz(fn):
 
     return wrapper
 
+
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        
+
         # @recviz
         # def helper(arr, s, target, pref, acc) :
         #     if(s == target) :
         #         acc.append(pref)
         #         return
-            
+
         #     if(s > target) :
         #         return
 
         #     for x in arr :
         #         temp = pref + [x]
         #         helper(arr, s+x, target, temp, acc)
-             
+
         #     return acc
-        
+
         # ans = helper(candidates, 0, target, [], [])
         # # Deduplication
         # ans = list(set(tuple(sorted(sub)) for sub in ans))
@@ -90,18 +97,18 @@ class Solution:
         # BETTER VERSION
 
         # @recviz
-        def helper(arr, target, pref, acc) :
-            if(target < 0) :
+        def helper(arr, target, pref, acc):
+            if (target < 0):
                 return
-            if(target == 0) :
+            if (target == 0):
                 acc.append(pref)
                 return
 
-            for i in range(len(arr)) :
+            for i in range(len(arr)):
                 temp = pref + [arr[i]]
                 helper(arr[i:], target-arr[i], temp, acc)
 
             return acc
 
         ans = helper(candidates, target, [], [])
-        return ans 
+        return ans

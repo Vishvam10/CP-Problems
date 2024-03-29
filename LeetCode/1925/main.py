@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : math, enumeration
 """
+
+
 class Solution:
     def countTriples(self, n: int) -> int:
         count = 0
@@ -10,6 +12,5 @@ class Solution:
                 sq = a*a + b*b
                 c = int(sq ** 0.5)
                 if (c*c == sq and c <= n):
-                    count +=2
+                    count += 2
         return count
-                 

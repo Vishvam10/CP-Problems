@@ -6,4 +6,3 @@ class Solution:
         for b in B:
             y ^= b
         return (len(A) % 2 * y) ^ (len(B) % 2 * x)
-        

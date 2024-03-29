@@ -9,15 +9,16 @@ class Node:
         
 '''
 
+
 def reverseDLL(head):
     cur = head
     prev = None
-    while(cur) :
+    while (cur):
         nxt = cur.next
         cur.next = prev
         cur.prev = nxt
-        
+
         prev = cur
         cur = nxt
-    
+
     return prev

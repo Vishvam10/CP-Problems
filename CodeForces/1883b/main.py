@@ -1,11 +1,16 @@
 def inp():
-    return(int(input()))
-def inlt():
-    return(list(map(int,input().split())))
-def insr():
-    return(input().strip())
+    return (int(input()))
 
-def solve() :
+
+def inlt():
+    return (list(map(int, input().split())))
+
+
+def insr():
+    return (input().strip())
+
+
+def solve():
     n, k = inlt()
     s = insr()
     odd = 0

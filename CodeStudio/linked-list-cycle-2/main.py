@@ -8,14 +8,15 @@ class Node:
         
 '''
 
+
 def firstNode(head):
     slow = fast = temp = head
-    while(fast and fast.next) :
+    while (fast and fast.next):
         slow = slow.next
         fast = fast.next.next
-        if(slow == fast) :
-            while(slow != temp) :
+        if (slow == fast):
+            while (slow != temp):
                 temp = temp.next
                 slow = slow.next
             return slow
-    return None 
+    return None

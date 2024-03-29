@@ -1,4 +1,6 @@
 import copy
+
+
 class Solution:
     def rotate(self, arr: List[int], k: int) -> None:
         """
@@ -7,6 +9,6 @@ class Solution:
         n = len(arr)
         k %= n
         cpy = copy.deepcopy(arr)
-        for i in range(n) :
-            arr[(i+k)%n] = cpy[i]
+        for i in range(n):
+            arr[(i+k) % n] = cpy[i]
         return arr

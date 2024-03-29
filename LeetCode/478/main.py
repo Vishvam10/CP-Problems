@@ -4,8 +4,10 @@ TAGS : math, geometry, rejection sampling, randomized
 """
 import random
 import math
+
+
 class Solution:
-    
+
     def __init__(self, radius, x_center, y_center):
         self.r, self.x, self.y = radius, x_center, y_center
 
@@ -16,7 +18,6 @@ class Solution:
             temp = 2 - temp
         R = self.r * temp
         return [self.x + R*cos(theta), self.y + R*sin(theta)]
-        
 
 
 # Your Solution object will be instantiated and called as such:

@@ -10,21 +10,22 @@
 
 '''
 
+
 def lowerBound(arr: [int], n: int, x: int) -> int:
-        
+
     left = 0
     right = n-1
     ans = 0
 
-    while(left <= right) :
+    while (left <= right):
         mid = left + (right - left) // 2
-        
-        if(arr[mid] == x) :
+
+        if (arr[mid] == x):
             ans = mid
             right = mid - 1
-        elif(arr[mid] < x) :
+        elif (arr[mid] < x):
             left = mid + 1
-        else :
+        else:
             ans = mid
             right = mid - 1
 

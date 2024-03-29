@@ -1,9 +1,9 @@
 class Solution:
-     # Find the A: max subarray sum and B: min subarray sum. The ans
+    # Find the A: max subarray sum and B: min subarray sum. The ans
     # is the max(A, total_sum - B)
-    
+
     # See this: https://assets.leetcode.com/users/motorix/image_1538888300.png
-    
+
     # NOTE : A smaller min subarray can not form because the max
     #        subarray would gobble the extra elements anyway
     def maxSubarraySumCircular(self, arr: List[int]) -> int:

@@ -8,6 +8,8 @@ TAGS : array, tree, bst, divide and conquer, binary tree
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
+
 class Solution:
     def helper(self, arr, left, right):
         mid = left + (right - left) // 2
@@ -20,5 +22,3 @@ class Solution:
 
     def sortedArrayToBST(self, arr: List[int]) -> Optional[TreeNode]:
         return self.helper(arr, 0, len(arr)-1)
-        
-        

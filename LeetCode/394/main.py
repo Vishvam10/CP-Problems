@@ -7,20 +7,18 @@ class Solution:
         st = []
         st.append(["", 1])
         num = ""
-        for ch in s :
-            if(ch.isdigit()) :
+        for ch in s:
+            if (ch.isdigit()):
                 num += ch
-            elif(ch == "[") :
+            elif (ch == "["):
                 st.append(["", int(num)])
                 num = ""
-            elif(ch == "]") :
+            elif (ch == "]"):
                 string, n = st.pop()
                 c = string*n
                 # CONCATENATING THE RESULTING STRING INTO THE LAST ELEMENT
                 # OF THE STACK ===> CRUX OF THE PROBLEM
                 st[-1][0] += c
-            else :
+            else:
                 st[-1][0] += ch
         return st[0][0]
-                
-                

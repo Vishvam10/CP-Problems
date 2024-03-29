@@ -19,4 +19,3 @@ class Solution:
                 c += min(sm[i], gm[i])
 
         return "{}A{}B".format(b, c)
-                

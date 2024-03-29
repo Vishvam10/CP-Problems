@@ -3,8 +3,8 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        n = len(arr) 
-        ind = -1 # break point
+        n = len(arr)
+        ind = -1  # break point
 
         for i in range(n-2, -1, -1):
             if arr[i] < arr[i + 1]:

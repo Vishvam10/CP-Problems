@@ -2,6 +2,8 @@
 DIFFICULTY : medium
 TAGS : array, math, prefix sum
 """
+
+
 class Solution:
     # nums[i] = a + b
     # a = nums[i]*i - (nums[0] + nums[1] + ... + nums[i-1])
@@ -13,16 +15,15 @@ class Solution:
         suf = [None]*n
         ans = [None]*n
         s = 0
-        for i in range(n) :
+        for i in range(n):
             s += arr[i]
             pre.append(s)
         s = 0
-        for i in range(n-1, -1, -1) :
+        for i in range(n-1, -1, -1):
             s += arr[i]
             suf[i] = s
-            
-        for i in range(n) :
+
+        for i in range(n):
             ans[i] = (arr[i]*i - pre[i]) + (suf[i] - arr[i]*(n-i-1))
-        
+
         return ans
-            

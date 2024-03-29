@@ -1,9 +1,9 @@
 class LFUCache:
 
     def __init__(self, capacity: int):
-        self.mp = {}  
-        self.counts = defaultdict(list) 
-        self.cap = capacity 
+        self.mp = {}
+        self.counts = defaultdict(list)
+        self.cap = capacity
 
     def get(self, key: int) -> int:
         if key in self.mp:
@@ -39,8 +39,6 @@ class LFUCache:
 
             self.mp[key] = (value, 1)
             self.counts[1].append(key)
-
-        
 
 
 # Your LFUCache object will be instantiated and called as such:

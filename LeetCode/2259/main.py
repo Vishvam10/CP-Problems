@@ -6,5 +6,3 @@ class Solution:
                 ans.append("".join(number[:i]+number[i+1:]))
         ans.sort()
         return ans[len(ans) - 1]
-                
-        

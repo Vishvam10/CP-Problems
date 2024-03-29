@@ -2,11 +2,13 @@ import os
 import argparse
 from git import Repo
 
+
 def extract_file_name(file):
     filename = file.split("/")[1]
     if (filename.startswith("_")):
         filename = filename[1:]
     return filename
+
 
 def ignore_git_errors(func):
 
@@ -18,6 +20,7 @@ def ignore_git_errors(func):
             # print(f'[WARNING] : {func.__name__}, {e}')
 
     return wrapper
+
 
 class GitHelper:
 
@@ -127,6 +130,7 @@ class GitHelper:
             self.commit_message = self.commit_message[:-1]
         return self.commit_message
 
+
 class CLI:
     def __init__(self):
         self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
@@ -141,6 +145,7 @@ class CLI:
 
     def get_args(self):
         return self.parser.parse_args()
+
 
 if __name__ == "__main__":
 

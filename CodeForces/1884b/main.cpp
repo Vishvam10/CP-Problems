@@ -6,47 +6,43 @@ using namespace std;
 typedef long long ll;
 typedef long double ld;
 
-
 void solve() {
-    ll n;
-    string arr;
-    cin >> n >> arr;
+  ll n;
+  string arr;
+  cin >> n >> arr;
 
-    set<ll> mp;
+  set<ll> mp;
 
-    for(ll i = n - 1; i >= 0; i--) {
-        if(arr[i] == '0') {
-            mp.insert(-i);
-        }
+  for (ll i = n - 1; i >= 0; i--) {
+    if (arr[i] == '0') {
+      mp.insert(-i);
     }
+  }
 
-    ll ans = 0;
+  ll ans = 0;
 
-    for(ll i = n - 1; i >= 0; i--) {
-        if(mp.size() == 0) {
-            cout << "-1 ";
-        } else {
-            ll ind = *mp.begin();
-            ans += (i + ind);
-            mp.erase(ind);
-            cout << ans << " ";
-        }
+  for (ll i = n - 1; i >= 0; i--) {
+    if (mp.size() == 0) {
+      cout << "-1 ";
+    } else {
+      ll ind = *mp.begin();
+      ans += (i + ind);
+      mp.erase(ind);
+      cout << ans << " ";
     }
+  }
 
-    cout << "\n";
-
+  cout << "\n";
 }
 
-int main() 
-{
+int main() {
 
-    int t;
-    cin >> t;
+  int t;
+  cin >> t;
 
-    while(t--) {
-        solve();
-    }
-    
+  while (t--) {
+    solve();
+  }
 
-    return 0;
+  return 0;
 }

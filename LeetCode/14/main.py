@@ -7,15 +7,11 @@ class Solution:
         m = len(check)
         c = m
 
-        for word in arr :
-            for i in range(len(check)) :
-                if(word[i] != check[i]) :
+        for word in arr:
+            for i in range(len(check)):
+                if (word[i] != check[i]):
                     c = min(c, i)
                     break
-                
+
             # print('word, c : ', word, c)
         return check[:c]
-
-
-
-

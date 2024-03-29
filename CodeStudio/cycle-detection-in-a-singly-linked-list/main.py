@@ -7,14 +7,15 @@ class Node :
         self.next = None
 '''
 
-def detectCycle(head) :
+
+def detectCycle(head):
     # Write your code here.
     slow = fast = head
-    while(fast and fast.next) :
+    while (fast and fast.next):
         slow = slow.next
         fast = fast.next.next
-        # Compares the memory address 
-        if(slow == fast) :
+        # Compares the memory address
+        if (slow == fast):
             # print('\nslow == fast : ', slow, fast)
             return True
     return False

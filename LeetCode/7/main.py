@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : math
 """
+
+
 class Solution:
     def reverse(self, x: int) -> int:
         rev = 0

@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : array, design, prefix sum
 """
+
+
 class NumArray:
 
     def __init__(self, arr):
@@ -10,9 +12,9 @@ class NumArray:
             self.pre[i] += self.pre[i-1]
 
     def sumRange(self, left, right):
-        if(left > 0) :
+        if (left > 0):
             return self.pre[right] - self.pre[left-1]
-        else :
+        else:
             return self.pre[right]
 
 

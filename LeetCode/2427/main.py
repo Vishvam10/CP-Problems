@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : math, enumeration, number theory
 """
+
+
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
         count = 0

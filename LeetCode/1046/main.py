@@ -1,6 +1,8 @@
 import heapq
+
+
 class Solution:
-    # Negative elements because it is a min-heap. 
+    # Negative elements because it is a min-heap.
     def lastStoneWeight(self, stones: List[int]) -> int:
         h = [-x for x in stones]
         heapq.heapify(h)

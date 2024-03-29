@@ -1,22 +1,22 @@
 class Solution:
-    #Function to check if two arrays are equal or not.
+    # Function to check if two arrays are equal or not.
     def check(self, a, b, n):
-        #return: True or False
+        # return: True or False
         mp = {}
-        for x in a :
-            if x in mp.keys() :
+        for x in a:
+            if x in mp.keys():
                 mp[x] += 1
-            else :
+            else:
                 mp[x] = 1
-        
-        for x in b :
-            if x not in mp.keys() :
+
+        for x in b:
+            if x not in mp.keys():
                 return False
-            else :
+            else:
                 mp[x] -= 1
-                
-        for v in mp.values() :
-            if(v < 0) :
+
+        for v in mp.values():
+            if (v < 0):
                 return False
-                
+
         return True

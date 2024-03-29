@@ -1,21 +1,22 @@
 from collections import deque
 
+
 class Solution:
     def isValid(self, s: str) -> bool:
         st = deque()
 
-        for ch in s :
-            if(ch in '([{') :
+        for ch in s:
+            if (ch in '([{'):
                 st.append(ch)
-            else :
-                if(
+            else:
+                if (
                     (len(st) > 0) and
-                    ((st[-1] == '(' and ch == ')') or \
-                    (st[-1] == '{' and ch == '}') or \
-                    (st[-1] == '[' and ch == ']'))
-                ) :
+                    ((st[-1] == '(' and ch == ')') or
+                     (st[-1] == '{' and ch == '}') or
+                     (st[-1] == '[' and ch == ']'))
+                ):
                     st.pop()
-                else :
+                else:
                     return False
 
-        return True if(len(st) == 0) else False
+        return True if (len(st) == 0) else False

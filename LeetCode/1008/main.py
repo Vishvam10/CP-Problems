@@ -10,13 +10,15 @@ TAGS : array, stack, tree, binary search tree, monotonic stack, binary tree
 #         self.left = left
 #         self.right = right
 
+
 class Solution:
     # Introduce a "bound" variable in the recursion to stop the left subtree
     # Use a global variable "i" to identify the current position
     # The right child is bigger than the parent anyway, so the bound is infinity
     # The left child is lesser than the parent, so the bound is its parent value
-    
+
     i = 0
+
     def bstFromPreorder(self, A, bound=float('inf')):
         if self.i == len(A) or A[self.i] > bound:
             return None

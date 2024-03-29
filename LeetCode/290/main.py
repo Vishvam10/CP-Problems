@@ -11,6 +11,6 @@ class Solution:
         pair_counter = Counter(zip(pattern, words))
 
         return (
-            (len(pattern_counter) == len(words_counter) == len(pair_counter)) and 
+            (len(pattern_counter) == len(words_counter) == len(pair_counter)) and
             (len(pattern) == len(words))
         )

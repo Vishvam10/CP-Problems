@@ -2,6 +2,8 @@
 DIFFICULTY : medium
 TAGS : array, math, greedy, sorting, game theory
 """
+
+
 class Solution:
     # Eg. 2, 4, 1, 2, 7, 8, 9, 1, 10, 11, 4, 5
     # 11, 10, 9, 8, 7, 5, 4, 4, -2-, -2-, -1-, -1-
@@ -16,10 +18,6 @@ class Solution:
         piles.sort()
         n = len(piles)
         ans = 0
-        for i in range(n//3, n, 2) :
+        for i in range(n//3, n, 2):
             ans += piles[i]
         return ans
-
-
-
-

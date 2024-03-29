@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : array, two pointers
 """
+
+
 class Solution:
     def duplicateZeros(self, arr: List[int]) -> None:
         """
@@ -14,4 +16,4 @@ class Solution:
                 arr.insert(i+1, 0)
                 arr.pop()
                 i += 1
-            i += 1  
+            i += 1

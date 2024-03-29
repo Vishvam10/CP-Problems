@@ -9,7 +9,7 @@ class Node:
 
 def deleteLast(head: Node) -> Node:
     temp = head
-    while(temp.next.next) :
+    while (temp.next.next):
         temp = temp.next
     temp.next = None
     return head

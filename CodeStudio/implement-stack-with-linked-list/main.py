@@ -3,15 +3,16 @@ class Node:
         self.data = data
         self.next = next_node
 
+
 class Stack:
     # Write your code here
     def __init__(self):
-    # Write your code here
+        # Write your code here
         self.st = Node(-1)
         self.prev = None
         self.cur = self.st
         self.eles = 1
-        
+
     def getSize(self):
         return self.eles
 
@@ -27,14 +28,9 @@ class Stack:
         self.eles += 1
 
     def pop(self):
-        if(self.prev) :
+        if (self.prev):
             self.prev.next = self.cur.next
             self.eles -= 1
 
-    def getTop(self): 
+    def getTop(self):
         return self.cur
-
-
-
-
-

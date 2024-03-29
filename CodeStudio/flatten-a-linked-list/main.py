@@ -11,21 +11,21 @@ class Node:
 def flattenLinkedList(head: Node) -> Node:
     arr = []
     temp = head
-    while(temp) :
+    while (temp):
         temp2 = temp
-        while(temp2) :
+        while (temp2):
             arr.append(temp2.data)
             temp2 = temp2.child
         temp = temp.next
-    
+
     arr = list(sorted(arr))
-    if(not arr) :
+    if (not arr):
         return None
-    
+
     nh = Node(arr[0])
     temp = nh
-    for x in arr[1:] :
+    for x in arr[1:]:
         nn = Node(x)
         temp.child = nn
         temp = nn
-    return nh 
+    return nh

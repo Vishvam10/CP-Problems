@@ -9,10 +9,10 @@ class Solution:
 
         temp = temp[::-1]
         ptr = 0
-        
+
         for i in range(len(s)):
-            if (s[i]=='####' and ptr < len(temp)):
+            if (s[i] == '####' and ptr < len(temp)):
                 s[i] = temp[ptr]
                 ptr += 1
-        
+
         return ''.join(s)

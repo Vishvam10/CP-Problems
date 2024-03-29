@@ -2,11 +2,13 @@
 DIFFICULTY : medium
 TAGS : array, math, stack
 """
+
+
 class Solution:
-    # IMPORTANT NOTE :  "//" is not equal to 
+    # IMPORTANT NOTE :  "//" is not equal to
     # "int(float(a)/b)" i.e. truncate to zero
-    
-    # We don't check for stack underflow because the 
+
+    # We don't check for stack underflow because the
     # question says that the solution always exists
     def evalRPN(self, tokens: List[str]) -> int:
         stack = []

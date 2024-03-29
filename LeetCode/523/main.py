@@ -2,6 +2,8 @@
 DIFFICULTY : medium
 TAGS : array, hash table, math, prefix sum
 """
+
+
 class Solution:
     def checkSubarraySum(self, nums: List[int], k: int) -> bool:
         # initialize the hash map with index 0 for sum 0

@@ -1,14 +1,13 @@
 
 
+def sum_of_all_subarrays(arr, n, size):
 
-def sum_of_all_subarrays(arr, n, size) :
-
-    ans = []    
+    ans = []
     s = sum(arr[:k])
 
     ans.append(s)
 
-    for i in range(k, n) :
+    for i in range(k, n):
 
         # arr[end] - arr[start]
         s += (arr[i] - arr[i-k])

@@ -4,7 +4,7 @@ import shutil
 import argparse
 
 current_dir = os.getcwd()
-root_dir =  os.path.dirname(current_dir)
+root_dir = os.path.dirname(current_dir)
 templates_dir = os.path.join(root_dir, 'Templates')
 
 PYTHON_TEMPLATE_PATH = os.path.join(templates_dir, 'python.py')
@@ -15,6 +15,7 @@ ALLOWED = {'cf': 'CodeForces', 'cs': 'CodeStudio',
 
 ALLOWED_EXT = ['py', 'cpp', 'java']
 
+
 def copy_file(src, dest):
     try:
         shutil.copy(src, dest)
@@ -22,6 +23,7 @@ def copy_file(src, dest):
     except Exception as e:
         print(f'An error occurred: {e}')
     return
+
 
 def create_template(cstr):
     platform, problem, language = cstr.split('/')
@@ -40,7 +42,8 @@ def create_template(cstr):
             print(f'Error while creating file : {e}')
     else:
         print(f'Folder already exists : ', fpath)
-        files = [f for f in os.listdir(fpath) if os.path.isfile(os.path.join(fpath, f))]
+        files = [f for f in os.listdir(
+            fpath) if os.path.isfile(os.path.join(fpath, f))]
 
         if (fname in files):
             return
@@ -50,10 +53,10 @@ def create_template(cstr):
     elif (language == "cpp"):
         create_template_cpp(file_path)
 
-
     os.system(f'code {file_path}')
 
     return
+
 
 def create_template_py(output):
     try:
@@ -63,6 +66,7 @@ def create_template_py(output):
 
     return
 
+
 def create_template_cpp(output):
     try:
         copy_file(CPP_TEMPLATE_PATH, output)
@@ -70,6 +74,7 @@ def create_template_cpp(output):
         print('Error occurred while copying : ', e)
 
     return
+
 
 def is_valid_cstr(cstr):
 
@@ -86,6 +91,7 @@ def is_valid_cstr(cstr):
 
     return True
 
+
 def main():
 
     parser = argparse.ArgumentParser(
@@ -99,6 +105,7 @@ def main():
         create_template(args.cstr.strip())
     else:
         return
+
 
 if __name__ == '__main__':
 

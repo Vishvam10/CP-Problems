@@ -7,4 +7,4 @@ class Solution:
             if k not in mg or mg[k] < v:
                 return False
 
-        return True        
+        return True

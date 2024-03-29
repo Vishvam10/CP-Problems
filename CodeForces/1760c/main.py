@@ -1,28 +1,31 @@
 def inp():
-    return(int(input()))
+    return (int(input()))
+
 
 def inlt():
-    return(list(map(int,input().split())))
+    return (list(map(int, input().split())))
+
 
 def insr():
-    return(input().strip())
+    return (input().strip())
 
-def solve() :
+
+def solve():
     n = inp()
     arr = inlt()
     smax_ = float("-inf")
     max_ = min(arr)
- 
+
     for i in range(n):
-        if(arr[i] > max_):
+        if (arr[i] > max_):
             smax_ = max_
             max_ = arr[i]
         else:
             smax_ = max(smax_, arr[i])
-    for x in arr :
-        if(x == max_) :
+    for x in arr:
+        if (x == max_):
             print(x - smax_, end=" ")
-        else :
+        else:
             print(x - max_, end=" ")
     print()
     return
@@ -30,5 +33,5 @@ def solve() :
 
 t = inp()
 
-for _ in range(t) :
+for _ in range(t):
     solve()

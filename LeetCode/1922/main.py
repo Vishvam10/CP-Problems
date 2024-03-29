@@ -1,6 +1,6 @@
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
-        
+
         mod = 1000000007
         '''
         Even indices => Even digit (0, 2, 4, 5, 8)
@@ -14,5 +14,5 @@ class Solution:
 
         # Ideally, binary exponentiation would be preferred
         ans = (pow(5, ev, mod) * pow(4, od, mod)) % mod
-        
+
         return ans

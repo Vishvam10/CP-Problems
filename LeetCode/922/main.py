@@ -2,9 +2,11 @@
 DIFFICULTY : easy
 TAGS : array, two pointers, sorting
 """
+
+
 class Solution:
     # IDEA : For every misplaced odd element, there is a misplaced even
-    #        element since there are is just enough space for 
+    #        element since there are is just enough space for
     #        both odds and evens
 
     def sortArrayByParityII(self, arr: List[int]) -> List[int]:
@@ -17,6 +19,3 @@ class Solution:
             else:
                 arr[i], arr[j] = arr[j], arr[i]
         return arr
-                
-       
-                

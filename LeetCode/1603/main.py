@@ -2,11 +2,13 @@
 DIFFICULTY : easy
 TAGS : design, simulation, counting
 """
+
+
 class ParkingSystem:
 
     def __init__(self, a: int, b: int, c: int):
         self.data = [0, a, b, c]
-        
+
     def addCar(self, x: int) -> bool:
         if not self.data[x]:
             return False

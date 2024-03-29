@@ -1,7 +1,7 @@
 from typing import *
 
-def findXOR(l : int, r : int) -> int:
-    
+
+def findXOR(l: int, r: int) -> int:
     '''
     1         1           [0001]
     2        10           [0011]
@@ -21,17 +21,20 @@ def findXOR(l : int, r : int) -> int:
 
     '''
 
-    def xor(n) :
-        
+    def xor(n):
+
         rem = n & 3    # rem = n % 4
-        
-        if(rem == 0) : return n
-        elif(rem == 1) : return 1
-        elif(rem == 2) : return n + 1
-        else : return 0
-    
+
+        if (rem == 0):
+            return n
+        elif (rem == 1):
+            return 1
+        elif (rem == 2):
+            return n + 1
+        else:
+            return 0
+
     mask1 = xor(l-1)
     mask2 = xor(r)
     ans = mask1 ^ mask2     # Cancels 1 to (l-1)
     return ans
-

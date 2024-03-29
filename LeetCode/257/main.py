@@ -7,16 +7,16 @@
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
 
-        def helper(node, acc, res) :
-            if(node is None) :
+        def helper(node, acc, res):
+            if (node is None):
                 return res
-            
+
             # Set the state
             acc.append(str(node.val))
 
-            if(not node.left and not node.right) :
+            if (not node.left and not node.right):
                 res.append('->'.join(acc))
-            else :
+            else:
                 # Go to next state
                 helper(node.left, acc, res)
                 helper(node.right, acc, res)
@@ -25,6 +25,6 @@ class Solution:
             acc.pop()
 
             return res
-        
+
         ans = helper(root, [], [])
         return ans

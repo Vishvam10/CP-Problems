@@ -8,9 +8,10 @@ class Node:
         
 '''
 
-def length(head) :
+
+def length(head):
     n = 0
-    while(head) :
+    while (head):
         n += 1
         head = head.next
     return n

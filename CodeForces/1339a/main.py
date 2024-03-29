@@ -3,6 +3,7 @@ input = sys.stdin.readline
 
 ############# Util Functions ############
 
+
 def prime_factors(n):
     c, t = [], n
     for j in range(2, int(n**0.5)+1):
@@ -13,6 +14,7 @@ def prime_factors(n):
     if t > 1:
         c.append(t)
     return c
+
 
 def prime_sieve(n):
     num = [i for i in range(n+1)]
@@ -26,10 +28,12 @@ def prime_sieve(n):
         p += 1
     return num
 
+
 def gcd(a, b):
     if a == 0:
         return b
     return gcd(b % a, a)
+
 
 def all_factors(n):
     i = 1
@@ -42,6 +46,7 @@ def all_factors(n):
         i += 1
     return ans
 
+
 def sum_all_fac(n):
     ans = 1
     p = 2
@@ -53,6 +58,7 @@ def sum_all_fac(n):
         ans *= ((p ** cnt) - 1)//(p-1)
         p += 1
     return ans
+
 
 def number_of_divisor(n):
     ans = 1
@@ -70,24 +76,29 @@ def number_of_divisor(n):
 
 ############ Input Functions ############
 
+
 def inp():
-    return(int(input()))
+    return (int(input()))
+
 
 def inlt():
-    return(list(map(int,input().split())))
+    return (list(map(int, input().split())))
+
 
 def insr():
-    return(input().strip())
+    return (input().strip())
 
 ############# Main Function #############
 
-def fact(n) :
+
+def fact(n):
     prod = 1
-    for i in range(1, n+1) :
+    for i in range(1, n+1):
         prod *= i
     return prod
 
-def solve() :
+
+def solve():
 
     n = inp()
 
@@ -102,5 +113,5 @@ def solve() :
 
 t = inp()
 
-for _ in range(t) :
+for _ in range(t):
     solve()

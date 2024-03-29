@@ -1,28 +1,27 @@
+#include <algorithm>
 #include <iostream>
-#include <algorithm> 
 
-typedef long long ll; 
+typedef long long ll;
 typedef long double ld;
 
 void solve() {
-    ll n;
-    std::cin >> n;
-    if (n & (n - 1)) {
-        std::cout << "YES\n";
-    } else {
-        std::cout << "NO\n";
-    }
+  ll n;
+  std::cin >> n;
+  if (n & (n - 1)) {
+    std::cout << "YES\n";
+  } else {
+    std::cout << "NO\n";
+  }
 }
 
-int main() 
-{
+int main() {
 
-    int n;
-    std::cin >> n;
-    
-    for(int i = 0; i < n; i++) {
-        solve();
-    }
+  int n;
+  std::cin >> n;
 
-    return 0;
+  for (int i = 0; i < n; i++) {
+    solve();
+  }
+
+  return 0;
 }

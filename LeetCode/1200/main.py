@@ -5,11 +5,11 @@ class Solution:
 
         arr.sort()
 
-        for i in range(len(arr) - 1) :
+        for i in range(len(arr) - 1):
             min_diff = min(min_diff, abs(arr[i] - arr[i+1]))
 
-        for i in range(len(arr) - 1) :
-            if(abs(arr[i] - arr[i+1]) == min_diff) :
+        for i in range(len(arr) - 1):
+            if (abs(arr[i] - arr[i+1]) == min_diff):
                 ans.append([arr[i], arr[i+1]])
 
         return ans

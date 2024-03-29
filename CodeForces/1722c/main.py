@@ -1,13 +1,16 @@
 def inp():
-    return(int(input()))
+    return (int(input()))
+
 
 def inlt():
     return input().split()
 
-def insr():
-    return(input().strip())
 
-def solve() :
+def insr():
+    return (input().strip())
+
+
+def solve():
     n = inp()
     a1 = inlt()
     a2 = inlt()
@@ -17,34 +20,34 @@ def solve() :
     c2 = 0
     c3 = 0
 
-    for x in a1 :
-        if(x in a2) :
-            if(x not in a3) :
+    for x in a1:
+        if (x in a2):
+            if (x not in a3):
                 c1 += 1
-        elif(x in a3) :
-            if(x not in a2) :
+        elif (x in a3):
+            if (x not in a2):
                 c1 += 1
-        else :
+        else:
             c1 += 3
 
-    for x in a2 :
-        if(x in a1) :
-            if(x not in a3) :
+    for x in a2:
+        if (x in a1):
+            if (x not in a3):
                 c2 += 1
-        elif(x in a3) :
-            if(x not in a1) :
+        elif (x in a3):
+            if (x not in a1):
                 c2 += 1
-        else :
+        else:
             c2 += 3
 
-    for x in a3 :
-        if(x in a2) :
-            if(x not in a1) :
+    for x in a3:
+        if (x in a2):
+            if (x not in a1):
                 c3 += 1
-        elif(x in a1) :
-            if(x not in a2) :
+        elif (x in a1):
+            if (x not in a2):
                 c3 += 1
-        else :
+        else:
             c3 += 3
 
     print(c1, c2, c3)
@@ -52,5 +55,5 @@ def solve() :
 
 t = inp()
 
-for _ in range(t) :
+for _ in range(t):
     solve()

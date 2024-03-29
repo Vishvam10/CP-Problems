@@ -2,17 +2,19 @@
 DIFFICULTY : medium
 TAGS : math, greedy
 """
+
+
 class Solution:
-    # IDEA : Go from right (say n-1 == i), 
-    # for every iteration, increase the next (i+1 == n-2) 
+    # IDEA : Go from right (say n-1 == i),
+    # for every iteration, increase the next (i+1 == n-2)
     # digit by 1 and set everything before it to 0
 
-    # In other words, turn the rightmost non-zero digit 
+    # In other words, turn the rightmost non-zero digit
     # to zero until the digit sum is greater than target.
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
-        def ds(n) :
+        def ds(n):
             s = 0
-            while(n) :
+            while (n):
                 s += n % 10
                 n //= 10
             return s

@@ -109,15 +109,14 @@ def solve():
 
     for x in mp:
 
-
         ans[x-1] = 1
         c, s = 0, 0
-        
+
         for y in range(1, len(mp[x])):
-            
+
             s += (mp[x][y] - mp[x][y-1])
             print('s, c : ', s, c)
-            
+
             # why does this cover both left and right cases ?
             if s % 2 == 1:
                 c += 1
@@ -128,6 +127,7 @@ def solve():
     print(*ans)
 
     return
+
 
 t = inp()
 

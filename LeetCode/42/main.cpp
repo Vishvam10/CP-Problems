@@ -1,29 +1,28 @@
 class Solution {
 public:
-    int trap(vector<int>& arr) {
-        
-        int n = arr.size();
-        int ans = 0;
+  int trap(vector<int> &arr) {
 
-        int lefts[n], rights[n];
+    int n = arr.size();
+    int ans = 0;
 
-        lefts[0] = arr[0];        
-        rights[n-1] = arr[n-1];
+    int lefts[n], rights[n];
 
-        for(int i = 1; i < n; i++) {
-            lefts[i] = max(lefts[i-1], arr[i]);
-        }
+    lefts[0] = arr[0];
+    rights[n - 1] = arr[n - 1];
 
-        for(int i = n - 2; i >= 0; i--) {
-            rights[i] = max(rights[i+1], arr[i]);
-        }
-
-        for(int i = 0; i < n; i++) {
-            int height = min(lefts[i], rights[i]) - arr[i];
-            ans += height;
-        }
-
-        return ans;
-
+    for (int i = 1; i < n; i++) {
+      lefts[i] = max(lefts[i - 1], arr[i]);
     }
+
+    for (int i = n - 2; i >= 0; i--) {
+      rights[i] = max(rights[i + 1], arr[i]);
+    }
+
+    for (int i = 0; i < n; i++) {
+      int height = min(lefts[i], rights[i]) - arr[i];
+      ans += height;
+    }
+
+    return ans;
+  }
 };

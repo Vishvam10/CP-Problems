@@ -2,6 +2,8 @@
 DIFFICULTY : easy
 TAGS : array, math, greedy, sorting
 """
+
+
 class Solution:
     def largestPerimeter(self, arr: List[int]) -> int:
         # Reverse

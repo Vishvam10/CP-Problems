@@ -1,31 +1,31 @@
 class Solution:
     def searchRange(self, arr: List[int], x: int) -> List[int]:
         n = len(arr)
-        
-        def start() :
+
+        def start():
             low, high, ans = 0, n - 1, -1
-            while(low < high) :
+            while (low < high):
                 mid = low + (high - low) // 2
-                if(arr[mid] == x) :
+                if (arr[mid] == x):
                     ans = mid - 1
                     high = mid - 1
-                elif(arr[mid] < x) :
+                elif (arr[mid] < x):
                     low = mid + 1
-                else :
+                else:
                     high = mid - 1
             return ans
-        
-        def end() :
+
+        def end():
             low, high, ans = 0, n - 1, -1
-            while(low < high) :
+            while (low < high):
                 mid = low + (high - low) // 2
-                if(arr[mid] == x) :
+                if (arr[mid] == x):
                     ans = mid
                     low = mid + 1
-                elif(arr[mid] < x) :
+                elif (arr[mid] < x):
                     low = mid + 1
-                else :
+                else:
                     high = mid - 1
             return ans
-        
+
         return [start(), end()]

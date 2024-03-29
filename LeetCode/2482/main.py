@@ -2,12 +2,14 @@
 DIFFICULTY : medium
 TAGS : array, matrix, simulation
 """
+
+
 class Solution:
     def onesMinusZeros(self, grid: List[List[int]]) -> List[List[int]]:
         m, n = len(grid), len(grid[0])
-        row = [0] * m 
+        row = [0] * m
         col = [0] * n
-        
+
         for i in range(len(grid)):
             for j in range(len(grid[i])):
                 col[j] += grid[i][j]
@@ -19,5 +21,5 @@ class Solution:
                 # total number of 0s = n - total number of 1s
                 temp.append(row[i] + col[j] - (n - row[i]) - (m - col[j]))
             ans.append(temp)
-            
+
         return ans
