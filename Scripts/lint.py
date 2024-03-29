@@ -88,7 +88,7 @@ def write_processed_files_record(record_file, processed_files):
 if __name__ == '__main__':
     codebase_directory = root_dir
 
-    processed_files_record_file = './lint-cache.txt'
+    processed_files_record_file = './Scripts/lint-cache.txt'
     processed_files = read_processed_files_record(processed_files_record_file)
 
     lint_cpp_files(codebase_directory, processed_files)
