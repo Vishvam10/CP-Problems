@@ -1,92 +1,63 @@
-# CP-Problems
+# CP-Problems 🚀
 
-This repo currently has problems from `Leetcode`, `GeeksForGeeks`, `CodeForces`
-and `CodeStudio`
+Welcome to my CP-Problems repository! Here, you'll find an array of problems sourced from platforms like `Leetcode`, `GeeksForGeeks`, `CodeForces`, and `CodeStudio`. Additionally, I've included some handy scripts to streamline your coding experience, such as automatic templating and code prettifying.
 
-## Automatic Templating 
+## Handy Scripts 
 
-- Run this as a VSCode task (`Ctrl+Shift+P` > `Configure Tasks` > `Create template`)
+### Automatic Templating 📝
 
-    ```json
+To simplify your workflow, I've provided a script for automatic templating. You can create a new `Python` or `C++` file based on templated provided in `Templates` folder. You can either set it up as a VSCode task or run it standalone using Python. 
 
-    // workspaceFolder is CP-Problems
+#### Setting up as a VSCode task:
 
-    {
-        "version": "2.0.0",
-        "tasks": [
-            {
-                "label": "Create template",
-                "type": "shell",
-                "command": [
-                    "python3"
-                ],
-                "args": [
-                    "create.py",
-                    "--cstr=${input:cstr}",
-                ],
-                "group": {
-                    "kind": "build",
-                    "isDefault": true
-                },
-                "options": {
-                    "cwd": "${workspaceFolder}/Scripts"
-                },
-                "presentation": {
-                    "reveal": "silent",
-                    "revealProblems": "onProblem",
-                    "close": true
-                }
-            },
+**Setup task**
 
-        ],
-        "inputs": [
-            {
-                "type": "promptString",
-                "id": "cstr",
-                "description": "Output file"
-            }
-        ]
-    }
+1. Press `Ctrl+Shift+P`.
+2. Select `Configure Tasks`.
+3. Choose `Create template`.
+4. Copy and paste the provided JSON from `Scripts/tasks.json` into the task configuration.
 
+**Run task**
 
-    ```
+1. Press `Ctrl+Shift+P`.
+2. Type `Create template`.
+3. Pass the reqiured `cstr` (for more info, see below) without the quotes. For example : `cf/123a/cpp`, `lc/223/py`, etc.
 
+#### Running as a standalone Python script:
 
-- **OR** Run this as a standalone Python script :
+```bash
+cd Scripts
+python create.py --cstr="{platform_shortform}/{problem_number}/{language}"
+```
 
-    ```bash
-        python3 Scripts/create.py \
-        --cstr="{platform_shortform}/{problem_number}/{language}"
+For example:
 
-        For example :
+```bash
+python create.py --cstr="cf/1234a/cpp"
+```
 
-        python3 Scripts/create.py --cstr="cf/1234a/cpp"
+### Code Prettify + Caching Output 🎨
 
-    ```
+I've created a simple `prettified.py` script to not only format your `Python` and `C++` code but also intelligently caches the output. This means that if a file hasn't been modified since the last prettifying operation, it won't be reformatted unnecessarily. 
 
-## Todo
+> [!NOTE]
+> It requires `clang-format` for formatting C++ files though.
 
-- `refactor.py` :
-    - [ ] Add CLI options 
-    - [x] Selective refactor of files wrt extension (like `.py`, `.cpp`, etc.)
-    - [ ] Better CLI and prettify
+Simply run:
 
-- `get-commit-message.py` :
-    - [x] Make changes to adapt to the new refactor
-    - [x] Modify existing CLI options 
-    - [ ] Better CLI and prettify
+```bash
+cd Scripts
+python prettified.py
+```
 
-- Add semantic commit messages
+> [!NOTE]  
+> This script also functions as a `pre-commit` hook, ensuring that your code is formatted before any commits.
 
-## In Future
+## Just a Few More Ideas 💡
 
-- Linter setup for various languages
-- Write a pre-commit hook to trigger refactor, linting, etc.
-- Automatically generate `README.md` file based on a template for every problem
+Here are some future enhancements I'm considering:
 
-## Just a Few More Ideas
-
-- Create a tiny database (using SQLite) to map these problems to its name, tags, difficulty, etc
-- Create a CLI (prettified) (or a webapp maybe) for showing stats (like number of problems solved, difficulty split, etc) 
-
+- Automatically generating `README.md` files for every problem based on a template.
+- Implementing a tiny database using SQLite to map problems with details like name, tags, difficulty, etc.
+- Developing a CLI or a simple static web app for displaying stats, such as the number of problems solved, difficulty split, etc.
 
