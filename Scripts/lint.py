@@ -1,8 +1,7 @@
-import os
-import sys
-import subprocess
 import hashlib
-
+import os
+import subprocess
+import sys
 from pathlib import Path
 
 import autopep8
