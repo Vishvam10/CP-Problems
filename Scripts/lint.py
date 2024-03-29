@@ -14,12 +14,14 @@ templates_dir = os.path.join(root_dir, 'Templates')
 ALLOWED_DIRS = ['CodeForces', 'CodeStudio', 'LeetCode',
                 'GeeksForGeeks', 'Scripts', 'Templates']
 
+
 def hash_file(file_path):
     hasher = hashlib.sha256()
     with open(file_path, 'rb') as f:
         while chunk := f.read(4096):
             hasher.update(chunk)
     return hasher.hexdigest()
+
 
 def lint_cpp_files(directory, processed_files):
 
@@ -91,6 +93,6 @@ if __name__ == '__main__':
     processed_files = read_processed_files_record(processed_files_record_file)
 
     lint_cpp_files(codebase_directory, processed_files)
-    # lint_python_files(codebase_directory, processed_files)
+    lint_python_files(codebase_directory, processed_files)
 
     write_processed_files_record(processed_files_record_file, processed_files)
