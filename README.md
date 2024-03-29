@@ -1,6 +1,6 @@
 # CP-Problems 🚀
 
-Welcome to my CP-Problems repository! Here, you'll find an array of problems sourced from platforms like `Leetcode`, `GeeksForGeeks`, `CodeForces`, and `CodeStudio`. Additionally, I've included some handy scripts to streamline your coding experience, such as automatic templating and code prettifying.
+Here, you'll find an array of problems sourced from platforms like `Leetcode`, `GeeksForGeeks`, `CodeForces`, and `CodeStudio`. Additionally, I've included some handy scripts to streamline your coding experience, such as automatic templating and code prettifying.
 
 ## Handy Scripts 
 
