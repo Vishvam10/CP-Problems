@@ -6,8 +6,10 @@ from pathlib import Path
 
 import autopep8
 
-current_dir = os.getcwd()
-root_dir = os.path.dirname(current_dir)
+# we go the abs way because this script can also be run as git-hook
+# so the current for that changes and we don't want that
+current_dir = os.path.abspath('.')
+root_dir = os.path.abspath(os.path.join(current_dir, '..'))
 
 ALLOWED_DIRS = ['CodeForces', 'CodeStudio', 'LeetCode',
                 'GeeksForGeeks', 'Scripts', 'Templates']
@@ -85,6 +87,10 @@ def write_processed_files_record(record_file, processed_files):
 
 
 if __name__ == '__main__':
+
+    print('current dir : ', current_dir)
+    print('root dir : ', root_dir)
+
     codebase_directory = root_dir
 
     processed_files_record_file = './prettify-cache.txt'
