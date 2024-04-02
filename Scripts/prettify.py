@@ -8,7 +8,6 @@ import autopep8
 
 current_dir = os.getcwd()
 root_dir = os.path.dirname(current_dir)
-templates_dir = os.path.join(root_dir, 'Templates')
 
 ALLOWED_DIRS = ['CodeForces', 'CodeStudio', 'LeetCode',
                 'GeeksForGeeks', 'Scripts', 'Templates']
@@ -88,7 +87,7 @@ def write_processed_files_record(record_file, processed_files):
 if __name__ == '__main__':
     codebase_directory = root_dir
 
-    processed_files_record_file = './Scripts/prettify-cache.txt'
+    processed_files_record_file = './prettify-cache.txt'
     processed_files = read_processed_files_record(processed_files_record_file)
 
     prettify_cpp_files(codebase_directory, processed_files)

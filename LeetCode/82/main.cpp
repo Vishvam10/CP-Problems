@@ -10,24 +10,23 @@
  */
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        
-        ListNode* dummy = new ListNode(-1, head);
-        ListNode* pre = dummy;
+  ListNode *deleteDuplicates(ListNode *head) {
 
-        while(head != NULL) {
-            if(head->next != NULL && head->val == head->next->val) {
-                while(head->next != NULL && head->val == head->next->val) {
-                    head = head->next;
-                }
-                pre->next = head->next;
-            } else {
-                pre = pre->next;
-            }
-            head = head->next;
+    ListNode *dummy = new ListNode(-1, head);
+    ListNode *pre = dummy;
+
+    while (head != NULL) {
+      if (head->next != NULL && head->val == head->next->val) {
+        while (head->next != NULL && head->val == head->next->val) {
+          head = head->next;
         }
-
-        return dummy->next;
-
+        pre->next = head->next;
+      } else {
+        pre = pre->next;
+      }
+      head = head->next;
     }
+
+    return dummy->next;
+  }
 };
