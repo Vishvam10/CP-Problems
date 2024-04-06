@@ -12,26 +12,23 @@
  */
 class Solution {
 public:
-  int solve(TreeNode *node, int ans) {
+  int ans = 0;
 
+  int solve(TreeNode *node) {
     if (node == NULL) {
       return 0;
     }
 
-    ans = ans * 2 + node->val;
+    int left = solve(node->left);
+    int right = solve(node->right);
 
-    if (node->left == NULL && node->right == NULL) {
-      return ans;
-    }
+    ans += abs(left - right);
 
-    int left = solve(node->left, ans);
-    int right = solve(node->right, ans);
-
-    return left + right;
+    return node->val + left + right;
   }
 
-  int sumRootToLeaf(TreeNode *root) {
-    int ans = solve(root, 0);
+  int findTilt(TreeNode *root) {
+    solve(root);
     return ans;
   }
 };

@@ -1,28 +1,27 @@
 class Solution {
 public:
-    string makeGood(string s) {
-        
-        int n = s.length();
-        string ans;
-        stack<char> st;
+  string makeGood(string s) {
 
-        for(int i = 0; i < n; i++) {
-            char t = st.top();
+    int n = s.length();
+    string ans;
+    stack<char> st;
 
-            // same letter, lower and upper case
-            if(!st.empty() && abs(t - s[i]) == 32) {
-                st.pop();
-            } else {
-                st.push(s[i]);
-            }
-        }
+    for (int i = 0; i < n; i++) {
+      char t = st.top();
 
-        while(!st.empty()) {
-            ans = st.top() + ans;
-            st.pop();
-        }
-
-        return ans;
-
+      // same letter, lower and upper case
+      if (!st.empty() && abs(t - s[i]) == 32) {
+        st.pop();
+      } else {
+        st.push(s[i]);
+      }
     }
+
+    while (!st.empty()) {
+      ans = st.top() + ans;
+      st.pop();
+    }
+
+    return ans;
+  }
 };

@@ -12,26 +12,24 @@
  */
 class Solution {
 public:
-  int solve(TreeNode *node, int ans) {
+  int val;
+  int ans = true;
 
+  void solve(TreeNode *node) {
     if (node == NULL) {
-      return 0;
+      return;
     }
-
-    ans = ans * 2 + node->val;
-
-    if (node->left == NULL && node->right == NULL) {
-      return ans;
+    if (node->val != val) {
+      ans = false;
     }
-
-    int left = solve(node->left, ans);
-    int right = solve(node->right, ans);
-
-    return left + right;
+    solve(node->left);
+    solve(node->right);
+    return;
   }
 
-  int sumRootToLeaf(TreeNode *root) {
-    int ans = solve(root, 0);
+  bool isUnivalTree(TreeNode *root) {
+    val = root->val;
+    solve(root);
     return ans;
   }
 };
