@@ -6,10 +6,10 @@ repos:
         exclude: ^(pre_commit/resources/|testing/resources/python3_hooks_repo/)
         args: [--py39-plus]
 
-  - repo: local
-    hooks:
-      - id: run-prettify
-        name: Run prettify.py
-        entry: python ./Scripts/prettify.py
-        language: system
-        types: [python]
+  # - repo: local
+  #   hooks:
+  #     - id: run-prettify
+  #       name: Run prettify.py
+  #       entry: python ./Scripts/prettify.py
+  #       language: system
+  #       types: [python]
