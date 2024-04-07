@@ -1,18 +1,17 @@
 class Solution {
 public:
-    int hIndex(vector<int>& arr) {
-       
-        int n = arr.size();
-        int ans = 0;
+  int hIndex(vector<int> &arr) {
 
-        sort(arr.begin(), arr.end());
+    int n = arr.size();
+    int ans = 0;
 
-        for(int i = 0; i < n; i++) {
-            int key = min(arr[i], n - i);
-            ans = max(ans, key);
-        }
+    sort(arr.begin(), arr.end());
 
-        return ans;
-
+    for (int i = 0; i < n; i++) {
+      int key = min(arr[i], n - i);
+      ans = max(ans, key);
     }
+
+    return ans;
+  }
 };

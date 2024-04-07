@@ -6,39 +6,38 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
 class Solution {
 public:
-    int deepestLeavesSum(TreeNode* root) {
+  int deepestLeavesSum(TreeNode *root) {
 
-        queue<TreeNode*> q;
-        q.push(root);
+    queue<TreeNode *> q;
+    q.push(root);
 
-        int ans;
+    int ans;
 
-        while(!q.empty()) {
+    while (!q.empty()) {
 
-            int sz = q.size();
-            ans = 0;
-            
-            for(int i = 0 ; i < sz ; i ++) {
-                TreeNode* node = q.front();
-                q.pop();
-                ans += node -> val;
+      int sz = q.size();
+      ans = 0;
 
-                if(node->left != nullptr)
-                {
-                    q.push(node->left);
-                }
-                if(node->right != nullptr)
-                {
-                    q.push(node->right);
-                }
-            }
+      for (int i = 0; i < sz; i++) {
+        TreeNode *node = q.front();
+        q.pop();
+        ans += node->val;
+
+        if (node->left != nullptr) {
+          q.push(node->left);
         }
-
-        return ans;
+        if (node->right != nullptr) {
+          q.push(node->right);
+        }
+      }
     }
+
+    return ans;
+  }
 };
