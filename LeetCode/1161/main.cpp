@@ -6,53 +6,50 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
+ * right(right) {}
  * };
  */
 class Solution {
 public:
-    int maxLevelSum(TreeNode* root) {
+  int maxLevelSum(TreeNode *root) {
 
-        int mx = INT_MIN;
-        int level = 0;
-        int ans = 0;
-        
-        queue<TreeNode*> q;
-        q.push(root);
+    int mx = INT_MIN;
+    int level = 0;
+    int ans = 0;
 
-        while(!q.empty()) {
+    queue<TreeNode *> q;
+    q.push(root);
 
-            int sz = q.size();
-            int s = 0;
-            
-            level++;
+    while (!q.empty()) {
 
-            for(int i = 0; i < sz; i++) {
+      int sz = q.size();
+      int s = 0;
 
-                TreeNode* node = q.front();
-                q.pop();
+      level++;
 
-                s += node->val;
+      for (int i = 0; i < sz; i++) {
 
-                if(node->left) {
-                    q.push(node->left);
-                }
+        TreeNode *node = q.front();
+        q.pop();
 
-                if(node->right) {
-                    q.push(node->right);
-                }
+        s += node->val;
 
-            }
-
-            if(s > mx) {
-                ans = level;
-                mx = s;
-            }
-
+        if (node->left) {
+          q.push(node->left);
         }
 
-        return ans;
+        if (node->right) {
+          q.push(node->right);
+        }
+      }
 
-
+      if (s > mx) {
+        ans = level;
+        mx = s;
+      }
     }
+
+    return ans;
+  }
 };

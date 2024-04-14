@@ -12,23 +12,24 @@
  */
 class Solution {
 public:
-  TreeNode *construct(vector<int> arr, int low, int high) {
-
-    if (low > high) {
+  TreeNode *solve(TreeNode *node) {
+    if (node == nullptr) {
       return nullptr;
     }
 
-    int mid = low + (high - low) / 2;
+    node->left = solve(node->left);
+    node->right = solve(node->right);
 
-    TreeNode *node = new TreeNode(arr[mid]);
-    node->left = construct(arr, low, mid - 1);
-    node->right = construct(arr, mid + 1, high);
+    if (node->left == nullptr && node->right == nullptr && node->val == 0) {
+      delete node;
+      return nullptr;
+    }
 
     return node;
   }
 
-  TreeNode *sortedArrayToBST(vector<int> &arr) {
-    int n = arr.size();
-    return construct(arr, 0, n - 1);
+  TreeNode *pruneTree(TreeNode *root) {
+    TreeNode *node = solve(root);
+    return node;
   }
 };

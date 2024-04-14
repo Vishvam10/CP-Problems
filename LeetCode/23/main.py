@@ -7,6 +7,8 @@ TAGS : linked list, divide and conquer, heap, merge sort
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+# IDEA : Merge 2 sorted lists but do it on the whole array
+# by recursively dividing it
 
 
 class Solution:
