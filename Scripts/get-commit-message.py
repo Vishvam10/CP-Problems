@@ -37,7 +37,7 @@ class GitHelper:
 
     def set_all_folders(self):
         for directory in os.listdir(os.path.abspath("../")):
-            abs_path = "../{}".format(directory)
+            abs_path = os.path.realpath(os.path.join('..', directory))
             if (directory not in self.NOT_ALLOWED and os.path.isdir(abs_path)):
                 if (directory not in self.folders):
                     self.folders.append(directory)
@@ -133,8 +133,7 @@ class GitHelper:
 
 class CLI:
     def __init__(self):
-        self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-                                              description="Parameters for commit message", allow_abbrev=True, add_help=True)
+        self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Parameters for commit message", allow_abbrev=True, add_help=True)
 
         self.parser.add_argument(
             "-s", help="Include staged files", action="store_true")
@@ -149,7 +148,7 @@ class CLI:
 
 if __name__ == "__main__":
 
-    repo_path = os.pardir
+    repo_path = os.path.realpath(os.pardir)
     gh = GitHelper(repo_path)
 
     cli_args = CLI().get_args()
