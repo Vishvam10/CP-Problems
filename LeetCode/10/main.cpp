@@ -17,6 +17,11 @@ public:
     }
 
     // consider '.' to be a match
+
+    // NOTE : this condition p1 < s.length() handles
+    // and correctly evaluates cases similar to this :
+    //  aaaaabbbbccccd and aaaa.*c because match becomes false
+
     bool match = (p1 < s.length() && (s[p1] == p[p2] || p[p2] == '.'));
 
     /*
@@ -45,6 +50,16 @@ public:
     int m = p.length();
 
     vec2d cache(n + 1, vec(m + 1, -1));
-    return solve(0, 0, cache);
+
+    bool ans = solve(0, 0, cache);
+
+    for (int i = 0; i <= n; i++) {
+      for (int j = 0; j <= m; j++) {
+        cout << cache[i][j] << " ";
+      }
+      cout << "\n";
+    }
+
+    return ans;
   }
 };
