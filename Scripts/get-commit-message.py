@@ -133,7 +133,8 @@ class GitHelper:
 
 class CLI:
     def __init__(self):
-        self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter, description="Parameters for commit message", allow_abbrev=True, add_help=True)
+        self.parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+                                              description="Parameters for commit message", allow_abbrev=True, add_help=True)
 
         self.parser.add_argument(
             "-s", help="Include staged files", action="store_true")
