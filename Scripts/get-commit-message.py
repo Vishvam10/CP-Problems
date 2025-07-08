@@ -8,30 +8,45 @@ result = subprocess.run(
     text=True
 )
 
-adds = defaultdict(list)
+adds = defaultdict(set)
 mods = defaultdict(list)
 dels = defaultdict(list)
 
 for line in result.stdout.strip().splitlines():
     status_code = line[:2]
     path = line[3:].strip()
-    filename = os.path.basename(path)
-    folder = os.path.basename(os.path.dirname(path)) or "."
+    parts = path.split(os.sep)
+
+    filename = parts[-1]
+    if len(parts) > 2:
+        top_folder = parts[0].lower()
+        subfolder = parts[1]
+    elif len(parts) > 1:
+        top_folder = parts[0].lower()
+        subfolder = "."
+    else:
+        top_folder = "."
+        subfolder = "."
 
     if status_code in ("A ", "??"):
-        adds[folder].append(filename)
-    elif status_code in (" M", "M "):
-        mods[folder].append(filename)
-    elif status_code in (" D", "D "):
-        dels[folder].append(filename)
-
-def print_section(label, section):
-    for folder, files in section.items():
-        file_list = ", ".join(files)
-        if folder == ".":
-            print(f"{label}: {file_list}")
+        if top_folder == "codeforces":
+            adds[top_folder].add(subfolder)
         else:
-            print(f"{label}: ({folder}) {file_list}")
+            adds[top_folder].add(filename)
+    elif status_code in (" M", "M "):
+        mods[top_folder].append(filename)
+    elif status_code in (" D", "D "):
+        dels[top_folder].append(filename)
+
+def print_section(label, section, show_files=True):
+    for folder in sorted(section):
+        entries = sorted(section[folder])
+        if folder == ".":
+            print(f"{label}: {', '.join(entries)}")
+        elif label == "add" and folder == "codeforces":
+            print(f"{label}: ({folder}) {', '.join(entries)}")
+        else:
+            print(f"{label}: ({folder}) {', '.join(entries)}")
 
 print_section("add", adds)
 print_section("modify", mods)

@@ -1,5 +1,5 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():

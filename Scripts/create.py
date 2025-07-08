@@ -19,7 +19,7 @@ ALLOWED_EXT = ['py', 'cpp', 'java']
 def copy_file(src, dest):
     try:
         shutil.copy(src, dest)
-        print(f'File contents copied successfully !')
+        print('File contents copied successfully !')
     except Exception as e:
         print(f'An error occurred: {e}')
     return
@@ -41,7 +41,7 @@ def create_template(cstr):
         except OSError as e:
             print(f'Error while creating file : {e}')
     else:
-        print(f'Folder already exists : ', fpath)
+        print('Folder already exists : ', fpath)
         files = [f for f in os.listdir(
             fpath) if os.path.isfile(os.path.join(fpath, f))]
 
