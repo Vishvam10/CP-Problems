@@ -3,7 +3,7 @@ from collections import defaultdict
 import os
 
 result = subprocess.run(
-    ["git", "status", "--porcelain"],
+    ["git", "status", "--porcelain", "--untracked-files=all"],
     stdout=subprocess.PIPE,
     text=True
 )
@@ -17,36 +17,32 @@ for line in result.stdout.strip().splitlines():
     path = line[3:].strip()
     parts = path.split(os.sep)
 
-    filename = parts[-1]
     if len(parts) > 2:
-        top_folder = parts[0].lower()
-        subfolder = parts[1]
+        top_folder = parts[0]
+        sub_folder = parts[1]
     elif len(parts) > 1:
-        top_folder = parts[0].lower()
-        subfolder = "."
+        top_folder = parts[0]
+        sub_folder = parts[1]
     else:
-        top_folder = "."
-        subfolder = "."
+        top_folder = "root"
+        sub_folder = parts[0]
 
     if status_code in ("A ", "??"):
-        if top_folder == "codeforces":
-            adds[top_folder].add(subfolder)
-        else:
-            adds[top_folder].add(filename)
+        adds[top_folder].add(sub_folder)
     elif status_code in (" M", "M "):
-        mods[top_folder].append(filename)
+        mods[top_folder].append(sub_folder)
     elif status_code in (" D", "D "):
-        dels[top_folder].append(filename)
+        dels[top_folder].append(sub_folder)
 
 def print_section(label, section, show_files=True):
     for folder in sorted(section):
         entries = sorted(section[folder])
         if folder == ".":
-            print(f"{label}: {', '.join(entries)}")
+            print(f"gcmsg '{label}: {', '.join(entries)}'")
         elif label == "add" and folder == "codeforces":
-            print(f"{label}: ({folder}) {', '.join(entries)}")
+            print(f"gcmsg '{label}: ({folder}) {', '.join(entries)}'")
         else:
-            print(f"{label}: ({folder}) {', '.join(entries)}")
+            print(f"gcmsg '{label}: ({folder}) {', '.join(entries)}'")
 
 print_section("add", adds)
 print_section("modify", mods)
