@@ -11,7 +11,7 @@ PYTHON_TEMPLATE_PATH = os.path.join(templates_dir, 'python.py')
 CPP_TEMPLATE_PATH = os.path.join(templates_dir, 'cpp.cpp')
 
 ALLOWED = {'cf': 'CodeForces', 'cs': 'CodeStudio',
-           'lc': 'LeetCode', 'gfg':  'GeeksForGeeks'}
+           'lc': 'LeetCode', 'gfg':  'GeeksForGeeks', 'cses' : "CSES"}
 
 ALLOWED_EXT = ['py', 'cpp', 'java']
 
