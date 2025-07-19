@@ -162,6 +162,9 @@ bool prime(ll a)
   return 1;
 }
 
+void yes() { cout << "YES\n"; }
+void no() { cout << "NO\n"; }
+
 /*  All Required define Pre-Processors and typedef Constants */
 typedef long int int32;
 typedef unsigned long int uint32;
@@ -175,8 +178,35 @@ void FastIO()
   cout.tie(0);
 }
 
+
+int64 build(vector<int64>& arr, size_t index, int64 sum1, int64 sum2) {
+
+  if (index == arr.size()) {
+    return abs(sum1 - sum2);
+  }
+
+  return min(
+    build(arr, index + 1, sum1 + arr[index], sum2),
+    build(arr, index + 1, sum1, sum2 + arr[index])
+  );
+
+}
+
 void solve()
 {
+
+  int n;
+  cin >> n;
+
+  vector<int64> arr; 
+
+  for(int i = 0; i < n; ++i) {
+    int64 val;
+    cin >> val;
+    arr.emplace_back(val);
+  }
+
+  cout << build(arr, 0, 0, 0);
 
   return;
 }
@@ -184,9 +214,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
+  solve();
 }

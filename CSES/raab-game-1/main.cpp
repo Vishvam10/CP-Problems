@@ -175,8 +175,119 @@ void FastIO()
   cout.tie(0);
 }
 
+void simulate(
+    vector<int>
+
+)
+{
+
+  // a chooses
+}
+
 void solve()
 {
+  int n, a, b;
+  cin >> n >> a >> b;
+
+  /*
+    In each turn, we can have 3 outcomes :
+      - a's score increases by x
+      - b's score increases by y
+      - no scores increase
+
+    There can be atmost n turns as the total number of cards is n
+
+    We can have ties and it's best to just remove (no. of ties) elements from
+    the end
+
+    n -= ties
+
+    for turn in n :
+      a += (1 if a's score is higher else 0)
+      b += (1 if b's score is higher else 0)
+
+    So, here we don't care about the "a chooses from 1..n, b chooses from 1..m"
+    approach at all. All we care about it "how many turns did a win and how
+    many turns did b win"
+
+    Say n = 6 (whatever ties were there, we can just print it at the end as we
+    don't care about them anyway)
+
+    b = 5 (n - 1)
+
+    a = 1, b = 2
+    a = 2, b = 3
+    a = 3, b = 4
+    a = 4, b = 5
+    a = 5, b = 6
+    a = 6, b = 1 (lost)
+
+    b = 4
+
+    a = 1, b = 3
+    a = 2, b = 4
+    a = 3, b = 5
+    a = 4, b = 6
+    a = 5, b = 1 (lost)
+    a = 6, b = 2 (lost)
+
+    So, it's a cyclic pattern. We need to print a's moves first (which is just
+    1 to n, then n + 1 to ties) and then b's moves (which is whatever 1 to n 
+    offsetted by a, then n + 1 to ties)
+
+  */
+
+  // n = 4, a = 4, b = 1
+
+  int ties = n - a - b;
+
+  if(ties < 0) {
+    cout << "NO" << "\n";
+    return;
+  }
+
+  n -= ties;
+
+  if(n < 0) {
+    cout << "NO" << "\n";
+    return;
+  }
+
+  // n >= 1 check is for cases like n = 10, a = b = 0 (like all ties only).
+  // In that case, it's possible so not printing "NO"
+  if((n >= 1) && (a == n || b == n)) {
+    cout << "NO" << "\n";
+    return;
+  }
+
+  cout << "YES" << "\n";
+
+  // a's moves (here, I'm combining the ties, as it's just 1 to n + ties)
+  for(int i = 1; i <= n + ties; ++i) {
+    cout << i << " ";
+  }
+
+  cout << "\n";
+  
+  // b's moves
+  for(int i = 1; i <= n; ++i) {
+    
+    int val = i + a;
+    if(val > n) {
+      // Start from 1 again
+      val -= n;
+    }
+
+    cout << val << " ";
+   
+  }
+
+  // b's ties (same as a's ties)
+  for(int i = n + 1; i <= n + ties; ++i) {
+    cout << i << " ";
+  }
+
+  cout << "\n";
 
   return;
 }
@@ -186,7 +297,8 @@ int main()
   FastIO();
   int tc;
   cin >> tc;
-  for (int t = 1; t <= tc; t++) {
+  for (int t = 1; t <= tc; t++)
+  {
     solve();
   }
 }

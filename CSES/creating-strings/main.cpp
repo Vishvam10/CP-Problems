@@ -1,14 +1,12 @@
 #include <iostream>  // for cin, cout
 #include <vector>    // for vector
 #include <algorithm> // for max, min, sort, etc.
-#include <numeric>   // for reduce
 #include <map>       // for map
 #include <set>       // for set
 #include <cmath>     // for sqrt, round
 #include <string>    // for string operations
 #include <limits>    // for numeric_limits if needed
 #include <sstream>   // for getline
-#include <climits>   // for LLONG_MAX
 
 using namespace std;
 
@@ -162,6 +160,9 @@ bool prime(ll a)
   return 1;
 }
 
+void yes() { cout << "YES\n"; }
+void no() { cout << "NO\n"; }
+
 /*  All Required define Pre-Processors and typedef Constants */
 typedef long int int32;
 typedef unsigned long int uint32;
@@ -175,8 +176,54 @@ void FastIO()
   cout.tie(0);
 }
 
+void build(string &s, set<string> &ans, string &res, vector<bool> &chosen)
+{
+
+  if (res.length() == s.length())
+  {
+    ans.insert(res);
+    return;
+  }
+
+  for (size_t i = 0; i < s.length(); i++)
+  {
+
+    // Pick if not chosen
+    if (!chosen[i])
+    {
+
+      res.push_back(s[i]);
+      chosen[i] = true;
+
+      // Consider
+      build(s, ans, res, chosen);
+
+      // Don't consider (skip that element basically)
+      res.pop_back();
+      chosen[i] = false;
+    }
+  }
+}
+
 void solve()
 {
+
+  string s;
+  cin >> s;
+
+  set<string> ans;
+  string temp = "";
+
+  vector<bool> chosen(s.length(), false);
+
+  build(s, ans, temp, chosen);
+
+  cout << ans.size() << "\n";
+
+  for (auto it = ans.begin(); it != ans.end(); ++it)
+  {
+    cout << *it << "\n";
+  }
 
   return;
 }
@@ -184,9 +231,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
+  solve();
 }
