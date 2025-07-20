@@ -158,21 +158,6 @@ bool prime(ll a)
   return 1;
 }
 
-vector<int> split(const string& str, char delim = ' ') 
-{
-  vector<int> result;
-  stringstream ss(str);
-  string token;
-
-  while (getline(ss, token, delim)) {
-    if (!token.empty()) {
-      result.push_back(stoi(token));
-    }
-  }
-
-  return result;
-}
-
 /*  All Required define Pre-Processors and typedef Constants */
 typedef long int int32;
 typedef unsigned long int uint32;
@@ -188,6 +173,16 @@ void FastIO()
 
 void solve()
 {
+
+  int n, ans = INT_MAX;
+  cin >> n;
+
+  while(n > 0) {
+    ans = min(ans, n % 10);
+    n /= 10;
+  }
+
+  cout << ans << "\n";
 
   return;
 }

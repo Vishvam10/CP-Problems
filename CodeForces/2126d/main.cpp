@@ -158,6 +158,19 @@ bool prime(ll a)
   return 1;
 }
 
+/*  All Required define Pre-Processors and typedef Constants */
+typedef long int int32;
+typedef unsigned long int uint32;
+typedef long long int int64;
+typedef unsigned long long int uint64;
+
+void FastIO()
+{
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  cout.tie(0);
+}
+
 vector<int> split(const string& str, char delim = ' ') 
 {
   vector<int> result;
@@ -173,21 +186,45 @@ vector<int> split(const string& str, char delim = ' ')
   return result;
 }
 
-/*  All Required define Pre-Processors and typedef Constants */
-typedef long int int32;
-typedef unsigned long int uint32;
-typedef long long int int64;
-typedef unsigned long long int uint64;
-
-void FastIO()
-{
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  cout.tie(0);
-}
-
 void solve()
 {
+
+  int n;
+  int64 k;
+  cin >> n >> k;
+
+  vector<vector<int>> arr;
+
+  // The last line for some reason was not being read. This solves it .. not 
+  // sure why. It has something to do with stray '\n' apparently
+  cin.ignore();
+
+  for(int i = 0; i < n; ++i) {
+    string line;
+    getline(cin, line);
+    vector<int> vals = split(line);
+    arr.emplace_back(vals);
+  }
+
+  // Sort based on lower amount to entry
+  sort(arr.begin(), arr.end(), [](const vector<int>& a, const vector<int>& b) {
+    return a[0] < b[0];
+  });
+
+  int64 max_coins = k;
+
+  for(const vector<int>& casino : arr) {
+    int low = casino[0], high = casino[1], coins = casino[2];
+
+    // We go in ONLY if we get more coins than what we had before
+
+    if(((max_coins >= low) && (max_coins <= high)) && (max_coins < coins)) {
+      max_coins = coins;
+    }
+
+  }
+
+  cout << max_coins << "\n";
 
   return;
 }

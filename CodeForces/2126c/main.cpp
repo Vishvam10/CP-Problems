@@ -158,21 +158,6 @@ bool prime(ll a)
   return 1;
 }
 
-vector<int> split(const string& str, char delim = ' ') 
-{
-  vector<int> result;
-  stringstream ss(str);
-  string token;
-
-  while (getline(ss, token, delim)) {
-    if (!token.empty()) {
-      result.push_back(stoi(token));
-    }
-  }
-
-  return result;
-}
-
 /*  All Required define Pre-Processors and typedef Constants */
 typedef long int int32;
 typedef unsigned long int uint32;
@@ -189,6 +174,68 @@ void FastIO()
 void solve()
 {
 
+  int n, k;
+  cin >> n >> k;
+
+  vector<int64> arr;
+
+  for(int i = 0; i < n; ++i) {
+    int64 val;
+    cin >> val;
+    arr.emplace_back(val);
+  }
+
+  
+  /*
+  
+  4 2 4 2 3 2 1 and k = 1 == player is standing at 2 NOT 1
+  
+  So, total time player has = (k + 1) seconds. Our goal is to move to any 
+  tower with max height BEDORE (k + 1) seconds
+  
+  Say player starts at tower "x" i.e the player's height is currently : 
+  (arr[x] + 1). Greedy maybe ?
+  
+  Hmm, say cost[i] contains the abs(arr[i] - max_element) 
+  
+  We can sort the array as we care only about the heights and positions don't
+  matter as the player can teleport
+  
+  */
+
+  int64 cur_height = arr[k - 1];
+  int64 cur_water_level = 1;
+ 
+  sort(arr.begin(), arr.end());
+
+  bool possible = true;
+
+  // cur_height - water_level + 1 < tower_height - cur_height:
+
+  // tower_height - cur_height > cur_height - water_level + 1
+
+  for(const int64& tower_height : arr) {
+
+    // If the diff of heights is larger than the time taken to perish the 
+    // player, we abort
+    if(
+      tower_height - cur_height > cur_height - cur_water_level + 1
+    ) {
+      possible = false;
+      break;
+    }
+
+    cur_water_level += (tower_height - cur_height);
+    cur_height = tower_height;
+  }
+
+  if(possible) {
+    cout << "YES" << "\n";
+  } else {
+    cout << "NO" << "\n";
+  }
+
+
   return;
 }
 
@@ -197,7 +244,7 @@ int main()
   FastIO();
   int tc;
   cin >> tc;
-  for (int t = 1; t <= tc; t++) {
+  for(int t = 1; t <= tc; ++t) {
     solve();
   }
 }

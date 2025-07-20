@@ -158,21 +158,6 @@ bool prime(ll a)
   return 1;
 }
 
-vector<int> split(const string& str, char delim = ' ') 
-{
-  vector<int> result;
-  stringstream ss(str);
-  string token;
-
-  while (getline(ss, token, delim)) {
-    if (!token.empty()) {
-      result.push_back(stoi(token));
-    }
-  }
-
-  return result;
-}
-
 /*  All Required define Pre-Processors and typedef Constants */
 typedef long int int32;
 typedef unsigned long int uint32;
@@ -188,6 +173,51 @@ void FastIO()
 
 void solve()
 {
+
+  int n, k;
+  cin >> n >> k;
+
+  /*
+  
+    0 1 0 0 0 and k = 1
+    . b . b .
+    
+    0 1 1 1 1 0 0 0 0 0 0 1 1 0 0 and k = 4
+    x x x x x . . . . b x x x x x
+
+    If zero, start considering, if one stop considering
+    Go through the inputs :
+      - If we encounter 1 before getting "k" zeros at least, we stop 
+        considering that hike and reset count to 0. If we get 1 OR 0 after 
+        getting " k" 0s, we increment count by 1
+
+  */
+
+  int zero_cnt = 0, ans = 0;
+
+  for(int i = 0; i < n; ++i) {
+    int val;
+    
+    cin >> val;
+
+    // In case we have k zeros already and we get a (k + 1) zero, we can make
+    // zero_cnt = -1 instead of zero as the next hike can start only AFTER the 
+    // next day of the hike end
+    if(val == 0) {
+      zero_cnt++;
+
+      if(zero_cnt == k) {
+        ans++;
+        zero_cnt = -1;
+      }
+
+    } else {
+      zero_cnt = 0;
+    }
+
+  }
+
+  cout << ans << "\n";
 
   return;
 }
