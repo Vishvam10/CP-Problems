@@ -34,7 +34,7 @@ for line in result.stdout.strip().splitlines():
     elif status_code in (" D", "D "):
         dels[top_folder].append(sub_folder)
 
-def print_section(label, section, show_files=True):
+def print_section(label, section):
     for folder in sorted(section):
         entries = sorted(section[folder])
         if folder == ".":
