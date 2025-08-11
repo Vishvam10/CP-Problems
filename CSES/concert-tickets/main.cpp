@@ -187,8 +187,73 @@ void FastIO()
   cout.tie(0);
 }
 
+// Returns the index
+int64 bs(vector<int64>& arr, vector<bool>& vis, int ele) {
+
+  int n = arr.size();
+  int low = 0, high = n - 1;
+  int64 min_diff = LLONG_MAX;
+
+  while(low < high) {
+
+    int mid = low + (high - low) / 2;
+
+    if(arr[mid] == ele) {
+      if(!vis[mid]) {
+        return mid;
+      } else {
+        high = mid - 1;
+      }
+    } else if(arr[mid] > ele) {
+      high = mid - 1;
+    } else {
+      low = mid + 1;
+    }
+  }
+
+  return -1;
+}
+
+
 void solve()
 {
+
+  int n, m;
+  cin >> n >> m;
+
+  int maxn = 2e5 + 10;
+
+  vector<int64> prices(n), cust(m); 
+  vector<bool> vis(m, false);
+  
+
+  for(int i = 0; i < n; ++i) {
+    int val;
+    cin >> val;
+    prices.emplace_back(val);
+  }
+
+  for(int i = 0; i < m; ++i) {
+    int val;
+    cin >> val;
+    cust.emplace_back(val);
+  }
+
+  sort(prices.begin(), prices.end());
+
+
+  for(int i = 0; i < m; ++i) {
+    
+    int ind = bs(prices, vis, cust[i]);
+    
+    if(ind == -1) {
+      cout << "-1" << "\n";
+    } else {
+      cout << prices[ind] << "\n";
+    }
+
+  }
+
 
   return;
 }
@@ -196,9 +261,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
+  solve();
 }

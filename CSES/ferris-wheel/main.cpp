@@ -189,6 +189,47 @@ void FastIO()
 
 void solve()
 {
+  int n, x;
+  cin >> n >> x;
+
+  const int maxn = 2e5 + 10;
+  
+  // always initialize this ¯\_(ツ)_/¯
+  bool visited[maxn] = {};
+
+  vector<int> arr;
+
+  for(int i = 0; i < n; ++i) {
+    int val;
+    cin >> val;
+    arr.emplace_back(val);
+  }
+
+  sort(arr.begin(), arr.end());
+
+  int i = 0, j = n - 1, ans = 0;
+
+  // pair lightest with heaviest
+
+  while(i < j) {
+
+    if(arr[i] + arr[j] > x) {
+      --j;
+    } else {
+		++ans;
+		visited[i] = visited[j] = true;
+      ++i;
+      --j;
+    }
+  }
+
+  for(int i = 0; i < n; ++i) {
+    if(!visited[i]) {
+      ++ans;
+    }
+  }
+
+  cout << ans;
 
   return;
 }
@@ -196,9 +237,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
-}
+  solve();
+};

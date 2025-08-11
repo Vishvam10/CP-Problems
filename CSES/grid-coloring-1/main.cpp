@@ -187,8 +187,81 @@ void FastIO()
   cout.tie(0);
 }
 
+
+
 void solve()
 {
+
+  int n, m;
+  cin >> n >> m;
+
+  vector<string> arr(n);
+
+  // for(int i = 0; i < n; ++i) {
+  //   string s;
+  //   cin >> s;
+  //   arr.emplace_back(s);
+  // }
+
+  for(string& row : arr) {
+    cin >> row;
+  }
+
+  /*
+  
+  It's given that we MUST modify each cell. Randomly choosing chars won't work 
+  as we can end up in cases like these :
+
+  . . . . . .
+  . . B . . .
+  . A ? C . .
+  . . D . . .
+  . . . . . .
+
+  => Order must be preserved. We start from top left and go down row by row. In
+  that way, we make sure that at any point, only the top and the left element is
+  chosen always :
+
+  . . . . . .
+  . . B . . .
+  . A ? . . .
+  . . . . . .
+  . . . . . .
+
+  */
+
+  for(int i = 0; i < n; ++i) {
+    for(int j = 0; j < m; ++j) {
+      set<char> mp;
+      
+      // Top
+      if(i != 0) {
+        mp.insert(arr[i - 1][j]);
+      }
+
+      // Left
+      if(j != 0) {
+        mp.insert(arr[i][j - 1]);
+      }
+
+      // Original value
+      mp.insert(arr[i][j]);
+    
+      for(char ch = 'A'; ch <= 'D'; ++ch) {
+        if(!mp.count(ch)) {
+          arr[i][j] = ch;
+          break;
+        }
+      }
+
+    }
+  }
+
+  for(const string& s : arr) {
+    cout << s << "\n";
+  }
+
+
 
   return;
 }
@@ -196,9 +269,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
+  solve();
 }

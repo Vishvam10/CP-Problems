@@ -189,6 +189,74 @@ void FastIO()
 
 void solve()
 {
+  string s;
+  cin >> s;
+
+  int n = s.length();
+
+  /*
+  
+    First we sort it, that by itself is the lexicographically minimal string. 
+    Now we need to deal with consecutive elements. We'll maintain a pointer "p"
+    from the first element that != the current element we are at. If the 
+    current element is a repetition of prev, then we swap the current element
+    with the element at pointer "p" and increase the pointer.
+    
+
+    a a a a a a b b c d e f 
+    ^           ^
+    a b a a a a a b c d e f 
+      ^           ^
+
+    The swap is guaranteed to be lexicographically minimal. For eg. 
+    aaabc := abaac := abaca < := ac.. as it is sorted 
+
+  */
+
+  sort(s.begin(), s.end());
+
+  int ptr = -1;
+
+  for(int i = 1; i < n; ++i) {
+    if(s[i - 1] != s[i]) {
+      ptr = i;
+      break;
+    }
+  }
+
+  // All are same chars
+  if(ptr == -1) {
+    cout << "-1" << "\n";
+  }
+
+  int i = 1;
+
+  while(i < n) {
+
+    // Swap the current element with the one pointed by ptr
+    if(s[i - 1] == s[i]) {
+      char temp = s[i];
+      s[i] = s[ptr];
+      s[ptr] = temp;
+
+      ptr = (ptr + 1) % n;
+    }
+
+    i++;
+
+  }
+
+  debug(s);
+
+  for(int i = 1; i < n; ++i) {
+    if(s[i - 1] == s[i]) {
+      cout << "-1" << "\n";
+      return;
+    }
+  }
+
+  cout << s;
+
 
   return;
 }
@@ -196,9 +264,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++) {
-    solve();
-  }
+  solve();
 }
