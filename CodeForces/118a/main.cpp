@@ -4,7 +4,6 @@
 #include <numeric>   // for reduce
 #include <map>       // for map
 #include <set>       // for set
-#include <queue>     // for queue
 #include <cmath>     // for sqrt, round
 #include <string>    // for string operations
 #include <limits>    // for numeric_limits if needed
@@ -191,8 +190,36 @@ void FastIO()
 // MAIN
 // =============================================================================
 
+
+bool isVowel(char ch) {
+  return ch == 'a' || ch == 'A' || ch == 'e' || ch == 'E' || ch == 'i' || 
+  ch == 'I' || ch == 'o' || ch == 'O' || ch == 'u' || ch == 'U' || ch == 'y' || ch == 'Y';
+}
+
 void solve()
 {
+
+  string s, ans;
+  cin >> s;
+
+  for(size_t i = 0; i < s.length(); ++i) {
+    char ch = s[i];
+
+    if(isVowel(ch)) {
+      continue;
+    } else {
+
+      if (ch >= 'A' && ch <= 'Z') {
+        ch = ch - 'A' + 'a';
+      }
+
+      ans.push_back('.');
+      ans.push_back(ch);
+    }
+
+  }
+
+  cout << ans;
 
   return;
 }
@@ -200,10 +227,5 @@ void solve()
 int main()
 {
   FastIO();
-  int tc;
-  cin >> tc;
-  for (int t = 1; t <= tc; t++)
-  {
-    solve();
-  }
+  solve();
 }
