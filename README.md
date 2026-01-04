@@ -1,10 +1,10 @@
-# CP-Problems 🚀
+# CP-Problems
 
 Here, you'll find an array of problems sourced from platforms like `Leetcode`, `GeeksForGeeks`, `CodeForces`, and `CodeStudio`. Additionally, I've included some handy scripts to streamline your coding experience, such as automatic templating and code prettifying.
 
 ## Handy Scripts 
 
-### Automatic Templating 📝
+### Automatic Templating
 
 To simplify your workflow, I've provided a script for automatic templating. You can create a new `Python` or `C++` file based on templated provided in `Templates` folder. You can either set it up as a VSCode task or run it standalone using Python. 
 
@@ -36,7 +36,7 @@ For example:
 python create.py --cstr="cf/1234a/cpp"
 ```
 
-### Code Prettify + Caching Output 🎨
+### Code Prettify + Caching Output
 
 I've created a simple `prettified.py` script to not only format your `Python` and `C++` code but also intelligently caches the output. This means that if a file hasn't been modified since the last prettifying operation, it won't be reformatted unnecessarily. 
 
@@ -53,7 +53,7 @@ python prettified.py
 > [!NOTE]  
 > This script also functions as a `pre-commit` hook, ensuring that your code is formatted before any commits.
 
-## Just a Few More Ideas 💡
+## Just a Few More Ideas
 
 Here are some future enhancements I'm considering:
 
