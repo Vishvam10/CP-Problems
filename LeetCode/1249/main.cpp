@@ -1,5 +1,49 @@
 class Solution {
 public:
+    string minRemoveToMakeValid(string s) {
+        
+        int n = s.length();
+
+        int ptr = 0;
+        string ans;
+
+        for(int i = 0; i < n; ++i) {
+            char ch = s[i];
+            if(ch == '(') {
+                ptr++;
+            } else if(ch == ')') {
+                if(ptr <= 0) {
+                    s[i] = '$';
+                } else {
+                    ptr--;
+                }
+            }
+        }
+
+        // There can still be open ones .. so handling that
+        for(int i = s.length() - 1; i >= 0; --i) {
+            if(ptr > 0 && s[i] == '(') {
+                s[i] = '$';
+                ptr--;
+            }
+        }
+        
+        for (char c : s) {
+            if (c != '$') {
+                ans += c;
+            }
+        }
+
+        return ans;
+    }
+};
+
+/*
+
+Using stack .. unoptimized
+
+class Solution {
+public:
   string minRemoveToMakeValid(string s) {
 
     int n = s.length();
@@ -36,3 +80,4 @@ public:
     return ans;
   }
 };
+*/
