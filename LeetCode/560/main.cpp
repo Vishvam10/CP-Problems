@@ -11,7 +11,7 @@ public:
 
         for(int i = 0; i < n; i++) {
             s += arr[i];
-            int target = s- k;
+            int target = s - k;
             if(mp.find(target) != mp.end()) {
                 ans += mp[target];
             }
