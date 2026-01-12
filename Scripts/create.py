@@ -57,7 +57,7 @@ def create_template(cstr):
     elif language == "cpp":
         create_template_cpp(file_path)
     else:
-        with open(file_path, "w") :
+        with open(file_path, "w"):
             pass
 
     os.system(f"code {file_path}")

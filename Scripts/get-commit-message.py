@@ -5,7 +5,7 @@ import os
 result = subprocess.run(
     ["git", "status", "--porcelain", "--untracked-files=all"],
     stdout=subprocess.PIPE,
-    text=True
+    text=True,
 )
 
 adds = defaultdict(set)
@@ -34,6 +34,7 @@ for line in result.stdout.strip().splitlines():
     elif status_code in (" D", "D "):
         dels[top_folder].append(sub_folder)
 
+
 def print_section(label, section):
     for folder in sorted(section):
         entries = sorted(section[folder])
@@ -43,6 +44,7 @@ def print_section(label, section):
             print(f"gcmsg '{label}: ({folder}) {', '.join(entries)}'")
         else:
             print(f"gcmsg '{label}: ({folder}) {', '.join(entries)}'")
+
 
 print_section("add", adds)
 print_section("modify", mods)
