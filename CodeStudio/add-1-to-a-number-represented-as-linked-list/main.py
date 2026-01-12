@@ -6,10 +6,11 @@ class Node:
 
 # Don't change the code above.
 
+
 def rev(head):
     prev = None
     cur = head
-    while (cur):
+    while cur:
         nxt = cur.next
         cur.next = prev
         prev = cur
@@ -21,7 +22,7 @@ def addOne(head: Node) -> Node:
     rev1 = rev(head)
     temp = rev1
 
-    while (temp):
+    while temp:
         carry = 0
         if (temp.data) < 9:
             temp.data += 1
@@ -33,7 +34,7 @@ def addOne(head: Node) -> Node:
         temp = temp.next
 
     head = rev(rev1)
-    if (carry == 1):
+    if carry == 1:
         nn = Node(1)
         nn.next = head
         head = nn

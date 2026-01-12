@@ -5,11 +5,10 @@
 #         self.next = next
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-
         def rev(start, end):
             prev = None
             cur = start
-            while (cur != end):
+            while cur != end:
                 nxt = cur.next
                 cur.next = prev
                 prev = cur
@@ -17,8 +16,8 @@ class Solution:
             return prev
 
         def pl(node):
-            while (node):
-                print(node.val, ' -> ', end='')
+            while node:
+                print(node.val, " -> ", end="")
                 node = node.next
             return
 
@@ -26,19 +25,19 @@ class Solution:
         ans = dummy
 
         temp = head
-        while (temp):
+        while temp:
             start = temp
             flag = True
             c = 0
-            while (c < k and flag):
-                if (temp):
+            while c < k and flag:
+                if temp:
                     temp = temp.next
                     c += 1
                 else:
                     flag = False
             end = temp
 
-            if (c == k):
+            if c == k:
                 rhead = rev(start, end)
                 dummy.next = rhead
                 for _ in range(k):

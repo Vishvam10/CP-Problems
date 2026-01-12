@@ -2,28 +2,25 @@ from typing import *
 
 
 def graphColoring(mat: List[List[int]], m: int) -> str:
-
     def isValidColor(vertex, color):
         for i in range(n):
-            if (mat[vertex][i] == 1 and colors[i] == color):
+            if mat[vertex][i] == 1 and colors[i] == color:
                 return False
         return True
 
     def solve(vertex):
-        if (vertex == n):
+        if vertex == n:
             return True
 
         for color in range(m):
-
             check = isValidColor(vertex, color)
-            if (check):
-
+            if check:
                 # Set the state
                 colors[vertex] = color
 
                 # Goto next state
                 ns = solve(vertex + 1)
-                if (ns):
+                if ns:
                     return True
 
                 # Reset the state

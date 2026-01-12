@@ -10,7 +10,9 @@ TAGS : linked list, recursion
 
 
 class Solution:
-    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+    def mergeTwoLists(
+        self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
         new_head = ListNode()
         dummy = new_head
         while list1 and list2:

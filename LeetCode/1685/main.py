@@ -12,18 +12,18 @@ class Solution:
     def getSumAbsoluteDifferences(self, arr: List[int]) -> List[int]:
         n = len(arr)
         pre = []
-        suf = [None]*n
-        ans = [None]*n
+        suf = [None] * n
+        ans = [None] * n
         s = 0
         for i in range(n):
             s += arr[i]
             pre.append(s)
         s = 0
-        for i in range(n-1, -1, -1):
+        for i in range(n - 1, -1, -1):
             s += arr[i]
             suf[i] = s
 
         for i in range(n):
-            ans[i] = (arr[i]*i - pre[i]) + (suf[i] - arr[i]*(n-i-1))
+            ans[i] = (arr[i] * i - pre[i]) + (suf[i] - arr[i] * (n - i - 1))
 
         return ans

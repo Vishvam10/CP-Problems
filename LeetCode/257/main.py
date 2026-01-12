@@ -6,16 +6,15 @@
 #         self.right = right
 class Solution:
     def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
-
         def helper(node, acc, res):
-            if (node is None):
+            if node is None:
                 return res
 
             # Set the state
             acc.append(str(node.val))
 
-            if (not node.left and not node.right):
-                res.append('->'.join(acc))
+            if not node.left and not node.right:
+                res.append("->".join(acc))
             else:
                 # Go to next state
                 helper(node.left, acc, res)

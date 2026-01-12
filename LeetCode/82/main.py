@@ -14,9 +14,9 @@ class Solution:
         dummy = ListNode(0)
         dummy.next = head
         temp = dummy
-        while (head):
-            if (head.next and head.val == head.next.val):
-                while (head.next and head.val == head.next.val):
+        while head:
+            if head.next and head.val == head.next.val:
+                while head.next and head.val == head.next.val:
                     head = head.next
                 temp.next = head.next
             else:

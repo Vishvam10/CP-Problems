@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -12,7 +12,7 @@ def solve():
 
     i = 0
 
-    while (i < int(n) and s[i] >= d):
+    while i < int(n) and s[i] >= d:
         i += 1
 
     print(s[:i] + str(d) + s[i:])

@@ -14,8 +14,8 @@ class Solution:
         start = head
         curr = start.next
         s = 0
-        while (curr):
-            if (curr.val == 0):
+        while curr:
+            if curr.val == 0:
                 head.next = ListNode(s)
                 head = head.next
                 s = 0

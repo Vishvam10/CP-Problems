@@ -7,7 +7,7 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -17,15 +17,15 @@ def solve():
 
     # col
     for i in range(1, 9):
-        if (i == c):
+        if i == c:
             continue
-        ans.append(f'{r}{i}')
+        ans.append(f"{r}{i}")
 
     # row
-    for ch in 'abcdefgh':
-        if (ch == r):
+    for ch in "abcdefgh":
+        if ch == r:
             continue
-        ans.append(f'{ch}{str(c)}')
+        ans.append(f"{ch}{str(c)}")
 
     for x in ans:
         print(x)

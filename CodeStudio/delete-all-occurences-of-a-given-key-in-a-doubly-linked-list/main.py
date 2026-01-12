@@ -9,14 +9,13 @@ class Node:
 
 
 def deleteAllOccurrences(head: Node, k: int) -> Node:
-
     temp = head
-    while (temp):
+    while temp:
         nxt = temp.next
-        if (temp.data == k):
-            if (temp.prev):
+        if temp.data == k:
+            if temp.prev:
                 # Body node
-                if (temp.next):
+                if temp.next:
                     temp.prev.next = temp.next
                     temp.next.prev = temp.prev
                 # Tail node
@@ -24,7 +23,7 @@ def deleteAllOccurrences(head: Node, k: int) -> Node:
                     temp.prev.next = None
             else:
                 # Head node
-                if (temp.next):
+                if temp.next:
                     temp.next.prev = None
                     head = nxt
 

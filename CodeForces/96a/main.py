@@ -1,5 +1,5 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
@@ -7,15 +7,15 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
     s = insr()
-    if ('1111111' in s or '0000000' in s):
-        print('YES')
+    if "1111111" in s or "0000000" in s:
+        print("YES")
     else:
-        print('NO')
+        print("NO")
     return
 
 

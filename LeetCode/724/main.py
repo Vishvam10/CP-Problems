@@ -15,7 +15,7 @@ class Solution:
         ts = sum(arr)
         left_sum = 0
         for i in range(n):
-            if (left_sum == (ts - left_sum - arr[i])):
+            if left_sum == (ts - left_sum - arr[i]):
                 return i
             left_sum += arr[i]
         return -1

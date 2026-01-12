@@ -9,4 +9,4 @@ class Solution:
     # both the index and value of the array.
     def missingNumber(self, arr: List[int]) -> int:
         n = len(arr)
-        return n * (n+1) // 2 - sum(arr)
+        return n * (n + 1) // 2 - sum(arr)

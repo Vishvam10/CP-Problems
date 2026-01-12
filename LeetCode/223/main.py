@@ -1,6 +1,15 @@
 class Solution:
-    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:
-
+    def computeArea(
+        self,
+        ax1: int,
+        ay1: int,
+        ax2: int,
+        ay2: int,
+        bx1: int,
+        by1: int,
+        bx2: int,
+        by2: int,
+    ) -> int:
         aw, ah = abs(ax2 - ax1), abs(ay2 - ay1)
         bw, bh = abs(bx2 - bx1), abs(by2 - by1)
 

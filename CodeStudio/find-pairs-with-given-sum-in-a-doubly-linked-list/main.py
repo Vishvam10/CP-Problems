@@ -11,9 +11,9 @@ class Node:
 def findPairs(head: Node, k: int) -> [[int]]:
     ans = []
     mp = set()
-    while (head):
+    while head:
         target = k - head.data
-        if (target in mp):
+        if target in mp:
             ans.append([target, head.data])
         else:
             mp.add(head.data)

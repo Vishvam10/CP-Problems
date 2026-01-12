@@ -5,7 +5,7 @@ class Solution:
 
         for i in range(n):
             ans += mat[i][i]
-            if (i != n-i-1):
-                ans += mat[n-i-1][i]
+            if i != n - i - 1:
+                ans += mat[n - i - 1][i]
 
         return ans

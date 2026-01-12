@@ -2,7 +2,6 @@ from typing import *
 
 
 def superiorElements(a: List[int]) -> List[int]:
-
     # # Write your code here.
     # n = len(a)
     # ans = []
@@ -24,8 +23,8 @@ def superiorElements(a: List[int]) -> List[int]:
     ans = []
     ans.append(a[-1])
     mx = a[-1]
-    for i in range(n-2, -1, -1):
-        if (a[i] > mx):
+    for i in range(n - 2, -1, -1):
+        if a[i] > mx:
             ans.append(a[i])
             mx = a[i]
 

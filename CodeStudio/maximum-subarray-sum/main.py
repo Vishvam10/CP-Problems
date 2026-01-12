@@ -9,7 +9,6 @@ setrecursionlimit(10**7)
 
 
 def maxSubarraySum(arr, n):
-
     curSum = 0
 
     # Actually, it should be float("-inf") but the output
@@ -19,7 +18,7 @@ def maxSubarraySum(arr, n):
     for i in range(n):
         curSum += arr[i]
         maxSum = max(maxSum, curSum)
-        if (curSum < 0):
+        if curSum < 0:
             curSum = 0
 
     return maxSum

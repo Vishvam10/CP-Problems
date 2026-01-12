@@ -6,13 +6,13 @@ class Solution:
     #   2. Considering the last but not the first house
     def rob(self, nums: List[int]) -> int:
         def helper(arr, i, j):
-            if (len(arr) == 0):
+            if len(arr) == 0:
                 return 0
             a = 0
             b = 0
             for ind in range(i, j):
                 temp = a
-                a = max(a, b+arr[ind])
+                a = max(a, b + arr[ind])
                 b = temp
             return a
 
@@ -22,4 +22,4 @@ class Solution:
             return nums[0]
         else:
             n = len(nums)
-            return max(helper(nums, 1, n), helper(nums, 0, n-1))
+            return max(helper(nums, 1, n), helper(nums, 0, n - 1))

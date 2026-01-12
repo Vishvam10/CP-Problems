@@ -2,15 +2,15 @@ from collections import defaultdict
 
 
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -22,10 +22,10 @@ def solve():
     maxi = -1
 
     for i in range(n):
-        substr = arr[i:i+2]
-        if (len(substr) == 2):
+        substr = arr[i : i + 2]
+        if len(substr) == 2:
             mp[substr] += 1
-            if (mp[substr] >= maxi):
+            if mp[substr] >= maxi:
                 maxi = mp[substr]
                 ans = substr
 

@@ -7,30 +7,30 @@ TAGS : string
 class Solution:
     def interpret(self, s: str) -> str:
         """
-            ALTERNATE SOLUTION (FASTER): 
+        ALTERNATE SOLUTION (FASTER):
 
-            s = s.replace("()", "o")
-            s = s.replace("(", "")
-            s = s.replace(")", "")
-            return s
+        s = s.replace("()", "o")
+        s = s.replace("(", "")
+        s = s.replace(")", "")
+        return s
 
         """
         res = ""
         st = []
 
         for ch in s:
-            if (ch != "G" and ch != ")"):
+            if ch != "G" and ch != ")":
                 st.append(ch)
-            elif (ch == ")"):
+            elif ch == ")":
                 top = st[-1]
-                if (top == "("):
+                if top == "(":
                     res += "o"
                     st.pop()
-                elif (top == "l"):
+                elif top == "l":
                     res += "al"
                     st.pop()
                     st.pop()
-            elif (ch == "G"):
+            elif ch == "G":
                 res += "G"
 
         return res

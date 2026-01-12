@@ -11,7 +11,7 @@ class Solution:
         i = 0
         for i in range(len(w)):
             ch = w[i]
-            if (ch in mp):
+            if ch in mp:
                 arr.append(mp[ch])
             else:
                 i += 1
@@ -25,7 +25,7 @@ class Solution:
         num_pattern = self.getNumericPattern(pattern)
         for i in range(len(words)):
             num_word = self.getNumericPattern(words[i])
-            if (num_word == num_pattern):
+            if num_word == num_pattern:
                 ans.append(words[i])
 
         return ans

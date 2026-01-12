@@ -1,5 +1,7 @@
+package main
+
 func rearrangeArray(nums []int) []int {
-    n := len(nums)
+	n := len(nums)
 	result := make([]int, n)
 	posI, negI := 0, 1
 	for i := 0; i < n; i++ {

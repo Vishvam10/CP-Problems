@@ -15,6 +15,6 @@ class Solution:
                 r, c = mat[x][y], mat[y][x]
                 row[r] += 1
                 col[c] += 1
-                if (row[r] > 1 or col[c] > 1):
+                if row[r] > 1 or col[c] > 1:
                     return False
         return True

@@ -7,8 +7,10 @@
 class Solution:
     def maxDepth(self, root: Optional[TreeNode]) -> int:
         def traverse(root, depth):
-            if (root):
-                return max(traverse(root.left, depth+1), traverse(root.right, depth+1))
+            if root:
+                return max(
+                    traverse(root.left, depth + 1), traverse(root.right, depth + 1)
+                )
             else:
                 return depth
 

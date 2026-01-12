@@ -22,11 +22,11 @@ class Solution:
 
         curSum, maxSum = 0, float("-inf")
         for i in range(1, len(arr)):
-            diff = arr[i] - arr[i-1]
+            diff = arr[i] - arr[i - 1]
             curSum += diff
             maxSum = max(maxSum, curSum)
-            if (curSum < 0):
+            if curSum < 0:
                 curSum = 0
-        if (maxSum < 0):
+        if maxSum < 0:
             return 0
         return maxSum

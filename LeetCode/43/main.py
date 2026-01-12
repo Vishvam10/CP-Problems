@@ -9,7 +9,7 @@ class Solution:
         power = 1
         ans = 0
         for digit in reversed(num):
-            ans += power * (ord(digit) - ord('0'))
+            ans += power * (ord(digit) - ord("0"))
             power *= 10
         return ans
 

@@ -10,8 +10,8 @@ class RLEIterator:
         self.arr = encoding
 
     def next(self, n: int) -> int:
-        while (n > 0 and self.ptr < len(self.arr)):
-            if (n > self.arr[self.ptr]):
+        while n > 0 and self.ptr < len(self.arr):
+            if n > self.arr[self.ptr]:
                 n -= self.arr[self.ptr]
                 self.ptr += 2
             else:

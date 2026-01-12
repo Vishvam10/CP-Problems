@@ -1,4 +1,4 @@
-'''
+"""
 Following is the structure of the Node class already defined.
 
 class Node:
@@ -6,14 +6,14 @@ class Node:
         self.data = data
         self.next = None
         self.prev = None
-        
-'''
+
+"""
 
 
 def reverseDLL(head):
     cur = head
     prev = None
-    while (cur):
+    while cur:
         nxt = cur.next
         cur.next = prev
         cur.prev = nxt

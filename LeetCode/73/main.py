@@ -9,11 +9,10 @@ class Solution:
         ind = []
         for i in range(n):
             for j in range(m):
-                if (mat[i][j] == 0):
+                if mat[i][j] == 0:
                     ind.append((i, j))
 
-        for (i, j) in ind:
-
+        for i, j in ind:
             # Set row to 0
             for it in range(n):
                 mat[it][j] = 0

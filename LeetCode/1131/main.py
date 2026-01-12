@@ -1,6 +1,5 @@
 class Solution:
     def maxAbsValExpr(self, arr1: List[int], arr2: List[int]) -> int:
-
         a = [arr1[i] + arr2[i] + i for i in range(len(arr1))]
         b = [arr1[i] + arr2[i] - i for i in range(len(arr1))]
         c = [arr1[i] - arr2[i] + i for i in range(len(arr1))]
@@ -9,7 +8,7 @@ class Solution:
         return max(map(lambda x: max(x) - min(x), (a, b, c, d)))
 
 
-'''
+"""
 
 abs(A) + abs(B) = max(A+B, A-B, -A+B, -A-B).
 
@@ -25,4 +24,4 @@ abs(A) + abs(B) = max(A+B, A-B, -A+B, -A-B).
     
 )
 
-'''
+"""

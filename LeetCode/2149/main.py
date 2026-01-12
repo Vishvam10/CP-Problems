@@ -10,7 +10,7 @@ class Solution:
         neg = []
         ans = []
         for i in range(len(arr)):
-            if (arr[i] > 0):
+            if arr[i] > 0:
                 pos.append(arr[i])
             else:
                 neg.append(arr[i])

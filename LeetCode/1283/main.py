@@ -14,10 +14,10 @@ class Solution:
                 s += math.ceil(arr[i] / div)
             return s
 
-        while (low <= high):
+        while low <= high:
             mid = low + (high - low) // 2
             val = sd(arr, mid)
-            if (val <= t):
+            if val <= t:
                 high = mid - 1
             else:
                 low = mid + 1

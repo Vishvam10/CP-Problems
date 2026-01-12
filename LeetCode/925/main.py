@@ -9,16 +9,16 @@ class Solution:
         a = 0
         b = 0
 
-        while (b < len(typed)):
-            if (a < len(name) and name[a] == typed[b]):
+        while b < len(typed):
+            if a < len(name) and name[a] == typed[b]:
                 a += 1
                 b += 1
-            elif (a > 0 and name[a-1] == typed[b]):
+            elif a > 0 and name[a - 1] == typed[b]:
                 b += 1
             else:
                 return False
 
-        if (a == len(name)):
+        if a == len(name):
             return True
 
         return False

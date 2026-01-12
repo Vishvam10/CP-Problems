@@ -3,7 +3,7 @@ class Solution:
         # Your code goes here
         asum = sum(a)
         bsum = sum(b)
-        if ((asum - bsum) % 2 != 0):
+        if (asum - bsum) % 2 != 0:
             return -1
         else:
             target = (asum - bsum) // 2
@@ -12,11 +12,11 @@ class Solution:
         b.sort()
 
         i, j = 0, 0
-        while (i < n and j < m):
+        while i < n and j < m:
             diff = a[i] - b[j]
-            if (diff == target):
+            if diff == target:
                 return 1
-            elif (diff < target):
+            elif diff < target:
                 i += 1
             else:
                 j += 1

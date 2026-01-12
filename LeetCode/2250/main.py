@@ -1,11 +1,12 @@
 class Solution:
-
-    def countRectangles(self, rectangles: List[List[int]], points: List[List[int]]) -> List[int]:
+    def countRectangles(
+        self, rectangles: List[List[int]], points: List[List[int]]
+    ) -> List[int]:
         def binarySearch(arr, target):
             left, right = 0, len(arr)
             ans = None
             while left < right:
-                mid = left + ((right-left)//2)
+                mid = left + ((right - left) // 2)
                 if arr[mid] >= target:
                     ans = mid
                     right = mid

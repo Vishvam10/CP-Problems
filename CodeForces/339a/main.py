@@ -1,9 +1,9 @@
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve(s):
-    print('+'.join(list(sorted(s.replace('+', '')))))
+    print("+".join(list(sorted(s.replace("+", "")))))
     return
 
 

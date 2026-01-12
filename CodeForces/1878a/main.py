@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -18,11 +18,11 @@ def solve():
         for j in range(i, n):
             c = 0
             size = j - i
-            for l in range(i, j+1):
-                if (arr[l] == k):
+            for l in range(i, j + 1):
+                if arr[l] == k:
                     c += 1
             # print('k, c, size : ', k, c, size)
-            if (c > size // 2):
+            if c > size // 2:
                 print("YES")
                 return
     print("NO")

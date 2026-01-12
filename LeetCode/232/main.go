@@ -1,50 +1,46 @@
-type MyQueue struct {
-    st []int
-    temp []int
-}
+package main
 
+type MyQueue struct {
+	st   []int
+	temp []int
+}
 
 func Constructor() MyQueue {
-    st := []int{}
-    temp := []int{}
+	st := []int{}
+	temp := []int{}
 
-    return MyQueue{st: st, temp: temp}
+	return MyQueue{st: st, temp: temp}
 }
 
+func (this *MyQueue) Push(x int) {
 
-func (this *MyQueue) Push(x int)  {
-    
-    for len(this.st) > 0 {
-        this.temp = append(this.temp, this.st[len(this.st)-1])
-        this.st = this.st[:len(this.st)-1]
-    }
+	for len(this.st) > 0 {
+		this.temp = append(this.temp, this.st[len(this.st)-1])
+		this.st = this.st[:len(this.st)-1]
+	}
 
-    this.st = append(this.st, x)
+	this.st = append(this.st, x)
 
-    for len(this.temp) > 0 {
-        this.st = append(this.st, this.temp[len(this.temp)-1])
-        this.temp = this.temp[:len(this.temp)-1]
-    }
+	for len(this.temp) > 0 {
+		this.st = append(this.st, this.temp[len(this.temp)-1])
+		this.temp = this.temp[:len(this.temp)-1]
+	}
 }
-
 
 func (this *MyQueue) Pop() int {
-    val := this.st[len(this.st) - 1]
-    this.st = this.st[:len(this.st) - 1]
-    return val
+	val := this.st[len(this.st)-1]
+	this.st = this.st[:len(this.st)-1]
+	return val
 }
-
 
 func (this *MyQueue) Peek() int {
-    val := this.st[len(this.st) - 1]
-    return val
+	val := this.st[len(this.st)-1]
+	return val
 }
-
 
 func (this *MyQueue) Empty() bool {
-    return len(this.st) == 0
+	return len(this.st) == 0
 }
-
 
 /**
  * Your MyQueue object will be instantiated and called as such:

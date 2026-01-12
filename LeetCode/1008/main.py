@@ -19,7 +19,7 @@ class Solution:
 
     i = 0
 
-    def bstFromPreorder(self, A, bound=float('inf')):
+    def bstFromPreorder(self, A, bound=float("inf")):
         if self.i == len(A) or A[self.i] > bound:
             return None
         root = TreeNode(A[self.i])

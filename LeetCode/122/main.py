@@ -14,7 +14,7 @@ class Solution:
         lastBuy = -arr[0]
         lastSold = 0
         n = len(arr)
-        if (n == 0):
+        if n == 0:
             return 0
         for i in range(1, n):
             curBuy = max(lastBuy, lastSold - arr[i])

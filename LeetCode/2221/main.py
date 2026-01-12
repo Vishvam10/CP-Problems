@@ -21,7 +21,7 @@ class Solution:
             total = arr[0]
             n = len(arr) - 1
             for k in range(1, len(arr)):
-                coef *= (n - k + 1)
+                coef *= n - k + 1
                 coef //= k  # Integer division to avoid floating point
                 total += coef * arr[k]
                 total %= 10

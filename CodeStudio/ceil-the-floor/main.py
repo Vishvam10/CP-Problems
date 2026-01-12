@@ -4,12 +4,12 @@ class Solution:
 
         def start():
             low, high, ans = 0, n - 1, -1
-            while (low <= high):
+            while low <= high:
                 mid = low + (high - low) // 2
-                if (arr[mid] == x):
+                if arr[mid] == x:
                     ans = mid
                     high = mid - 1
-                elif (arr[mid] < x):
+                elif arr[mid] < x:
                     low = mid + 1
                 else:
                     high = mid - 1
@@ -17,12 +17,12 @@ class Solution:
 
         def end():
             low, high, ans = 0, n - 1, -1
-            while (low <= high):
+            while low <= high:
                 mid = low + (high - low) // 2
-                if (arr[mid] == x):
+                if arr[mid] == x:
                     ans = mid
                     low = mid + 1
-                elif (arr[mid] < x):
+                elif arr[mid] < x:
                     low = mid + 1
                 else:
                     high = mid - 1

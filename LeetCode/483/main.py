@@ -5,14 +5,13 @@ class Solution:
         for digits in range(64, 2, -1):
             low, high = 2, n - 1
 
-            while (low <= high):
-
+            while low <= high:
                 mid = low + (high - low) // 2
-                val = ((mid ** digits) - 1) // (mid - 1)
+                val = ((mid**digits) - 1) // (mid - 1)
 
-                if (val == n):
+                if val == n:
                     return str(mid)
-                elif (val < n):
+                elif val < n:
                     low = mid + 1
                 else:
                     high = mid - 1

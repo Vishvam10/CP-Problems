@@ -11,7 +11,7 @@ class Solution:
             st = deque()
 
             for i in range(n):
-                while (st and arr[i] <= arr[st[-1]]):
+                while st and arr[i] <= arr[st[-1]]:
                     st.pop()
 
                 res[i] = st[-1] if st else 0
@@ -24,11 +24,11 @@ class Solution:
             res = [0] * n
             st = deque()
 
-            for i in range(n-1, -1, -1):
-                while (st and arr[i] < arr[st[-1]]):
+            for i in range(n - 1, -1, -1):
+                while st and arr[i] < arr[st[-1]]:
                     st.pop()
 
-                res[i] = st[-1] if st else (n-1)
+                res[i] = st[-1] if st else (n - 1)
                 st.append(i)
 
             return res
@@ -40,6 +40,6 @@ class Solution:
         for i in range(n):
             l = abs(i - lefts[i])
             r = abs(i - rights[i])
-            ans += (arr[i] * l * r)
+            ans += arr[i] * l * r
 
         return ans

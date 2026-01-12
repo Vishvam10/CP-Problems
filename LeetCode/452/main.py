@@ -9,8 +9,8 @@ class Solution:
         pts.sort(key=lambda x: x[1])
         cur = pts[0][1]
         count = 1
-        for (st, end) in pts:
-            if (st > cur):
+        for st, end in pts:
+            if st > cur:
                 cur = end
                 count += 1
 

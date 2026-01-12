@@ -13,7 +13,7 @@ class Solution:
         ans = []
         ans.append(first ^ encoded[0])
         for i in range(1, len(encoded)):
-            ans.append(encoded[i] ^ ans[i-1])
+            ans.append(encoded[i] ^ ans[i - 1])
         ans.insert(0, first)
         return ans
 

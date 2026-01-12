@@ -5,7 +5,7 @@ class Solution:
         ans = []
 
         for ele in arr:
-            if (not ans or ele[0] > ans[-1][1]):
+            if not ans or ele[0] > ans[-1][1]:
                 ans.append(ele)
             else:
                 ans[-1][1] = max(ans[-1][1], ele[1])

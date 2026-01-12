@@ -14,10 +14,11 @@ class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
         def ds(n):
             s = 0
-            while (n):
+            while n:
                 s += n % 10
                 n //= 10
             return s
+
         temp = n
         i = 0
         while ds(n) > target:
@@ -25,4 +26,4 @@ class Solution:
             # we need n // 10 = 12345 then +1 to give us 12346
             n = n // 10 + 1
             i += 1
-        return n * (10 ** i) - temp
+        return n * (10**i) - temp

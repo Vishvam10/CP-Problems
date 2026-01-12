@@ -15,7 +15,6 @@ class Solution:
         ans[0] = arr[0]
 
         for i in range(1, n - 1):
-
             if ans[i - 1] < i:
                 return False
 

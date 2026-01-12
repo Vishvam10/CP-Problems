@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -24,9 +24,9 @@ def solve():
     for k in range(1, n + 1):
         mx = -1
         mn = float("inf")
-        if (n % k == 0):
+        if n % k == 0:
             for i in range(k, n + 1, k):
-                s = pref[i] - pref[i-k]
+                s = pref[i] - pref[i - k]
                 mx = max(mx, s)
                 mn = min(mn, s)
 

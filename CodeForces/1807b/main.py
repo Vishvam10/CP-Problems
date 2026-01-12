@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -17,12 +17,12 @@ def solve():
     even = 0
     odd = 0
     for x in arr:
-        if (x % 2 == 0):
+        if x % 2 == 0:
             even += x
         else:
             odd += x
 
-    if (even > odd):
+    if even > odd:
         print("YES")
         return
 

@@ -9,10 +9,10 @@ class Solution:
             mp[ch] -= 1
 
             # Permanently remove if frequency is 0
-            if (mp[ch] == 0):
+            if mp[ch] == 0:
                 mp.pop(ch)
 
-            if (len(set(mp.values())) == 1):
+            if len(set(mp.values())) == 1:
                 return True
 
             # Add the element back

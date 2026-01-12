@@ -5,12 +5,11 @@ class Solution:
         """
 
         def pp(mat):
-            print('\n'.join(['\t'.join([str(cell)
-                  for cell in row]) for row in mat]))
+            print("\n".join(["\t".join([str(cell) for cell in row]) for row in mat]))
 
         def isValid(mat, row, col, val):
             for i in range(9):
-                if (mat[i][col] == val or mat[row][i] == val):
+                if mat[i][col] == val or mat[row][i] == val:
                     return False
 
                 # To make sense of i // 3 and i % 3, think of
@@ -26,10 +25,9 @@ class Solution:
             for row in range(9):
                 for col in range(9):
                     if mat[row][col] == ".":
-                        for val in '123456789':
+                        for val in "123456789":
                             check = isValid(mat, row, col, val)
                             if check:
-
                                 # Set the state
                                 mat[row][col] = val
 

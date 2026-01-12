@@ -22,10 +22,10 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        a, b, i = m-1, n-1, m+n-1
+        a, b, i = m - 1, n - 1, m + n - 1
 
-        while (b >= 0):
-            if (a >= 0 and nums1[a] > nums2[b]):
+        while b >= 0:
+            if a >= 0 and nums1[a] > nums2[b]:
                 nums1[i] = nums1[a]
                 a -= 1
             else:

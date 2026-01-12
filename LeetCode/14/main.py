@@ -9,7 +9,7 @@ class Solution:
 
         for word in arr:
             for i in range(len(check)):
-                if (word[i] != check[i]):
+                if word[i] != check[i]:
                     c = min(c, i)
                     break
 

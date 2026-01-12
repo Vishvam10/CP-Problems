@@ -16,7 +16,7 @@ class Solution:
                 mp[x] -= 1
 
         for v in mp.values():
-            if (v < 0):
+            if v < 0:
                 return False
 
         return True

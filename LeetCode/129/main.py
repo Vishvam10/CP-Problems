@@ -12,12 +12,11 @@ TAGS : tree, binary tree, dfs
 
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
-
         def helper(node, val):
-            if (not node):
+            if not node:
                 return 0
-            val = val*10 + node.val
-            if (not node.left and not node.right):
+            val = val * 10 + node.val
+            if not node.left and not node.right:
                 return val
             return helper(node.left, val) + helper(node.right, val)
 

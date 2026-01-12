@@ -9,7 +9,6 @@ from operator import ior
 
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
-
         # NOTE THAT x is arbitary i.e not necessarily from the arr
 
         # 1. A[i] & (A[i] ^ x) enable you to turn 1-bit to 0-bit

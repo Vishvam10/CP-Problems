@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -17,13 +17,13 @@ def solve():
     max_ = min(arr)
 
     for i in range(n):
-        if (arr[i] > max_):
+        if arr[i] > max_:
             smax_ = max_
             max_ = arr[i]
         else:
             smax_ = max(smax_, arr[i])
     for x in arr:
-        if (x == max_):
+        if x == max_:
             print(x - smax_, end=" ")
         else:
             print(x - max_, end=" ")

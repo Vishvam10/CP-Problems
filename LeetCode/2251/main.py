@@ -12,7 +12,9 @@ class Solution:
 
     #   Blooming flowers = started flowers - ended flowers
 
-    def fullBloomFlowers(self, flowers: List[List[int]], persons: List[int]) -> List[int]:
+    def fullBloomFlowers(
+        self, flowers: List[List[int]], persons: List[int]
+    ) -> List[int]:
         #         ans = [0]*len(persons)
         #         for i in range(len(persons)) :
         #             p = persons[i]

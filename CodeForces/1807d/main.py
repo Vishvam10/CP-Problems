@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -22,10 +22,10 @@ def solve():
     for _ in range(nq):
         [l, r, k] = inlt()
 
-        orig_s = pre[r] - pre[l-1]
+        orig_s = pre[r] - pre[l - 1]
         obt_s = k * (r - l + 1)
         ans = tot - orig_s + obt_s
-        if (ans % 2 == 1):
+        if ans % 2 == 1:
             print("YES")
         else:
             print("NO")

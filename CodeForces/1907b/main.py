@@ -1,5 +1,5 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
@@ -7,7 +7,7 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -15,25 +15,25 @@ def solve():
     lmp = []
     ump = []
 
-    for (i, ch) in enumerate(s):
-        if (ch not in 'bB'):
-            if (ch.isupper()):
+    for i, ch in enumerate(s):
+        if ch not in "bB":
+            if ch.isupper():
                 ump.append(i)
             else:
                 lmp.append(i)
         else:
-            if (ch == 'B'):
-                if (len(ump) > 0):
-                    s[ump[-1]] = ''
+            if ch == "B":
+                if len(ump) > 0:
+                    s[ump[-1]] = ""
                     ump.pop()
-                s[i] = ''
-            elif (ch == 'b'):
-                if (len(lmp) > 0):
-                    s[lmp[-1]] = ''
+                s[i] = ""
+            elif ch == "b":
+                if len(lmp) > 0:
+                    s[lmp[-1]] = ""
                     lmp.pop()
-                s[i] = ''
+                s[i] = ""
 
-    print(''.join(s))
+    print("".join(s))
 
     return
 

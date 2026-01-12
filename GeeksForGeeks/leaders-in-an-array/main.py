@@ -6,8 +6,8 @@ class Solution:
         flag = False
         ans = []
         max_ele = -100000000
-        for i in range(n-1, -1, -1):
-            if (arr[i] >= max_ele):
+        for i in range(n - 1, -1, -1):
+            if arr[i] >= max_ele:
                 ans.append(arr[i])
                 max_ele = arr[i]
         ans.reverse()

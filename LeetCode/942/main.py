@@ -11,7 +11,7 @@ class Solution:
         high = n
         ans = [0] * (n + 1)
         for i in range(n):
-            if (s[i] == "D"):
+            if s[i] == "D":
                 ans[i] = high
                 high -= 1
             else:

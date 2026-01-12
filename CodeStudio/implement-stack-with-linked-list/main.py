@@ -28,7 +28,7 @@ class Stack:
         self.eles += 1
 
     def pop(self):
-        if (self.prev):
+        if self.prev:
             self.prev.next = self.cur.next
             self.eles -= 1
 

@@ -9,7 +9,7 @@ class Solution:
         arr = sorted(arr, key=lambda x: x[0])
         ans = []
         for ele in arr:
-            if (not ans or ans[-1][1] < ele[0]):
+            if not ans or ans[-1][1] < ele[0]:
                 ans.append(ele)
             else:
                 ans[-1][1] = max(ans[-1][1], ele[1])

@@ -3,7 +3,7 @@ class Solution:
         n = len(arr)
         c = ans = 0
         for i in range(n):
-            if (arr[i] == 1):
+            if arr[i] == 1:
                 c += 1
             else:
                 ans = max(ans, c)

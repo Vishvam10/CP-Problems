@@ -2,7 +2,7 @@ from collections import defaultdict
 
 
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
@@ -10,12 +10,12 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def check(s):
     for i in range(1, len(s)):
-        if (s[i-1] != s[i]):
+        if s[i - 1] != s[i]:
             return True
     return False
 
@@ -33,7 +33,7 @@ def solve():
     # (n - maxi) : no. of removals
     # max(0/1 depending on odd or even, max - (n - maxi)) : no. of letters left
 
-    print(max(n & 1, 2*maxi - n))
+    print(max(n & 1, 2 * maxi - n))
 
     return
 

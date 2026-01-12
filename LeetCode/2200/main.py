@@ -3,9 +3,9 @@ class Solution:
         res = start ^ goal
         ans = 0
 
-        while (res):
+        while res:
             lsb = res & 1
-            if (lsb == 1):
+            if lsb == 1:
                 ans += 1
             res >>= 1
 

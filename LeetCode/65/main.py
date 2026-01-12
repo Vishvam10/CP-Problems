@@ -20,19 +20,19 @@ class Solution:
         s = s.strip()
 
         for i, ch in enumerate(s):
-            if (ch in "+-"):
-                if i > 0 and s[i-1].lower() != "e":
+            if ch in "+-":
+                if i > 0 and s[i - 1].lower() != "e":
                     return False
-            elif (ch == "."):
-                if (seen_dot or seen_e):
+            elif ch == ".":
+                if seen_dot or seen_e:
                     return False
                 seen_dot = True
-            elif (ch.lower() == "e"):
-                if (seen_e or not seen_digit):
+            elif ch.lower() == "e":
+                if seen_e or not seen_digit:
                     return False
                 seen_e = True
                 seen_digit = False
-            elif (ch in "0123456789"):
+            elif ch in "0123456789":
                 seen_digit = True
             else:
                 return False

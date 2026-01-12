@@ -15,11 +15,11 @@ class Solution:
     def searchMatrix(self, mat: List[List[int]], target: int) -> bool:
         def search(arr, target):
             low, high = 0, len(arr) - 1
-            while (low <= high):
+            while low <= high:
                 mid = low + (high - low) // 2
-                if (arr[mid] == target):
+                if arr[mid] == target:
                     return True
-                elif (arr[mid] < target):
+                elif arr[mid] < target:
                     low = mid + 1
                 else:
                     high = mid - 1
@@ -29,6 +29,6 @@ class Solution:
 
         for i in range(cols):
             row = mat[i]
-            if (row[0] <= target and target <= row[rows-1]):
+            if row[0] <= target and target <= row[rows - 1]:
                 return search(row, target)
         return False

@@ -3,7 +3,6 @@ from collections import deque
 
 class Solution:
     def nextGreaterElements(self, arr: List[int]) -> List[int]:
-
         n = len(arr)
         ans = [-1] * n
         st = []

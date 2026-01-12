@@ -8,14 +8,14 @@ class Solution:
         st.append(["", 1])
         num = ""
         for ch in s:
-            if (ch.isdigit()):
+            if ch.isdigit():
                 num += ch
-            elif (ch == "["):
+            elif ch == "[":
                 st.append(["", int(num)])
                 num = ""
-            elif (ch == "]"):
+            elif ch == "]":
                 string, n = st.pop()
-                c = string*n
+                c = string * n
                 # CONCATENATING THE RESULTING STRING INTO THE LAST ELEMENT
                 # OF THE STACK ===> CRUX OF THE PROBLEM
                 st[-1][0] += c

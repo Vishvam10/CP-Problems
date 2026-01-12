@@ -1,50 +1,47 @@
 struct Point {
-    int x, y;
+  int x, y;
 };
 
 class Solution {
 public:
-    vector<int> spiralOrder(vector<vector<int>>& mat) {
-        int nrows = mat.size();
-        int ncols = mat[0].size();
+  vector<int> spiralOrder(vector<vector<int>> &mat) {
+    int nrows = mat.size();
+    int ncols = mat[0].size();
 
-        vector<int> ans;
+    vector<int> ans;
 
-        int left = 0, right = ncols - 1;
-        int top = 0, bottom = nrows - 1;
+    int left = 0, right = ncols - 1;
+    int top = 0, bottom = nrows - 1;
 
-        while(top <= bottom && left <= right) {
-            for(int i = left; i <= right; ++i) {
-                ans.push_back(mat[top][i]);
-            }
+    while (top <= bottom && left <= right) {
+      for (int i = left; i <= right; ++i) {
+        ans.push_back(mat[top][i]);
+      }
 
-            top++;
+      top++;
 
-            for(int i = top; i <= bottom; ++i) {
-                ans.push_back(mat[i][right]);
-            }
+      for (int i = top; i <= bottom; ++i) {
+        ans.push_back(mat[i][right]);
+      }
 
-            right--;
+      right--;
 
-            if(top <= bottom) {
-                for(int i = right; i >= left; --i) {
-                    ans.push_back(mat[bottom][i]);
-                }
-                bottom--;
-            }
+      if (top <= bottom) {
+        for (int i = right; i >= left; --i) {
+          ans.push_back(mat[bottom][i]);
+        }
+        bottom--;
+      }
 
-            if(left <= right) {
-                for(int i = bottom; i >= top; --i) {
-                    ans.push_back(mat[i][left]);
-                }
-
-                left++;
-            }
-
-
+      if (left <= right) {
+        for (int i = bottom; i >= top; --i) {
+          ans.push_back(mat[i][left]);
         }
 
-        return ans;
-        
+        left++;
+      }
     }
+
+    return ans;
+  }
 };

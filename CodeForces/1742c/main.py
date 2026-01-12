@@ -50,12 +50,22 @@ class IOWrapper(IOBase):
 
 
 sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
-def input(): return sys.stdin.readline().rstrip("\r\n")
 
 
-def mi(): return int(input())
-def MI(): return (map(int, input().split()))
-def LMI(): return list(map(int, input().split()))
+def input():
+    return sys.stdin.readline().rstrip("\r\n")
+
+
+def mi():
+    return int(input())
+
+
+def MI():
+    return map(int, input().split())
+
+
+def LMI():
+    return list(map(int, input().split()))
 
 
 def solve():

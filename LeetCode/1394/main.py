@@ -9,12 +9,12 @@ class Solution:
         mp = {}
         ans = -1
         for x in arr:
-            if (x not in mp):
+            if x not in mp:
                 mp[x] = 1
             else:
                 mp[x] += 1
         for k, v in mp.items():
-            if (k == v):
+            if k == v:
                 ans = max(ans, v)
 
         return ans

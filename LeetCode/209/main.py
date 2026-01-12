@@ -12,11 +12,11 @@ class Solution:
         s = 0
         for i in range(n):
             s += arr[i]
-            while (s >= target):
+            while s >= target:
                 ans = min(ans, i - left + 1)
                 s -= arr[left]
                 left += 1
 
-        if (ans == float("inf")):
+        if ans == float("inf"):
             return 0
         return ans

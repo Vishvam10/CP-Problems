@@ -1,16 +1,12 @@
-
-
 def sum_of_all_subarrays(arr, n, size):
-
     ans = []
     s = sum(arr[:k])
 
     ans.append(s)
 
     for i in range(k, n):
-
         # arr[end] - arr[start]
-        s += (arr[i] - arr[i-k])
+        s += arr[i] - arr[i - k]
         ans.append(s)
 
     return ans

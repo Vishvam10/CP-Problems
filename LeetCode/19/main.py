@@ -12,12 +12,12 @@ class Solution:
         start.next = head
         slow, fast = start, start
 
-        for _ in range(1, k+1):
+        for _ in range(1, k + 1):
             fast = fast.next
         # Now, fast is at ()k-1)th position from the beginning
 
         # We go from (k-1) to n => Total traversed : (n-k+1)
-        while (fast.next):
+        while fast.next:
             slow = slow.next
             fast = fast.next
 

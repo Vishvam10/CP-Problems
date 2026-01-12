@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 n = inp()
@@ -12,8 +12,8 @@ ans = 0
 curr = 0
 
 for i in range(n):
-    if (arr[i] == -1):
-        if (curr > 0):
+    if arr[i] == -1:
+        if curr > 0:
             curr -= 1
         else:
             ans += 1

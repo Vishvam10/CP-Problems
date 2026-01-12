@@ -6,12 +6,12 @@ class Solution:
         n = len(arr)
         ind = -1  # break point
 
-        for i in range(n-2, -1, -1):
+        for i in range(n - 2, -1, -1):
             if arr[i] < arr[i + 1]:
                 ind = i
                 break
 
-        print('ind : ', ind)
+        print("ind : ", ind)
 
         if ind == -1:
             arr.reverse()
@@ -22,6 +22,6 @@ class Solution:
                 arr[i], arr[ind] = arr[ind], arr[i]
                 break
 
-        arr[ind+1:] = reversed(arr[ind+1:])
+        arr[ind + 1 :] = reversed(arr[ind + 1 :])
 
         # return arr

@@ -10,7 +10,7 @@ class Solution:
         ans = []
         for i in range(len(arr)):
             word = "".join(sorted(arr[i]))
-            if (word in mp):
+            if word in mp:
                 mp[word].append(i)
             else:
                 mp[word] = []

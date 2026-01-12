@@ -12,14 +12,13 @@ def kadane(arr, n):
         curSum += arr[i]
         maxSum = max(maxSum, curSum)
 
-        if (curSum < 0):
+        if curSum < 0:
             curSum = 0
 
     return maxSum
 
 
 def maxSumRectangle(arr, n, m):
-
     curSum = 0
     maxSum = float("-inf")
     temp = []

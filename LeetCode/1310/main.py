@@ -12,8 +12,8 @@ class Solution:
             arr[i + 1] ^= arr[i]
 
         for i, j in queries:
-            if (i != 0):
-                ans.append(arr[j] ^ arr[i-1])
+            if i != 0:
+                ans.append(arr[j] ^ arr[i - 1])
             else:
                 ans.append(arr[j])
 

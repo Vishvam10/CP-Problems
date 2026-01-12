@@ -14,7 +14,7 @@ class Solution:
     # If req is obtuse, convert to acute
 
     def angleClock(self, hour: int, minutes: int) -> float:
-        ha = (hour % 12 * 30) + (minutes/60 * 30)
+        ha = (hour % 12 * 30) + (minutes / 60 * 30)
         ma = minutes * 6
         ang = abs(ma - ha)
         if ang > 180:

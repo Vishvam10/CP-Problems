@@ -9,8 +9,7 @@ class Solution:
         rows, cols = len(img), len(img[0])
         if rows < 1:
             return img
-        dirs = [(-1, -1), (-1, 0), (-1, 1), (0, 1),
-                (1, 1), (1, 0), (1, -1), (0, -1)]
+        dirs = [(-1, -1), (-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1)]
         res = [[0 for _ in range(cols)] for _ in range(rows)]
 
         for i in range(rows):

@@ -10,9 +10,9 @@ class Solution:
         mp = {}
 
         for i in range(n):
-            if (arr[i] in mp):
+            if arr[i] in mp:
                 diff = mp[arr[i]] - i
-                if (abs(diff) <= k):
+                if abs(diff) <= k:
                     return True
                 else:
                     mp[arr[i]] = i

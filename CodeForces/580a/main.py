@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -18,7 +18,7 @@ def solve():
     prev = arr[0]
 
     for i in range(1, n):
-        if (arr[i] < prev):
+        if arr[i] < prev:
             ans = max(ans, c)
             c = 1
         else:

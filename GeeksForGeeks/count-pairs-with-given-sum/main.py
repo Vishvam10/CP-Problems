@@ -1,4 +1,3 @@
-
 class Solution:
     def getPairsCount(self, arr, n, k):
         mp = {}
@@ -9,7 +8,7 @@ class Solution:
             else:
                 mp[arr[i]] += 1
         for i in range(n):
-            if ((k - arr[i]) in mp):
+            if (k - arr[i]) in mp:
                 mp[arr[i]] -= 1
                 count += mp[k - arr[i]]
 

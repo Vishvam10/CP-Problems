@@ -10,8 +10,8 @@ class Solution:
         dummy = ListNode(-1)
         dummy.next = head
         temp = dummy
-        while (temp.next):
-            if (temp.next.val == val):
+        while temp.next:
+            if temp.next.val == val:
                 temp.next = temp.next.next
             else:
                 temp = temp.next

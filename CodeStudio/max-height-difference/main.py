@@ -8,7 +8,6 @@ from math import *
 
 
 class TreeNode:
-
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -16,9 +15,8 @@ class TreeNode:
 
 
 def maxHeightDifference(root):
-
     def ht(node):
-        if (node == None):
+        if node == None:
             return 0
 
         left = ht(node.left)
@@ -28,7 +26,7 @@ def maxHeightDifference(root):
         return ans
 
     def solve(node):
-        if (node == None):
+        if node == None:
             return 0
 
         lh = ht(node.left)

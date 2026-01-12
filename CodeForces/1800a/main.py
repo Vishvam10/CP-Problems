@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -11,7 +11,7 @@ def solve():
     s = insr().lower()
     ck = s[0]
     for i in range(1, n):
-        if s[i] != s[i-1]:
+        if s[i] != s[i - 1]:
             ck += s[i]
     if ck == "meow":
         print("YES")

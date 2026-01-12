@@ -12,7 +12,7 @@ class Solution:
         for i in range(len(arr)):
             prod *= arr[i]
             ans = max(ans, prod)
-            if (prod == 0):
+            if prod == 0:
                 prod = 1
 
         prod = 1
@@ -20,7 +20,7 @@ class Solution:
         for i in range(len(arr) - 1, -1, -1):
             prod *= arr[i]
             ans = max(ans, prod)
-            if (prod == 0):
+            if prod == 0:
                 prod = 1
 
         return ans

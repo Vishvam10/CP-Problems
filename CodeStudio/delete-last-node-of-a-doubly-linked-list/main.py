@@ -10,10 +10,10 @@ class Node:
 
 def deleteLastNode(head: Node) -> Node:
     temp = head
-    if (temp == None or temp.next == None):
+    if temp == None or temp.next == None:
         return None
 
-    while (temp.next.next):
+    while temp.next.next:
         temp = temp.next
 
     temp.next = None

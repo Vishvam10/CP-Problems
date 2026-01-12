@@ -19,9 +19,9 @@ class Solution:
             for j in range(n):
                 yz_plane_area = max(yz_plane_area, arr[i][j])
                 xz_plane_area = max(xz_plane_area, arr[j][i])
-                if (arr[i][j]):
+                if arr[i][j]:
                     xy_plane_area += 1
 
-            ans += (yz_plane_area + xz_plane_area + xy_plane_area)
+            ans += yz_plane_area + xz_plane_area + xy_plane_area
 
         return ans

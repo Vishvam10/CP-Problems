@@ -13,7 +13,7 @@ def removeKthNode(head, k):
     for _ in range(k):
         fast = fast.next
 
-    while (fast.next):
+    while fast.next:
         slow = slow.next
         fast = fast.next
 

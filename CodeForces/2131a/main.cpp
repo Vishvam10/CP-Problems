@@ -1,15 +1,15 @@
-#include <iostream>  // for cin, cout
-#include <vector>    // for vector
 #include <algorithm> // for max, min, sort, etc.
-#include <numeric>   // for reduce
-#include <map>       // for map
-#include <set>       // for set
-#include <queue>     // for queue
-#include <cmath>     // for sqrt, round
-#include <string>    // for string operations
-#include <limits>    // for numeric_limits if needed
-#include <sstream>   // for getline
 #include <climits>   // for LLONG_MAX
+#include <cmath>     // for sqrt, round
+#include <iostream>  // for cin, cout
+#include <limits>    // for numeric_limits if needed
+#include <map>       // for map
+#include <numeric>   // for reduce
+#include <queue>     // for queue
+#include <set>       // for set
+#include <sstream>   // for getline
+#include <string>    // for string operations
+#include <vector>    // for vector
 
 using namespace std;
 
@@ -33,43 +33,32 @@ using namespace std;
 #define debug(...) debug_print(#__VA_ARGS__, __VA_ARGS__)
 
 /* PRINTS */
-template <class T>
-void print_v(vector<T> &v)
-{
-  for (auto x : v)
-  {
+template <class T> void print_v(vector<T> &v) {
+  for (auto x : v) {
     cout << x << " ";
   }
 }
 
-template <class T>
-void print_v2d(vector<vector<T>> &v)
-{
-  for (auto x : v)
-  {
-    for (auto y : x)
-    {
+template <class T> void print_v2d(vector<vector<T>> &v) {
+  for (auto x : v) {
+    for (auto y : x) {
       cout << y << " ";
     }
     cout << "\n";
   }
 }
 
-template <typename T>
-void print_one(const string &name, const T &value)
-{
+template <typename T> void print_one(const string &name, const T &value) {
   cout << name << " = " << value << ", ";
 }
 
 template <typename T, typename... Args>
-void debug_print(const string &names, const T &value, const Args &...args)
-{
+void debug_print(const string &names, const T &value, const Args &...args) {
   stringstream ss(names);
   string name;
   int paren_count = 0;
 
-  while (getline(ss, name, ','))
-  {
+  while (getline(ss, name, ',')) {
     if (paren_count == 0 || name.back() != ')')
       break;
   }
@@ -80,13 +69,10 @@ void debug_print(const string &names, const T &value, const Args &...args)
     name = name.substr(first);
 
   print_one(name, value);
-  if constexpr (sizeof...(args) > 0)
-  {
+  if constexpr (sizeof...(args) > 0) {
     auto rest_names = names.substr(names.find(',') + 1);
     debug_print(rest_names, args...);
-  }
-  else
-  {
+  } else {
     cout << "\n";
   }
 }
@@ -96,36 +82,31 @@ void debug_print(const string &names, const T &value, const Args &...args)
 #define PI 3.1415926535897932384626433832795
 #define read(type) readInt<type>()
 
-ll min(ll a, int b)
-{
+ll min(ll a, int b) {
   if (a < b)
     return a;
   return b;
 }
 
-ll min(int a, ll b)
-{
+ll min(int a, ll b) {
   if (a < b)
     return a;
   return b;
 }
 
-ll max(ll a, int b)
-{
+ll max(ll a, int b) {
   if (a > b)
     return a;
   return b;
 }
 
-ll max(int a, ll b)
-{
+ll max(int a, ll b) {
   if (a > b)
     return a;
   return b;
 }
 
-ll gcd(ll a, ll b)
-{
+ll gcd(ll a, ll b) {
   if (b == 0)
     return a;
   return gcd(b, a % b);
@@ -133,24 +114,21 @@ ll gcd(ll a, ll b)
 
 ll lcm(ll a, ll b) { return a / gcd(a, b) * b; }
 
-string to_upper(string a)
-{
+string to_upper(string a) {
   for (int i = 0; i < (int)a.size(); ++i)
     if (a[i] >= 'a' && a[i] <= 'z')
       a[i] -= 'a' - 'A';
   return a;
 }
 
-string to_lower(string a)
-{
+string to_lower(string a) {
   for (int i = 0; i < (int)a.size(); ++i)
     if (a[i] >= 'A' && a[i] <= 'Z')
       a[i] += 'a' - 'A';
   return a;
 }
 
-bool prime(ll a)
-{
+bool prime(ll a) {
   if (a == 1)
     return 0;
   for (int i = 2; i <= round(sqrt(a)); ++i)
@@ -159,8 +137,7 @@ bool prime(ll a)
   return 1;
 }
 
-vector<int> split(const string& str, char delim = ' ') 
-{
+vector<int> split(const string &str, char delim = ' ') {
   vector<int> result;
   stringstream ss(str);
   string token;
@@ -180,15 +157,13 @@ typedef unsigned long int uint32;
 typedef long long int int64;
 typedef unsigned long long int uint64;
 
-void FastIO()
-{
+void FastIO() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   cout.tie(0);
 }
 
-void solve()
-{
+void solve() {
 
   int n;
   cin >> n;
@@ -205,34 +180,32 @@ void solve()
   // Thing ends if dec < 0 so we only care about decrements ?
 
   /*
-      
+
       1 1 4 5 1 4
       1 9 1 9 8 1
 
       0, 8, -3, 4, 7, -3 := dec = abs(-3 + -3) = 6
 
-      => no. of iterations = 6 + 1 = 7 (+1 for the last iteration where it 
+      => no. of iterations = 6 + 1 = 7 (+1 for the last iteration where it
       finds it's going to halt)
-  
+
   */
 
   int ans = 1;
 
-  for(int i = 0; i < n; ++i) {
-    
-    if(a1[i] > b1[i]) {
+  for (int i = 0; i < n; ++i) {
+
+    if (a1[i] > b1[i]) {
       ans += (a1[i] - b1[i]);
     }
-
   }
 
   cout << ans << "\n";
-  
+
   return;
 }
 
-int main()
-{
+int main() {
   FastIO();
   int tc;
   cin >> tc;

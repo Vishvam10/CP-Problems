@@ -18,6 +18,6 @@ class Solution:
                     ans += i
                 else:
                     # add factor i and (num // i)
-                    ans += (i + num // i)
+                    ans += i + num // i
 
         return ans == num

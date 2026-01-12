@@ -1,3 +1,5 @@
+package main
+
 func maxProfit(arr []int) int {
 	n := len(arr)
 

@@ -1,16 +1,11 @@
 def pretty_args(args):
-    """pretty prints the arguments in a string
-    """
+    """pretty prints the arguments in a string"""
     return ", ".join([repr(arg) for arg in args])
 
 
 def pretty_kwargs(kwargs):
-    """pretty prints the keyword arguments in a string
-    """
-    return ", ".join([
-        f"{key}={repr(value)}"
-        for key, value in kwargs.items()
-    ])
+    """pretty prints the keyword arguments in a string"""
+    return ", ".join([f"{key}={repr(value)}" for key, value in kwargs.items()])
 
 
 def pretty_func(fn, args, kwargs):
@@ -25,19 +20,19 @@ def pretty_func(fn, args, kwargs):
         return f"{fn.__name__}({args_str, kwargs_str})"
     return f"{fn.__name__}({args_str or kwargs_str})"
 
+
 # Use as a decorator
 
 
 def recviz(fn):
     """Decorator that pretty prints the recursion tree with
-       args, kwargs, and return values.
+    args, kwargs, and return values.
     """
 
     # holds the current recursion level
     recursion_level = 1
 
     def wrapper(*args, **kwargs):
-
         # we register a nonlocal recursion_level so that
         # it binds with the recursion_level variable.
         # in this case, it will bind to the one defined
@@ -84,9 +79,9 @@ class Solution:
                 return
             for i in range(start, len(arr)):
                 # We want only the unique combinations
-                if i > start and arr[i] == arr[i-1]:
+                if i > start and arr[i] == arr[i - 1]:
                     continue
-                helper(i+1, s+arr[i], pref+[arr[i]], acc)
+                helper(i + 1, s + arr[i], pref + [arr[i]], acc)
 
             return acc
 

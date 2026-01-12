@@ -1,8 +1,7 @@
+#include <algorithm>
 #include <bits/stdc++.h>
 #include <climits>
 #include <vector>
-#include <algorithm>
-
 
 using namespace std;
 
@@ -118,7 +117,7 @@ void FastIO() {
   cout.tie(0);
 }
 
-void solve1() { 
+void solve1() {
 
   int n;
   cin >> n;
@@ -128,16 +127,16 @@ void solve1() {
 
   // No. of perms = n! / (a1! * a2! * ... * an!) where ai is a group of same
   // characters ... we want to minimize this. n is fixed, so we need to maximise
-  // the denominator ... increasing max(a1, a2, .., an) by 1 and decreasing 
+  // the denominator ... increasing max(a1, a2, .., an) by 1 and decreasing
   // min(a1, a2, ..., an) by 1 (by 1 because no. of ops allowed is 1) would be
-  // the best. min = 1 is also taken care ? As 0! = 1 ... 
+  // the best. min = 1 is also taken care ? As 0! = 1 ...
 
   // char -> (first index, freq)
   unordered_map<char, pair<int, int>> mp;
   int mx = INT_MIN, mn = INT_MAX;
   int mxi = -1, mni = -1;
-  
-  for(int i = 0; i < n; ++i) {
+
+  for (int i = 0; i < n; ++i) {
     if (mp.find(s[i]) == mp.end()) {
       mp[s[i]] = {i, 0};
     } else {
@@ -165,8 +164,8 @@ void solve1() {
   s[mni] = s[mxi];
 
   cout << s << "\n";
-  
-  return; 
+
+  return;
 }
 
 int main() {

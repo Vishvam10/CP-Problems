@@ -28,5 +28,8 @@ class Solution:
             elif not low < root.val < high:
                 return False
             else:
-                return traverse(root.left, low, root.val) and traverse(root.right, root.val, high)
+                return traverse(root.left, low, root.val) and traverse(
+                    root.right, root.val, high
+                )
+
         return traverse(root, low=float("-inf"), high=float("inf"))

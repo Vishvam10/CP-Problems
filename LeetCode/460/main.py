@@ -1,5 +1,4 @@
 class LFUCache:
-
     def __init__(self, capacity: int):
         self.mp = {}
         self.counts = defaultdict(list)

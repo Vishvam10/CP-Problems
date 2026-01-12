@@ -10,18 +10,18 @@ class Solution:
             ptr1 = 0
             ptr2 = 0
 
-            while (ptr1 < len(s1) and ptr2 < len(s2)):
-                if (s1[ptr1] == s2[ptr2]):
+            while ptr1 < len(s1) and ptr2 < len(s2):
+                if s1[ptr1] == s2[ptr2]:
                     ptr1 += 1
                     ptr2 += 1
                 else:
-                    if (s1[ptr1].isupper()):
+                    if s1[ptr1].isupper():
                         return False
                     ptr1 += 1
 
-            if (ptr2 == len(s2)):
-                while (ptr1 < len(s1)):
-                    if (s1[ptr1].isupper()):
+            if ptr2 == len(s2):
+                while ptr1 < len(s1):
+                    if s1[ptr1].isupper():
                         return False
                     ptr1 += 1
                 return True

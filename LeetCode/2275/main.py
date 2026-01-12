@@ -11,6 +11,6 @@ class Solution:
         for i in range(len(arr)):
             b = bin(arr[i])[2:].zfill(n)
             for j in range(len(b)):
-                if (b[j] == "1"):
+                if b[j] == "1":
                     mp[j] += 1
         return max(mp)

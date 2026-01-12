@@ -1,7 +1,4 @@
-
-
 def subarray_of_with_given_sum(arr, n, s):
-
     # pre[L..R] = pre[R] - pre[L-1]
     # Need the index of : pre[R] - k
 
@@ -10,12 +7,12 @@ def subarray_of_with_given_sum(arr, n, s):
 
     for i in range(n):
         curSum += arr[i]
-        if (curSum == s):
+        if curSum == s:
             start = 0
             end = i
             break
 
-        if ((curSum - s) in mp):
+        if (curSum - s) in mp:
             # print("present : ", curSum-s)
             start = mp.get(curSum - s) + 1
             end = i
@@ -25,7 +22,7 @@ def subarray_of_with_given_sum(arr, n, s):
 
     print("mp : ", mp)
 
-    if (end == -1):
+    if end == -1:
         return -1
 
     return [start, end]

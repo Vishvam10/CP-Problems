@@ -13,7 +13,7 @@ class Solution:
     #        on the group, here it is thousand.
     #        (For numbers between 10 and 19, have a new map)
     def numberToWords(self, num: int) -> str:
-        if (num == 0):
+        if num == 0:
             return "Zero"
 
         # s = list(str(num))
@@ -48,7 +48,7 @@ class Solution:
             "6": " Six",
             "7": " Seven",
             "8": " Eight",
-            "9": " Nine"
+            "9": " Nine",
         }
 
         mp2 = {
@@ -61,7 +61,7 @@ class Solution:
             "6": " Sixty",
             "7": " Seventy",
             "8": " Eighty",
-            "9": " Ninety"
+            "9": " Ninety",
         }
 
         mp3 = {
@@ -76,7 +76,7 @@ class Solution:
             8: " Septillion",
             9: " Octillion",
             10: " Nonillion",
-            11: " Decillion"
+            11: " Decillion",
         }
 
         mp4 = {
@@ -89,24 +89,23 @@ class Solution:
             "16": " Sixteen",
             "17": " Seventeen",
             "18": " Eighteen",
-            "19": " Nineteen"
+            "19": " Nineteen",
         }
 
         ans = ""
 
-        if (rem != 0):
+        if rem != 0:
             temp = s[0:rem]
 
         for i in range(rem, n, 3):
-            substr = s[i:i+3]
+            substr = s[i : i + 3]
             hundreds_place = ""
             tenths_place = ""
             ones_place = ""
 
-            hundreds_place = mp1[substr[0]] + \
-                " Hundred" if substr[0] != "0" else ""
-            if (substr[1] != "0"):
-                if (substr[1] != "1"):
+            hundreds_place = mp1[substr[0]] + " Hundred" if substr[0] != "0" else ""
+            if substr[1] != "0":
+                if substr[1] != "1":
                     tenths_place = mp2[substr[1]]
                     ones_place = mp1[substr[2]]
                 else:
@@ -115,11 +114,11 @@ class Solution:
             else:
                 ones_place = mp1[substr[2]]
 
-            val = (hundreds_place + tenths_place + ones_place)
-            group = (n-i-1) // 3
+            val = hundreds_place + tenths_place + ones_place
+            group = (n - i - 1) // 3
 
-            if (len(val) != 0):
-                val += (mp3[group])
+            if len(val) != 0:
+                val += mp3[group]
                 ans += val
 
             # print(hundreds_place, tenths_place, ones_place)
@@ -127,13 +126,13 @@ class Solution:
 
         temp_val = ""
 
-        if (len(temp) == 2):
-            if (temp[0] != "1"):
+        if len(temp) == 2:
+            if temp[0] != "1":
                 temp_val = mp2[temp[0]] + mp1[temp[1]]
             else:
                 temp_val = mp4[temp]
             temp_val += mp3[quo]
-        elif (len(temp) == 1):
+        elif len(temp) == 1:
             temp_val = mp1[temp[0]]
             temp_val += mp3[quo]
 

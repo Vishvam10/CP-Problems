@@ -1,23 +1,22 @@
 class Solution:
     def sortArray(self, arr: List[int]) -> List[int]:
-
         def merge(arr, left, mid, right):
             i, j = left, mid + 1
             ans = []
 
-            while (i <= mid and j <= right):
-                if (arr[i] < arr[j]):
+            while i <= mid and j <= right:
+                if arr[i] < arr[j]:
                     ans.append(arr[i])
                     i += 1
                 else:
                     ans.append(arr[j])
                     j += 1
 
-            while (i <= mid):
+            while i <= mid:
                 ans.append(arr[i])
                 i += 1
 
-            while (j <= right):
+            while j <= right:
                 ans.append(arr[j])
                 j += 1
 
@@ -29,7 +28,7 @@ class Solution:
             return arr
 
         def mergeSort(arr, left, right):
-            if (left >= right):
+            if left >= right:
                 return
 
             mid = left + (right - left) // 2

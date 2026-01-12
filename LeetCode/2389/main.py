@@ -12,7 +12,7 @@ class Solution:
             temp = 0
             count = 0
             for val in arr:
-                if (temp + val <= target):
+                if temp + val <= target:
                     temp += val
                     count += 1
                 else:

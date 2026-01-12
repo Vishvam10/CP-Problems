@@ -5,7 +5,6 @@ TAGS : array, stack, design
 
 
 class CustomStack:
-
     # The idea is to maintain a separate stack
     # for the increment information (say inc)
     # While popping the stack[] array, we will

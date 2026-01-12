@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -12,16 +12,16 @@ def solve():
     x = 0
     y = 0
     for ch in s:
-        if (ch == "L"):
+        if ch == "L":
             x -= 1
-        if (ch == "R"):
+        if ch == "R":
             x += 1
-        if (ch == "U"):
+        if ch == "U":
             y += 1
-        if (ch == "D"):
+        if ch == "D":
             y -= 1
 
-        if (x == 1 and y == 1):
+        if x == 1 and y == 1:
             print("YES")
             return
 

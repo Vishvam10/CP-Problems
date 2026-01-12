@@ -1,20 +1,19 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def solve():
-
     n = inp()
 
-    if (n > 45):
+    if n > 45:
         print("-1")
         return
 
-    if (n >= 1 and n <= 9):
+    if n >= 1 and n <= 9:
         print(n)
         return
 
@@ -23,13 +22,13 @@ def solve():
 
     for i in range(9, 0, -1):
         temp = n - i
-        if (not used[i-1] and temp >= 0):
+        if not used[i - 1] and temp >= 0:
             n -= i
             ans.append(str(i))
-            used[i-1] = True
+            used[i - 1] = True
 
     ans.sort()
-    ans = int(''.join(ans))
+    ans = int("".join(ans))
     print(ans)
     return
 

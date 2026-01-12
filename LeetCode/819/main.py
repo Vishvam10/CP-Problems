@@ -6,7 +6,6 @@ TAGS : string, hash table, counting
 
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-
         paragraph = paragraph.lower()
         count = 0
         ans = ""

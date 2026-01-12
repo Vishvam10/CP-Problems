@@ -1,16 +1,15 @@
 def two_equal_sum_subarray(arr, n):
-
     s = sum(arr)
     temp = 0
     ind = -1
     for i in range(n):
         temp += arr[i]
         print(temp, s - temp)
-        if (temp == s - temp):
-            ind = i+1
+        if temp == s - temp:
+            ind = i + 1
             break
 
-    if (ind == -1):
+    if ind == -1:
         print("not possible")
         return -1
 

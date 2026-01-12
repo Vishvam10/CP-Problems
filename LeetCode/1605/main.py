@@ -1,6 +1,6 @@
 """
 DIFFICULTY : medium
-TAGS : array, greedy, matrix  
+TAGS : array, greedy, matrix
 """
 
 

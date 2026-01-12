@@ -36,11 +36,11 @@ class Solution:
         # ITERATIVE DIVIDE AND CONQUER
         n = len(arr)
         interval = 1
-        while (interval < n):
+        while interval < n:
             for i in range(0, n - interval, interval * 2):
-                arr[i] = merge(arr[i], arr[i+interval])
+                arr[i] = merge(arr[i], arr[i + interval])
             interval *= 2
 
-        if (n > 0):
+        if n > 0:
             return arr[0]
         return None

@@ -11,8 +11,8 @@ class Solution:
 
         min_diff = inf
         i = 0
-        while (i+k <= n):
-            min_diff = min(min_diff, arr[i+k-1] - arr[i])
+        while i + k <= n:
+            min_diff = min(min_diff, arr[i + k - 1] - arr[i])
             i += 1
 
         return min_diff

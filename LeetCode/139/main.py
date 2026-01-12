@@ -1,6 +1,5 @@
 class Solution:
     def wordBreak(self, s: str, words: List[str]) -> bool:
-
         def solve(pref):
             nonlocal ans
             if ans:
@@ -11,7 +10,6 @@ class Solution:
                 return
 
             for i in words:
-
                 if ans:
                     return
 

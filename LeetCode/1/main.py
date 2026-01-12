@@ -9,6 +9,6 @@ class Solution:
         mp = {}
         for i in range(len(arr)):
             x = target - arr[i]
-            if (x in mp):
+            if x in mp:
                 return [mp[x], i]
             mp[arr[i]] = i

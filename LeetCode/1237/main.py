@@ -2,6 +2,7 @@
 DIFFICULTY : medium
 TAGS : array, binary search, two pointers, interactive
 """
+
 """
    This is the custom function interface.
    You should not implement it, or speculate about its implementation
@@ -15,13 +16,13 @@ TAGS : array, binary search, two pointers, interactive
 
 
 class Solution:
-    def findSolution(self, customfunction: 'CustomFunction', z: int) -> List[List[int]]:
+    def findSolution(self, customfunction: "CustomFunction", z: int) -> List[List[int]]:
         x, y, ans = 1, 1000, []
-        while (x < 1001 and y > 0):
+        while x < 1001 and y > 0:
             val = customfunction.f(x, y)
-            if (val < z):
+            if val < z:
                 x += 1
-            elif (val > z):
+            elif val > z:
                 y -= 1
             else:
                 ans.append([x, y])

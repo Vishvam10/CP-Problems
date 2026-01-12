@@ -1,5 +1,5 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
@@ -7,7 +7,7 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -21,31 +21,31 @@ def solve():
     c3 = 0
 
     for x in a1:
-        if (x in a2):
-            if (x not in a3):
+        if x in a2:
+            if x not in a3:
                 c1 += 1
-        elif (x in a3):
-            if (x not in a2):
+        elif x in a3:
+            if x not in a2:
                 c1 += 1
         else:
             c1 += 3
 
     for x in a2:
-        if (x in a1):
-            if (x not in a3):
+        if x in a1:
+            if x not in a3:
                 c2 += 1
-        elif (x in a3):
-            if (x not in a1):
+        elif x in a3:
+            if x not in a1:
                 c2 += 1
         else:
             c2 += 3
 
     for x in a3:
-        if (x in a2):
-            if (x not in a1):
+        if x in a2:
+            if x not in a1:
                 c3 += 1
-        elif (x in a1):
-            if (x not in a2):
+        elif x in a1:
+            if x not in a2:
                 c3 += 1
         else:
             c3 += 3

@@ -9,6 +9,6 @@ class Solution:
         (x1, y1), (x2, y2) = arr[:2]
         for i in range(2, len(arr)):
             (x, y) = arr[i]
-            if ((y2 - y1) * (x1 - x) != (y1 - y) * (x2 - x1)):
+            if (y2 - y1) * (x1 - x) != (y1 - y) * (x2 - x1):
                 return False
         return True

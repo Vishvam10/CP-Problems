@@ -9,7 +9,7 @@ class Solution:
         mp = {" ": " "}
         i = 0
         ans = ""
-        letters = 'abcdefghijklmnopqrstuvwxyz'
+        letters = "abcdefghijklmnopqrstuvwxyz"
 
         for ch in key:
             if ch not in mp:

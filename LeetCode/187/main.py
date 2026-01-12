@@ -7,11 +7,11 @@ class Solution:
         mp = defaultdict(int)
         ans = []
 
-        for i in range(n+1):
-            substr = s[i:i+10]
-            if (mp[substr] != -1):
+        for i in range(n + 1):
+            substr = s[i : i + 10]
+            if mp[substr] != -1:
                 mp[substr] += 1
-            if (mp[substr] > 1):
+            if mp[substr] > 1:
                 ans.append(substr)
                 mp[substr] = -1
 

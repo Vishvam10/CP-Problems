@@ -15,9 +15,9 @@ class Solution:
         rows, cols = len(grid), len(grid[0])
 
         for x in range(rows):
-            if (grid[x][0] == 0):
+            if grid[x][0] == 0:
                 for y in range(cols):
-                    if (grid[x][y] == 0):
+                    if grid[x][y] == 0:
                         grid[x][y] = 1
                     else:
                         grid[x][y] = 0
@@ -25,13 +25,13 @@ class Solution:
         for y in range(cols):
             temp = 0
             for x in range(rows):
-                if (grid[x][y] == 1):
+                if grid[x][y] == 1:
                     temp += 1
 
             # Less 1s than 0s
-            if (temp < rows - temp):
+            if temp < rows - temp:
                 for x in range(rows):
-                    if (grid[x][y] == 1):
+                    if grid[x][y] == 1:
                         grid[x][y] = 0
                     else:
                         grid[x][y] = 1
@@ -42,7 +42,7 @@ class Solution:
 
         for x in range(rows):
             for y in range(cols):
-                if (grid[x][y] == 1):
-                    ans += 2**(cols-y-1)
+                if grid[x][y] == 1:
+                    ans += 2 ** (cols - y - 1)
 
         return ans

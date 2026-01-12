@@ -9,8 +9,8 @@ class Solution:
         mp = {}
         ptr = 0
         ans = 1
-        while (ptr < len(s)):
-            if (s[ptr] not in mp):
+        while ptr < len(s):
+            if s[ptr] not in mp:
                 mp[s[ptr]] = True
                 ptr += 1
             else:

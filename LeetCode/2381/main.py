@@ -27,16 +27,16 @@ class Solution:
     #        unicode : ((ord(ch)-97)%26) + 97
 
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
-        pre = [0 for _ in range(len(s)+1)]
+        pre = [0 for _ in range(len(s) + 1)]
 
         # We take (end+1) as end is included
         for start, end, d in shifts:
             if d == 0:
                 pre[start] -= 1
-                pre[end+1] += 1
+                pre[end + 1] += 1
             else:
                 pre[start] += 1
-                pre[end+1] -= 1
+                pre[end + 1] -= 1
 
         # for i in range(1, len(pre)) :
         #     pre[i] = pre[i] + pre[i-1]
@@ -50,6 +50,6 @@ class Solution:
             cum_sum += pre[i]
             shifted_ch = (((ord(s[i]) + cum_sum) - 97) % 26) + 97
 
-            s = s[:i] + chr(shifted_ch) + s[i+1:]
+            s = s[:i] + chr(shifted_ch) + s[i + 1 :]
 
         return s

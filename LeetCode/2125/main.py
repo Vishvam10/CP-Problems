@@ -13,12 +13,12 @@ class Solution:
             row = arr[i]
             count = 0
             for j in range(len(row)):
-                if (row[j] == "1"):
+                if row[j] == "1":
                     count += 1
-            if (count != 0):
+            if count != 0:
                 row_counts.append(count)
 
         for i in range(1, len(row_counts)):
-            ans += (row_counts[i-1] * row_counts[i])
+            ans += row_counts[i - 1] * row_counts[i]
 
         return ans

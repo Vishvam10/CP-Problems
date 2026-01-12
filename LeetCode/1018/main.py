@@ -21,7 +21,7 @@ class Solution:
 
         for i, x in enumerate(arr):
             s = (s * 2) % 5 + x
-            if (s % 5 == 0):
+            if s % 5 == 0:
                 arr[i] = True
             else:
                 arr[i] = False

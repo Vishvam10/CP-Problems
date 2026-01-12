@@ -1,17 +1,17 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def isPrime(x):
-    if (x <= 1):
+    if x <= 1:
         return False
 
-    for i in range(2, int(x ** 0.5) + 1):
-        if (x % i == 0):
+    for i in range(2, int(x**0.5) + 1):
+        if x % i == 0:
             return False
 
     return True
@@ -20,16 +20,15 @@ def isPrime(x):
 a, b = inlt()
 c = 0
 
-if (isPrime(a) and isPrime(b)):
-
-    for i in range(a+1, b+1):
-        if (isPrime(i)):
+if isPrime(a) and isPrime(b):
+    for i in range(a + 1, b + 1):
+        if isPrime(i):
             c += 1
 
-    if (c == 1):
-        print('YES')
+    if c == 1:
+        print("YES")
     else:
-        print('NO')
+        print("NO")
 
 else:
-    print('NO')
+    print("NO")

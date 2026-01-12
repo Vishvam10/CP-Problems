@@ -8,10 +8,11 @@ class Solution:
     def countDistinctIntegers(self, arr: List[int]) -> int:
         def rev(n):
             ans = 0
-            while (n):
+            while n:
                 ans = (ans * 10) + n % 10
                 n //= 10
             return ans
+
         temp = []
         mp = {}
         ans = 0
@@ -19,7 +20,7 @@ class Solution:
             temp.append(rev(x))
         arr.extend(temp)
         for i, x in enumerate(arr):
-            if (x not in mp):
+            if x not in mp:
                 mp[x] = i
         for k in mp.keys():
             ans += 1

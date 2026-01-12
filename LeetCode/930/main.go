@@ -1,3 +1,5 @@
+package main
+
 func atMost(arr []int, goal int) int {
 	if goal < 0 {
 		return 0

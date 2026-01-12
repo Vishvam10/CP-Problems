@@ -1,13 +1,13 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -21,7 +21,7 @@ def solve():
         temp_b += b
         temp_c += c
 
-    if (temp_a == 0 and temp_b == 0 and temp_c == 0):
+    if temp_a == 0 and temp_b == 0 and temp_c == 0:
         print("YES")
     else:
         print("NO")

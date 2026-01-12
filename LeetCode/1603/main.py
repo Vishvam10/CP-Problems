@@ -5,7 +5,6 @@ TAGS : design, simulation, counting
 
 
 class ParkingSystem:
-
     def __init__(self, a: int, b: int, c: int):
         self.data = [0, a, b, c]
 

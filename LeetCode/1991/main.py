@@ -11,7 +11,7 @@ class Solution:
         rs = sum(arr)
 
         for i in range(len(arr)):
-            if (ls == rs - arr[i]):
+            if ls == rs - arr[i]:
                 return i
             ls += arr[i]
             rs -= arr[i]

@@ -1,23 +1,20 @@
-
 def sort_where_subarray_is_sorted_in_reverse_order(arr, n):
-
     left, right = -1, -1
 
     for i in range(1, n):
-        if (arr[i] < arr[i-1]):
-            left = i-1
+        if arr[i] < arr[i - 1]:
+            left = i - 1
             break
 
-    for i in range(n-2, -1, -1):
-        if (arr[i] < arr[i+1]):
+    for i in range(n - 2, -1, -1):
+        if arr[i] < arr[i + 1]:
             right = i
             break
 
-    if (left == -1 and right == -1):
+    if left == -1 and right == -1:
         return arr
 
-    while (left <= right):
-
+    while left <= right:
         arr[left], arr[right] = arr[right], arr[left]
 
         left += 1

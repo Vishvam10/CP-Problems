@@ -7,5 +7,5 @@ class Solution:
         if len(cost) >= 2:
             ans[1] = cost[1]
         for i in range(2, len(cost)):
-            ans[i] = cost[i] + min(ans[i-1], ans[i-2])
+            ans[i] = cost[i] + min(ans[i - 1], ans[i - 2])
         return min(ans[-1], ans[-2])

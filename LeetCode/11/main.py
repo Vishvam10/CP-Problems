@@ -13,9 +13,9 @@ class Solution:
     def maxArea(self, arr: List[int]) -> int:
         i, j = 0, len(arr) - 1
         total = 0
-        while (i < j):
+        while i < j:
             total = max(total, min(arr[i], arr[j]) * (j - i))
-            if (arr[i] < arr[j]):
+            if arr[i] < arr[j]:
                 i += 1
             else:
                 j -= 1

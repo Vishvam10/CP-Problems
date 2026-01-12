@@ -10,5 +10,5 @@ class Solution:
         k %= n
         cpy = copy.deepcopy(arr)
         for i in range(n):
-            arr[(i+k) % n] = cpy[i]
+            arr[(i + k) % n] = cpy[i]
         return arr

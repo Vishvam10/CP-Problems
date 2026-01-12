@@ -1,4 +1,5 @@
 import sys
+
 input = sys.stdin.readline
 
 ############# Util Functions ############
@@ -6,7 +7,7 @@ input = sys.stdin.readline
 
 def prime_factors(n):
     c, t = [], n
-    for j in range(2, int(n**0.5)+1):
+    for j in range(2, int(n**0.5) + 1):
         if t % j == 0:
             c.append(j)
             while t % j == 0:
@@ -17,12 +18,12 @@ def prime_factors(n):
 
 
 def prime_sieve(n):
-    num = [i for i in range(n+1)]
-    pr = [True]*(n+1)
+    num = [i for i in range(n + 1)]
+    pr = [True] * (n + 1)
     p = 2
-    while p < int(n**0.5)+1:
+    while p < int(n**0.5) + 1:
         if pr[p]:
-            for i in range(p*p, n+1, p):
+            for i in range(p * p, n + 1, p):
                 pr[i] = False
                 num[i] = p
         p += 1
@@ -41,8 +42,8 @@ def all_factors(n):
     while i < int(n**0.5) + 1:
         if n % i == 0:
             ans.append(i)
-            if n//i != i:
-                ans.append(n//i)
+            if n // i != i:
+                ans.append(n // i)
         i += 1
     return ans
 
@@ -55,7 +56,7 @@ def sum_all_fac(n):
         while n % p == 0:
             n //= p
             cnt += 1
-        ans *= ((p ** cnt) - 1)//(p-1)
+        ans *= ((p**cnt) - 1) // (p - 1)
         p += 1
     return ans
 
@@ -68,25 +69,27 @@ def number_of_divisor(n):
         while n % p == 0:
             n //= p
             cnt += 1
-        ans *= (cnt+1)
+        ans *= cnt + 1
         p += 1
     if n > 1:
         ans *= 2
     return ans
 
+
 ############ Input Functions ############
 
 
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
+
 
 ############# Main Function #############
 
@@ -95,10 +98,10 @@ def solve():
     a, b = inlt()
 
     # either way, every operation decreases the total amount by 1
-    if ((a + b) % 2 == 0):
-        print('Bob')
+    if (a + b) % 2 == 0:
+        print("Bob")
     else:
-        print('Alice')
+        print("Alice")
 
     return
 

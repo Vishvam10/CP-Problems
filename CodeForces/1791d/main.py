@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def unique(s):
@@ -18,8 +18,8 @@ def solve():
     mp = {}
     max_s = -1
     temp = 0
-    for (i, ch) in enumerate(s):
-        if (ch in mp):
+    for i, ch in enumerate(s):
+        if ch in mp:
             ind.append(i)
         else:
             mp[ch] = 1

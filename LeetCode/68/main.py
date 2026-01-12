@@ -29,7 +29,7 @@ class Solution:
                         line_word = temp[j]
                         remaining_words = len(temp) - (j + 1)
                         req_spaces = 0
-                        if (remaining_words):
+                        if remaining_words:
                             req_spaces = math.ceil(diff / remaining_words)
                         line += line_word + " " * req_spaces
                         diff -= req_spaces

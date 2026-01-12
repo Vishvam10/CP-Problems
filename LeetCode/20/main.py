@@ -6,14 +6,13 @@ class Solution:
         st = deque()
 
         for ch in s:
-            if (ch in '([{'):
+            if ch in "([{":
                 st.append(ch)
             else:
-                if (
-                    (len(st) > 0) and
-                    ((st[-1] == '(' and ch == ')') or
-                     (st[-1] == '{' and ch == '}') or
-                     (st[-1] == '[' and ch == ']'))
+                if (len(st) > 0) and (
+                    (st[-1] == "(" and ch == ")")
+                    or (st[-1] == "{" and ch == "}")
+                    or (st[-1] == "[" and ch == "]")
                 ):
                     st.pop()
                 else:

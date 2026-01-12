@@ -30,12 +30,12 @@ class Solution:
 
     def plusOne(self, arr: List[int]) -> List[int]:
         arr[-1] += 1
-        for i in range(len(arr)-1, 0, -1):
-            if (arr[i] != 10):
+        for i in range(len(arr) - 1, 0, -1):
+            if arr[i] != 10:
                 break
             arr[i] = 0
-            arr[i-1] += 1
-        if (arr[0] == 10):
+            arr[i - 1] += 1
+        if arr[0] == 10:
             arr[0] = 0
             arr = [1] + arr
         return arr

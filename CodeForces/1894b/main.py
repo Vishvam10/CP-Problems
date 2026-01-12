@@ -2,15 +2,15 @@ from collections import defaultdict
 
 
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():
@@ -20,17 +20,17 @@ def solve():
     mp = defaultdict(int)
     ans = [1] * n
     c = 1
-    for (i, x) in enumerate(arr):
+    for i, x in enumerate(arr):
         mp[x] += 1
 
-        if (mp[x] == 2):
+        if mp[x] == 2:
             ans[i] = min(c + 1, 3)
             c += 1
 
-    if (c > 2):
+    if c > 2:
         print(*ans)
     else:
-        print('-1')
+        print("-1")
 
     return
 

@@ -3,15 +3,13 @@ from collections import deque
 
 class Solution:
     def subArrayRanges(self, arr: List[int]) -> int:
-
         def nse_left(arr):
             n = len(arr)
             res = [-1] * n
             st = deque()
 
             for i in range(n):
-
-                while (st and arr[i] >= st[-1][0]):
+                while st and arr[i] >= st[-1][0]:
                     st.pop()
 
                 res[i] = st[-1][1] if st else -1
@@ -24,9 +22,8 @@ class Solution:
             res = [n] * n
             st = deque()
 
-            for i in range(n-1, -1, -1):
-
-                while (st and arr[i] > st[-1][0]):
+            for i in range(n - 1, -1, -1):
+                while st and arr[i] > st[-1][0]:
                     st.pop()
 
                 res[i] = st[-1][1] if st else n
@@ -40,8 +37,7 @@ class Solution:
             st = deque()
 
             for i in range(n):
-
-                while (st and arr[i] <= st[-1][0]):
+                while st and arr[i] <= st[-1][0]:
                     st.pop()
 
                 res[i] = st[-1][1] if st else -1
@@ -54,9 +50,8 @@ class Solution:
             res = [n] * n
             st = deque()
 
-            for i in range(n-1, -1, -1):
-
-                while (st and arr[i] < st[-1][0]):
+            for i in range(n - 1, -1, -1):
+                while st and arr[i] < st[-1][0]:
                     st.pop()
 
                 res[i] = st[-1][1] if st else n

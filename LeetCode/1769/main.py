@@ -9,7 +9,7 @@ class Solution:
         ones = []
         ans = []
         for i in range(len(boxes)):
-            if (boxes[i] == "1"):
+            if boxes[i] == "1":
                 ones.append(i)
 
         for i in range(len(boxes)):

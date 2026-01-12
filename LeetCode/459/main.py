@@ -23,7 +23,7 @@ class Solution:
     #        if s has repeated substring.
 
     def repeatedSubstringPattern(self, s: str) -> bool:
-        if (s is None):
+        if s is None:
             return False
-        s1 = (s+s)[1:-1]
+        s1 = (s + s)[1:-1]
         return s1.find(s) != -1

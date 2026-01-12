@@ -5,5 +5,6 @@ class Solution:
             if i > n - k:
                 arr[i:] = reversed(arr[i:])
             else:
-                arr[i:i+k] = reversed(arr[i:i+k])
+                arr[i : i + k] = reversed(arr[i : i + k])
+
     return arr

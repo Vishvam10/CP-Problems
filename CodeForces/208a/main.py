@@ -1,5 +1,5 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
@@ -7,7 +7,7 @@ def inlt():
 
 
 def insr():
-    return (input().strip())
+    return input().strip()
 
 
 def solve():

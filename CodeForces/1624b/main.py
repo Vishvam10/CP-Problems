@@ -1,9 +1,9 @@
 def inp():
-    return (int(input()))
+    return int(input())
 
 
 def inlt():
-    return (list(map(int, input().split())))
+    return list(map(int, input().split()))
 
 
 def solve():
@@ -15,19 +15,19 @@ def solve():
     # 2. (mb - a) = (c - mb) => 2mb = a + c => (a + c) / 2b = m
     # 3. (b - a) = (mc - b) => mc = 2b - a => (2b - a) / c = m
 
-    c1 = (2*b - a) / c
-    c2 = (2*b - c) / a
-    c3 = (a + c) / (2*b)
+    c1 = (2 * b - a) / c
+    c2 = (2 * b - c) / a
+    c3 = (a + c) / (2 * b)
 
-    if (c1 > 0 and c1 % 1 == 0):
+    if c1 > 0 and c1 % 1 == 0:
         print("YES")
         return
 
-    if (c2 > 0 and c2 % 1 == 0):
+    if c2 > 0 and c2 % 1 == 0:
         print("YES")
         return
 
-    if (c3 > 0 and c3 % 1 == 0):
+    if c3 > 0 and c3 % 1 == 0:
         print("YES")
         return
 

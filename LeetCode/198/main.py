@@ -1,11 +1,10 @@
 class Solution:
     def rob(self, arr: List[int]) -> int:
-
         def solve(ind):
-            if (ind < 0):
+            if ind < 0:
                 return 0
 
-            if (mp[ind] >= 0):
+            if mp[ind] >= 0:
                 return mp[ind]
 
             yes = arr[ind] + solve(ind - 2)
@@ -17,7 +16,7 @@ class Solution:
             return ans
 
         n = len(arr)
-        mp = [-1 for i in range(n+1)]
-        ans = solve(n-1)
+        mp = [-1 for i in range(n + 1)]
+        ans = solve(n - 1)
 
         return ans

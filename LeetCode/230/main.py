@@ -14,9 +14,8 @@ class Solution:
     # IDEA : The inorder traversal (LNR) of a BST gives
     #        a sorted array in ascending order
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-
         def helper(node):
-            if (not node):
+            if not node:
                 return []
             return helper(node.left) + [node.val] + helper(node.right)
 

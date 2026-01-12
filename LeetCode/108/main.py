@@ -21,4 +21,4 @@ class Solution:
         return root
 
     def sortedArrayToBST(self, arr: List[int]) -> Optional[TreeNode]:
-        return self.helper(arr, 0, len(arr)-1)
+        return self.helper(arr, 0, len(arr) - 1)

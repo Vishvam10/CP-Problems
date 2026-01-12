@@ -1,20 +1,19 @@
 class Solution:
     def evalRPN(self, arr: List[str]) -> int:
-
         st = []
 
         for s in arr:
-            if len(s) == 1 and s in '+-*/':
+            if len(s) == 1 and s in "+-*/":
                 b = st.pop()
                 a = st.pop()
 
-                if (s == '+'):
+                if s == "+":
                     st.append(a + b)
-                elif (s == '-'):
+                elif s == "-":
                     st.append(a - b)
-                elif (s == '*'):
+                elif s == "*":
                     st.append(a * b)
-                elif (s == '/'):
+                elif s == "/":
                     st.append(int(a / b))
 
             else:

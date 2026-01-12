@@ -22,4 +22,4 @@ class Solution:
 
     def isPowerOfTwo(self, n: int) -> bool:
         # return n > 0 and math.log2(n) == math.trunc(log2(n))
-        return n > 0 and not n & (n-1)
+        return n > 0 and not n & (n - 1)

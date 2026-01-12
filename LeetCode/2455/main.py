@@ -9,9 +9,9 @@ class Solution:
         s = 0
         count = 0
         for x in arr:
-            if (x % 2 == 0 and x % 3 == 0):
+            if x % 2 == 0 and x % 3 == 0:
                 s += x
                 count += 1
-        if (count == 0):
+        if count == 0:
             return 0
         return s // count

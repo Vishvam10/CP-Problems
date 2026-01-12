@@ -1,6 +1,5 @@
 class Solution:
     def areSimilar(self, mat: List[List[int]], k: int) -> bool:
-
         # def rshift(arr, k) :
         #     n = len(arr)
         #     k %= n
@@ -15,12 +14,12 @@ class Solution:
 
         for i in range(m):
             for j in range(n):
-                if (i % 2 == 0):
+                if i % 2 == 0:
                     # if (j-k) < 0, then just add n else leave it as it is
-                    if (mat[i][j] != mat[i][(j-k+n) % n]):
+                    if mat[i][j] != mat[i][(j - k + n) % n]:
                         return False
                 else:
-                    if (mat[i][j] != mat[i][(j+k) % n]):
+                    if mat[i][j] != mat[i][(j + k) % n]:
                         return False
 
         return True
