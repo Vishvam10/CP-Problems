@@ -6,47 +6,38 @@
  *     TreeNode *right;
  *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left),
- * right(right) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-  vector<int> solve(TreeNode *node) {
+    vector<int> rightSideView(TreeNode* root) {
+        if(root == nullptr) return {};
 
-    vector<int> ans;
+        vector<int> ans;
+        queue<TreeNode*> q;
+        q.push(root);
 
-    queue<TreeNode *> q;
-    q.push(node);
+        // Level order traversal
+        while(!q.empty()) {
 
-    while (!q.empty()) {
+            int sz = q.size();
+            int visible = 0;
+            for(int i = 0; i < sz; ++i) {
 
-      int sz = q.size();
+                TreeNode* node = q.front();
+                q.pop();
+                visible = node->val;
 
-      for (int i = 0; i < sz; i++) {
-        TreeNode *cur = q.front();
+                if(node->left) q.push(node->left);
+                if(node->right) q.push(node->right);
 
-        if (i == sz - 1) {
-          ans.emplace_back(cur->val);
+            }
+
+            // At each level, only 1 will be visible and that's the last
+            // one added
+            ans.emplace_back(visible);
         }
-        if (cur->left) {
-          q.push(cur->left);
-        }
-        if (cur->right) {
-          q.push(cur->right);
-        }
-
-        q.pop();
-      }
+        return ans;
     }
-
-    return ans;
-  }
-
-  vector<int> rightSideView(TreeNode *root) {
-    if (root == nullptr) {
-      return vector<int>{};
-    }
-    return solve(root);
-  }
 };
