@@ -1,4 +1,5 @@
-package 
+package main
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -8,32 +9,24 @@ package
  * }
  */
 
-func solve(node *TreeNode) *TreeNode {
-    if node == nil {
-        return nil
-    }
+func solve(node *TreeNode, head **TreeNode) {
+	if node == nil {
+		return
+	}
 
-    left := solve(node.Left)
-    right := solve(node.Right)
+	(*head).Right = node
+	(*head).Left = nil
 
-    if left != nil {
-        left.Right = node.Right
-        node.Right = node.Left
-        node.Left = nil
-    }
+	left, right := node.Left, node.Right
 
-    if right != nil {
-        return right
-    }
+	(*head) = (*head).Right
 
-    if left != nil {
-        return left
-    }
-
-    return node
-
+	solve(left, head)
+	solve(right, head)
 }
 
-func flatten(root *TreeNode)  {
-    root = solve(root)
+func flatten(root *TreeNode) {
+	dummy := &TreeNode{}
+	head := dummy
+	solve(root, &head)
 }
